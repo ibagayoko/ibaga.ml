@@ -43,7 +43,12 @@ mix
     .sass('resources/sass/dark.scss', '../public_html', {}, [tailwindcss('./dark.js')])
     .version()
    //  .copy('resources/favicon.png', '../public_html')
-    .copy('../public_html', '../winktest/public_html/vendor/wink');
+    // .copy('../public_html', '../winktest/public_html/vendor/wink');
+    
+mix    
+    .copy('resources/css', '../public_html/styles');
+
+
 
 // mix.js('resources/js/app.js', 'public/js')
 //    .sass('resources/sass/app.scss', 'public/css');

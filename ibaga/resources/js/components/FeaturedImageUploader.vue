@@ -52,31 +52,34 @@
     }
 </script>
 
+
 <template>
-    <modal v-if="modalShown" @close="close">
-        <h2 class="font-semibold mb-5">Featured Image</h2>
+    <div>
+        <div v-if="imageUrl" id="current-image">
+            <preloader v-if="uploading"></preloader>
 
-        <preloader v-if="uploading"></preloader>
-
-        <div v-if="imageUrl && !uploading">
-            <img :src="imageUrl" class="max-w-full">
-
-            <div class="input-group">
+                <img :src="imageUrl" class="w-100">
+            <div class="input-group py-2" v-if="imageUrl && !uploading">
                 <label class="input-label">Caption</label>
+
                 <textarea rows="2" v-model="caption" ref="caption" class="input" placeholder="Add caption to the image"></textarea>
             </div>
         </div>
 
-        <image-picker :key="imagePickerKey"
-                      class="mt-5"
-                      :unsplash="this.unsplash"
-                      @changed="updateImage"
-                      @progressing="updateProgress"
-                      @uploading="uploading = true"></image-picker>
+        <input hidden type="hidden" name="featured_image" v-model="imageUrl">
 
+        <image-picker
+                :key="imagePickerKey"
+                class="mt-5"
+                :unsplash="this.unsplash"
+                @changed="updateImage"
+                @progressing="updateProgress"
+                @uploading="uploading = true">
+        </image-picker>
         <button class="btn-sm btn-primary mt-10" @click="saveImage">Save Image</button>
         <button class="btn-sm btn-light mt-10" @click="close">Cancel</button>
-    </modal>
+
+    </div>
 </template>
 
 <style>

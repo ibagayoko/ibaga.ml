@@ -150,7 +150,7 @@
                 this.$emit('uploading');
 
                 axios.post('/handler/media/uploads', formData).then(response => {
-                    this.$emit('changed', {url: response.data});
+                    this.$emit('changed', {url: response.data.url});
                 }).catch(error => {
                     console.log(error);
                 });

@@ -2592,7 +2592,7 @@ __webpack_require__.r(__webpack_exports__);
       this.$emit('uploading');
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/handler/media/uploads', formData).then(function (response) {
         _this4.$emit('changed', {
-          url: response.data
+          url: response.data.url
         });
       }).catch(function (error) {
         console.log(error);
@@ -73193,89 +73193,107 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.modalShown
-    ? _c(
-        "modal",
-        { on: { close: _vm.close } },
-        [
-          _c("h2", { staticClass: "font-semibold mb-5" }, [
-            _vm._v("Featured Image")
-          ]),
-          _vm._v(" "),
-          _vm.uploading ? _c("preloader") : _vm._e(),
-          _vm._v(" "),
-          _vm.imageUrl && !_vm.uploading
-            ? _c("div", [
-                _c("img", {
-                  staticClass: "max-w-full",
-                  attrs: { src: _vm.imageUrl }
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "input-group" }, [
-                  _c("label", { staticClass: "input-label" }, [
-                    _vm._v("Caption")
-                  ]),
-                  _vm._v(" "),
-                  _c("textarea", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.caption,
-                        expression: "caption"
-                      }
-                    ],
-                    ref: "caption",
-                    staticClass: "input",
-                    attrs: {
-                      rows: "2",
-                      placeholder: "Add caption to the image"
-                    },
-                    domProps: { value: _vm.caption },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+  return _c(
+    "div",
+    [
+      _vm.imageUrl
+        ? _c(
+            "div",
+            { attrs: { id: "current-image" } },
+            [
+              _vm.uploading ? _c("preloader") : _vm._e(),
+              _vm._v(" "),
+              _c("img", { staticClass: "w-100", attrs: { src: _vm.imageUrl } }),
+              _vm._v(" "),
+              _vm.imageUrl && !_vm.uploading
+                ? _c("div", { staticClass: "input-group py-2" }, [
+                    _c("label", { staticClass: "input-label" }, [
+                      _vm._v("Caption")
+                    ]),
+                    _vm._v(" "),
+                    _c("textarea", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.caption,
+                          expression: "caption"
                         }
-                        _vm.caption = $event.target.value
+                      ],
+                      ref: "caption",
+                      staticClass: "input",
+                      attrs: {
+                        rows: "2",
+                        placeholder: "Add caption to the image"
+                      },
+                      domProps: { value: _vm.caption },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.caption = $event.target.value
+                        }
                       }
-                    }
-                  })
-                ])
-              ])
-            : _vm._e(),
-          _vm._v(" "),
-          _c("image-picker", {
-            key: _vm.imagePickerKey,
-            staticClass: "mt-5",
-            attrs: { unsplash: this.unsplash },
-            on: {
-              changed: _vm.updateImage,
-              progressing: _vm.updateProgress,
-              uploading: function($event) {
-                _vm.uploading = true
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "btn-sm btn-primary mt-10",
-              on: { click: _vm.saveImage }
-            },
-            [_vm._v("Save Image")]
-          ),
-          _vm._v(" "),
-          _c(
-            "button",
-            { staticClass: "btn-sm btn-light mt-10", on: { click: _vm.close } },
-            [_vm._v("Cancel")]
+                    })
+                  ])
+                : _vm._e()
+            ],
+            1
           )
+        : _vm._e(),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.imageUrl,
+            expression: "imageUrl"
+          }
         ],
-        1
+        attrs: { hidden: "", type: "hidden", name: "featured_image" },
+        domProps: { value: _vm.imageUrl },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.imageUrl = $event.target.value
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("image-picker", {
+        key: _vm.imagePickerKey,
+        staticClass: "mt-5",
+        attrs: { unsplash: this.unsplash },
+        on: {
+          changed: _vm.updateImage,
+          progressing: _vm.updateProgress,
+          uploading: function($event) {
+            _vm.uploading = true
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn-sm btn-primary mt-10",
+          on: { click: _vm.saveImage }
+        },
+        [_vm._v("Save Image")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        { staticClass: "btn-sm btn-light mt-10", on: { click: _vm.close } },
+        [_vm._v("Cancel")]
       )
-    : _vm._e()
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

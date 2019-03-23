@@ -121,16 +121,20 @@ class PostsController
     public function update(string $id)
     {
         $post = Post::findOrFail($id);
+        $user = $post->user;
+
+
+        // $post->load('author', "user");
 
         $data = [
             'id'                     => request('id'),
             'slug'                   => request('slug'),
-            'title'                  => request('title', 'Post Title'),
-            'summary'                => request('summary', null),
-            'body'                   => request('body', null),
+            'title'                  => request('title', $post->title),
+            'summary'                => request('summary', $post->summary),
+            'body'                   => request('body', $post->body),
             'published_at'           => Carbon::parse(request('published_at'))->toDateTimeString(),
             'featured_image'         => request('featured_image', $post->featured_image),
-            'featured_image_caption' => request('featured_image_caption', null),
+            'featured_image_caption' => request('featured_image_caption', $post->featured_image_caption),
             'user_id'                => $post->user->id,
             'meta'                   => [
                 'meta_description'    => request('meta_description', null),
@@ -143,7 +147,7 @@ class PostsController
 
         validator($data, [
             'title'        => 'required',
-            'slug'         => 'required|'.Rule::unique('canvas_posts', 'slug')->ignore($id).'|regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/i',
+            'slug'         => 'required|'.Rule::unique('posts', 'slug')->ignore($id).'|regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/i',
             'published_at' => 'required',
             'user_id'      => 'required',
         ])->validate();
@@ -164,7 +168,7 @@ class PostsController
             );
         }
 
-        return redirect(route('canvas.post.edit', $post->id))->with('notify', 'Saved!');
+        return redirect(route('post.edit', $post->id))->with('notify', 'Saved!');
     }
 
     /**

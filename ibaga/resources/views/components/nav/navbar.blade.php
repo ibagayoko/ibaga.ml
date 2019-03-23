@@ -32,6 +32,7 @@
                             >
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">{{ Auth::user()->name }} </a>
                             <a class="dropdown-item" href="{{ route('post.index') }}">Posts</a>
                             {{-- <a class="dropdown-item" href="{{ route('tag.index') }}">Tags</a> --}}
                             {{-- <a class="dropdown-item" href="{{ route('canvas.topic.index') }}">Topics</a> --}}

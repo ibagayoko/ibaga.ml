@@ -19,6 +19,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
+// Media routes...
+Route::post('/handler/media/uploads', 'MediaController@store')->name('media.store');
+
 // Post routes...
 Route::get('posts', 'PostsController@index')->name('post.index');
 Route::get('posts/create', 'PostsController@create')->name('post.create');

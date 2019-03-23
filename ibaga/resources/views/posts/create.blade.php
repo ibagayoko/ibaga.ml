@@ -7,15 +7,15 @@
         publish</button>
         
     <div class="dropdown">
-        <a id="navbarDropdown" class="nav-link px-3 text-secondary" href="#" role="button" data-toggle="dropdown"
+        <a  id="sidebarCollapse" class="nav-link px-3 text-secondary" href="#" role="button" data="dropdown"
            aria-haspopup="true" aria-expanded="false" v-pre>
             <i class="fas fa-sliders-h fa-fw fa-rotate-270"></i>
         </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+        {{-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
             <a href="#" class="dropdown-item" data-toggle="modal" data-target="#modal-settings">General settings</a>
             <a href="#" class="dropdown-item" data-toggle="modal" data-target="#modal-image">Featured image</a>
             <a href="#" class="dropdown-item" data-toggle="modal" data-target="#modal-seo">SEO & Social</a>
-        </div>
+        </div> --}}
     </div>
 @endsection
 
@@ -24,11 +24,12 @@
         <div class="row justify-content-center">
 
             <div class="col-md-8">
-                <pre>
+                {{-- <pre> --}}
                     @foreach ($errors->all()  as $k =>$item)
-                        <p>{{ $item}}</p>
+                        {{-- <p>{{ $item}}</p> --}}
+                        <notification type='error' message="{{ $item }}"></notification>
                     @endforeach
-                </pre>
+                {{-- </pre> --}}
                 @include('components.forms.post.create')
             </div>
         </div>

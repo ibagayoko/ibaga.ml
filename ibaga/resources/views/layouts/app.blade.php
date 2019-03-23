@@ -26,8 +26,8 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ ('/light.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.13.1/build/styles/sunburst.min.css">
 
     <link rel="stylesheet" href="/style.css">
@@ -57,10 +57,10 @@
 <div class="overlay"></div>
 
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+        {{-- <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name', 'iBaga') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -72,12 +72,7 @@
 
                     </ul>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                            <button type="button" id="sidebarCollapse" class="btn btn-info">
-                                    <i class="fas fa-align-left"></i>
-                                    <span>Toggle Sidebar</span>
-                                </button>
+                   
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
@@ -110,7 +105,7 @@
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav> --}}
 
         @include('components.nav.navbar')
 
@@ -127,16 +122,23 @@
             // $("#sidebar").mCustomScrollbar({
             //     theme: "minimal"
             // });
-    
-            $('#dismiss, .overlay').on('click', function () {
+            function hideSidePostSettings() {
+
                 // hide sidebar
                 $('#sidebar').removeClass('settings-menu-expanded');
-                $("#subview").addClass('settings-menu-pane-out-right')
+                $("#subview").addClass('settings-menu-pane-out-right');
                 // hide overlay
                 $("#subview").removeClass('settings-menu-pane-in');
                 $('.overlay').removeClass('active');
-            });
+            }
     
+            $('#dismiss, .overlay').on('click', function () {
+                hideSidePostSettings();
+            });
+            $("button.close-side-settings").on('click', function () {
+                hideSidePostSettings();
+            });
+            
             $('#sidebarCollapse').on('click', function () {
                 console.log('click')
                 // open sidebar

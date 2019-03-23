@@ -49,6 +49,8 @@ class Post extends AbstractModel
         'meta' => 'array',
         'published' => 'boolean',
     ];
+
+    protected $with = ['user'];
     /**
      * The tags the post belongs to.
      *
@@ -65,7 +67,16 @@ class Post extends AbstractModel
      */
     public function author()
     {
-        return $this->belongsTo(WinkAuthor::class, 'author_id');
+        return $this->user();
+    }
+    /**
+     * The post author.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
     /**
      * Scope a query to only include published posts.
