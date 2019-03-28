@@ -168,7 +168,7 @@ textarea {
     height: auto;
     min-width: 250px;
     min-height: 10rem;
-    max-width: 500px;
+    /* max-width: 500px; */
     line-height: 1.5;
     user-select: text;
     resize: vertical;

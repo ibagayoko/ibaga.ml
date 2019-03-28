@@ -1,5 +1,16 @@
 <?php
 namespace App\Models;
+
+use Carbon\Carbon;
+use Carbon\CarbonPeriod;
+use Illuminate\Support\Str;
+// use Illuminate\Database\Eloquent\Model;
+// use Illuminate\Database\Eloquent\Builder;
+// use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+// use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+
 class Post extends AbstractModel
 {
     /**
@@ -70,13 +81,22 @@ class Post extends AbstractModel
         return $this->user();
     }
     /**
-     * The post author.
+     * Get the user relationship.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function user()
+    public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class);
+    }
+     /**
+     * Get the views relationship.
+     *
+     * @return HasMany
+     */
+    public function views(): HasMany
+    {
+        return $this->hasMany(View::class);
     }
     /**
      * Scope a query to only include published posts.
@@ -88,6 +108,19 @@ class Post extends AbstractModel
     {
         return $query->where('published', true);
     }
+
+    /**
+     * Scope a query to only include published posts.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopePublie($query)
+    {
+        return $query->where('published', true);
+    }
+
+    
     /**
      * Scope a query to only include drafts (unpublished posts).
      *
@@ -106,7 +139,7 @@ class Post extends AbstractModel
      */
     public function scopeLive($query)
     {
-        return $query->published()->where('publish_date', '<=', now());
+        return $query->publie()->where('published_at', '<=', now());
     }
     /**
      * Scope a query to only include posts whose publish date is in the future.
@@ -139,5 +172,22 @@ class Post extends AbstractModel
     public function scopeAfterPublishDate($query, $date)
     {
         return $query->where('publish_date', '>', $date);
+    }
+
+        /**
+     * Get the human-friendly reading time of a post.
+     *
+     * @param $value
+     * @return string
+     */
+    public function getReadTimeAttribute($value): string
+    {
+        // Only count words in our estimation
+        $words = str_word_count(strip_tags($this->body));
+
+        // Divide by the average number of words per minute
+        $minutes = ceil($words / 250);
+
+        return sprintf('%s %s %s', $minutes, Str::plural(' min', $minutes), ' read');
     }
 }

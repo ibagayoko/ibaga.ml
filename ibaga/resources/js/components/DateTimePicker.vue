@@ -7,7 +7,7 @@
      * @source https://github.com/writingink/wink
      */
     export default {
-        props: ['value'],
+        props: ['value', 'form'],
 
         data() {
             return {
@@ -93,7 +93,7 @@
             </select>
         </div>
 
-        <input hidden type="hidden" name="published_at" v-model="result">
+        <input :form="form" hidden type="hidden" name="published_at" v-model="result">
     </div>
 </template>
 

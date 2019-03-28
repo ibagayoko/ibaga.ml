@@ -1,11 +1,11 @@
 <script type="text/ecmascript">
     import _ from 'lodash';
     export default {
-        props: ['postId', 'currentImageUrl', 'currentCaption', 'unsplash'],
+        props: ['postId', 'currentImageUrl', 'currentCaption', 'unsplash', 'form'],
         data() {
             return {
-                imageUrl: '',
-                caption: '',
+                imageUrl:  this.currentImageUrl ? this.currentImageUrl : '',
+                caption: this.currentCaption ? this.currentCaption : '',
                 imagePickerKey: '',
                 uploadProgress: 0,
                 uploading: false,
@@ -62,11 +62,11 @@
             <div class="input-group py-2" v-if="imageUrl && !uploading">
                 <label class="input-label">Caption</label>
 
-                <textarea rows="2" v-model="caption" ref="caption" class="input" placeholder="Add caption to the image"></textarea>
+                <textarea :form="form" name="featured_image_caption" rows="2" v-model="caption" ref="caption" class="input" placeholder="Add caption to the image"></textarea>
             </div>
         </div>
 
-        <input hidden type="hidden" name="featured_image" v-model="imageUrl">
+        <input :form="form" hidden type="hidden" name="featured_image" v-model="imageUrl">
 
         <image-picker
                 :key="imagePickerKey"
@@ -76,8 +76,9 @@
                 @progressing="updateProgress"
                 @uploading="uploading = true">
         </image-picker>
-        <button class="btn-sm btn-primary mt-10" @click="saveImage">Save Image</button>
-        <button class="btn-sm btn-light mt-10" @click="close">Cancel</button>
+        <hr>
+        <!-- <button class="btn-sm btn-primary mt-10" @click="saveImage">Save Image</button> -->
+        <!-- <button class="btn-sm btn-light mt-10" @click="close">Cancel</button> -->
 
     </div>
 </template>

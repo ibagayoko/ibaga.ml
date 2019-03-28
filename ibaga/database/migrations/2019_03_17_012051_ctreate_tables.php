@@ -47,6 +47,14 @@ class CtreateTables extends Migration
             $table->text('body');
             $table->timestamps();
         });
+        Schema::create('views', function (Blueprint $table) {
+            $table->increments('id');
+            $table->uuid('post_id');
+            $table->string('ip')->nullable();
+            $table->string('agent')->nullable();
+            $table->string('referer')->nullable();
+            $table->timestamps();
+        });
 
     }
 

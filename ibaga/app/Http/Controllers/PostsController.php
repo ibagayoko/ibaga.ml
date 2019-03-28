@@ -72,6 +72,7 @@ class PostsController
             'summary'                => request('summary', null),
             'body'                   => request('body', null),
             'published_at'           => Carbon::parse(request('published_at'))->toDateTimeString(),
+            'published'              => request('published', 'off') =='on' ? true : false,
             'featured_image'         => request('featured_image', null),
             'featured_image_caption' => request('featured_image_caption', null),
             'user_id'                => auth()->user()->id,
@@ -121,10 +122,6 @@ class PostsController
     public function update(string $id)
     {
         $post = Post::findOrFail($id);
-        $user = $post->user;
-
-
-        // $post->load('author', "user");
 
         $data = [
             'id'                     => request('id'),
@@ -133,6 +130,7 @@ class PostsController
             'summary'                => request('summary', $post->summary),
             'body'                   => request('body', $post->body),
             'published_at'           => Carbon::parse(request('published_at'))->toDateTimeString(),
+            'published'              => request('published', false)? true : false,
             'featured_image'         => request('featured_image', $post->featured_image),
             'featured_image_caption' => request('featured_image_caption', $post->featured_image_caption),
             'user_id'                => $post->user->id,
@@ -182,7 +180,7 @@ class PostsController
         $post = Post::findOrFail($id);
         $post->delete();
 
-        return redirect(route('canvas.post.index'));
+        return redirect(route('post.index'));
     }
 
     /**

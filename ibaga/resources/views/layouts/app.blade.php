@@ -57,6 +57,9 @@
 <div class="overlay"></div>
 
     <div id="app">
+        @foreach ($errors->all()  as $k =>$item)
+            <notification type='error' message="{{ $item }}"></notification>
+        @endforeach
         {{-- <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -132,12 +135,10 @@
                 $('.overlay').removeClass('active');
             }
     
-            $('#dismiss, .overlay').on('click', function () {
+            $('#dismiss, .overlay, button.close-side-settings').on('click', function () {
                 hideSidePostSettings();
             });
-            $("button.close-side-settings").on('click', function () {
-                hideSidePostSettings();
-            });
+            hideSidePostSettings();
             
             $('#sidebarCollapse').on('click', function () {
                 console.log('click')

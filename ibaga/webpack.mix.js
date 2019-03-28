@@ -42,11 +42,12 @@ mix
 mix
     .sass('resources/sass/dark.scss', '../public_html', {}, [tailwindcss('./dark.js')])
     .version()
-   //  .copy('resources/favicon.png', '../public_html')
+    .copy('resources/favicon.png', '../public_html')
     // .copy('../public_html', '../winktest/public_html/vendor/wink');
     
 mix    
-    .copy('resources/css', '../public_html/styles');
+    .copy('resources/css', '../public_html/styles')
+    .copy('resources/assets', '../public_html/assets');
 
 
 

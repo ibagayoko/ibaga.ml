@@ -1,34 +1,42 @@
-<script type="text/ecmascript">
+<script type="text/ecmascript-6">
+    // import VueNotification from "@kugatsu/vuenotification";
     export default {
-        props: ['type', 'message', 'autoClose'],
+        
+        props: ['type', 'message', 'autoClose', 'position'],
+
+         components: {
+        },
         data() {
             return {
-                timeout: null
             }
         },
         mounted() {
-            this.timeout = setTimeout(() => {
-                this.close();
-            }, this.autoClose);
+            let options = { 
+                     timer: this.autoClose, 
+                     infiniteTimer: !this.autoClose,
+                     showCloseIcn:true
+                      }
+            switch (this.type) {
+                case 'error':
+                this.$notification.error(this.message, options);
+                    break;
+            
+                case 'new':
+                this.$notification.new(this.message, options);
+                    break;
+
+                default:
+                    break;
+            }
         },
         methods: {
-            /**
-             * Close the notification.
-             */
-            close() {
-                clearTimeout(this.timeout);
-                this.$root.notification.type = null;
-                this.$root.notification.autoClose = false;
-                this.$root.notification.message = '';
-            }
+        
         }
     }
 </script>
 
 <template>
-    <div id="notificationBody" class="text-contrast bg-green px-8 py-4 rounded-lg">
-        {{message}}
-    </div>
+
 </template>
 
 <style>
