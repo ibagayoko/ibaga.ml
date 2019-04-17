@@ -1,7 +1,7 @@
 <header class="blog-header py-3">
     <div class="row flex-nowrap justify-content-between align-items-center">
         <div class="col-4 pt-1">
-            <a class="btn btn-sm btn-outline-secondary" href="https://cnvs.io" target="_blank">Learn more</a>
+            {{-- <a class="btn btn-sm btn-outline-secondary" href="" target="_blank"></a> --}}
         </div>
         <div class="col-4 text-center">
             <a class="blog-header-logo text-dark navbar-brand"
@@ -24,7 +24,6 @@
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="{{ route('post.index') }}">Posts</a>
                         <a class="dropdown-item" href="{{ route('tag.index') }}">Tags</a>
-                        {{-- <a class="dropdown-item" href="{{ route('topic.index') }}">Topics</a> --}}
                         <a class="dropdown-item" href="{{ route('stats.index') }}">Stats</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ route('logout') }}"

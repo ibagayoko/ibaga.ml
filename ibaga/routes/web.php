@@ -15,13 +15,24 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// blog
+Route::prefix('blog')->group(function () {
+    Route::get('/', 'BlogController@index')->name('blog.index');
+    Route::middleware('App\Http\Middleware\ViewThrottle')->get('{slug}', 'BlogController@post')->name('blog.post');
+    Route::get('tag/{slug}', 'BlogController@tag')->name('blog.tag');
+    Route::get('topic/{slug}', 'BlogController@topic')->name('blog.topic');
+});
+
 
 
 // Media routes...
 Route::post('/handler/media/uploads', 'MediaController@store')->name('media.store');
+
+Route::middleware(['auth'])->group(function () {
+Route::get('/home', 'HomeController@index')->name('home');
 
 // Post routes...
 Route::get('posts', 'PostsController@index')->name('post.index');
@@ -44,11 +55,4 @@ Route::delete('tags/{id}', 'TagController@destroy')->name('tag.destroy');
 // Stats routes...
 Route::get('stats/', 'StatsController@index')->name('stats.index');
 Route::get('stats/{id}', 'StatsController@show')->name('stats.show');
-
-// blog
-Route::prefix('blog')->group(function () {
-    Route::get('/', 'BlogController@index')->name('blog.index');
-    Route::middleware('App\Http\Middleware\ViewThrottle')->get('{slug}', 'BlogController@post')->name('blog.post');
-    Route::get('tag/{slug}', 'BlogController@tag')->name('blog.tag');
-    Route::get('topic/{slug}', 'BlogController@topic')->name('blog.topic');
 });

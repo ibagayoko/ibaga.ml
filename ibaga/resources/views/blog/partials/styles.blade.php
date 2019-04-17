@@ -114,7 +114,7 @@
     }
 
     .blog-post {
-        margin-bottom: 4rem;
+        margin-bottom: 1rem;
     }
 
     .blog-post-title {

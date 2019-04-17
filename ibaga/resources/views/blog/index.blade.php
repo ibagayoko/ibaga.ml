@@ -51,22 +51,31 @@
                 <h3 class="pb-4 mb-4 font-italic border-bottom">
                     Recent posts
                 </h3>
+                <div class="row">
                 @if(count($data['posts']) > 0)
                     @foreach($data['posts'] as $post)
                         @if(!$loop->first)
-                            <div class="blog-post">
-                                <h2 class="blog-post-title"><a href="{{ route('blog.post', $post->slug) }}" class="text-dark text-decoration-none">{{ $post->title }}</a></h2>
+                            <div class="blog-post col-md-5 mr-1 ml-1 @if(empty($post->featured_image)) bg-dark @endif"  @if(!empty($post->featured_image)) style="background: linear-gradient(rgba(0, 0, 0, 0.85),rgba(0, 0, 0, 0.85)),url({{ $post->featured_image }}); background-size: cover" @endif>
+                                <h2 class="blog-post-title"><a href="{{ route('blog.post', $post->slug) }}" class="text-white text-decoration-none">{{ $post->title }}</a></h2>
                                 <p class="blog-post-meta small">{{ $post->published_at->format('M d') }} — {{ $post->readTime }}</p>
-                                <p><a href="{{ route('blog.post', $post->slug) }}" class="text-dark text-decoration-none">{{ $post->summary }}</a></p>
+                                <p><a href="{{ route('blog.post', $post->slug) }}" class="text-white text-decoration-none">{{ $post->summary }}</a></p>
                             </div>
                         @endif
+                        {{-- <div class="mr-1 ml-1 my-1">
+
+                            @include('blog.partials.gradient-card')
+                        </div> --}}
                     @endforeach
 
-                    {{ $data['posts']->links() }}
+                    
                 @else
                     <p class="mt-4">No posts were found, start by <a href="{{ route('post.create') }}">adding a
                             new post</a>.</p>
                 @endif
+
+                </div>
+                {{ $data['posts']->links() }}
+
             </div>
 
             <aside class="col-md-4 blog-sidebar">
