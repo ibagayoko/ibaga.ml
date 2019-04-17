@@ -1,16 +1,17 @@
 <style>
-/* @import url("https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800");
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800");
 * {
   box-sizing: border-box;
-} */
+}
 
-/* body {
+body {
   background-color: #FFE53B;
-  background-image: linear-gradient(147deg, #FFE53B 0%, #fd3838 74%);
+  /* background-image: linear-gradient(147deg, #FFE53B 0%, #fd3838 74%); */
+  background-image: linear-gradient(to right, #4c4c4c 0%, #595959 12%, #666666 25%, #474747 39%, #2c2c2c 50%, #000000 51%, #111111 60%, #2b2b2b 76%, #1c1c1c 91%, #222222 100%);
   min-height: 100vh;
   font-family: 'Fira Sans', sans-serif;
-  display: flex;
-} */
+  /* display: flex; */
+}
 
 .blog-slider {
   width: 95%;
@@ -167,14 +168,23 @@
         {{-- <div class="blog-slider__pagination"> --}}
            <div class="blog-slider__item active">
             <div class="blog-slider__img">
+              @php
+              $defImg = '<svg width="400" height="400"><rect width="400" height="400" style=""></rect><text x="200" y="200" fill="#fff" >'.$post->title.'</text>
+                          Sorry, your browser does not support inline SVG.  
+                        </svg>';
+              $defImg =  "data:image/svg+xml;charset=UTF-8,".utf8_encode($defImg);
+              if(!empty($post->featured_image))
+              $defImg = $post->featured_image
               
-              <img src="https://res.cloudinary.com/muhammederdem/image/upload/v1535759872/kuldar-kalvik-799168-unsplash.jpg" alt="">
+              @endphp
+              
+              <img src="{{ $defImg}}" alt="">
             </div>
             <div class="blog-slider__content">
-              <span class="blog-slider__code">26 December 2019</span>
-              <div class="blog-slider__title">Lorem Ipsum Dolor</div>
-              <div class="blog-slider__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi? </div>
-              <a href="#" class="blog-slider__button">READ MORE</a>
+              <span class="blog-slider__code">{{ $post->published_at->format('M d, Y') }} — {{ $post->readTime }}</span>
+              <div class="blog-slider__title">{{ $post->title }}</div>
+              <div class="blog-slider__text">{{ $post->summary }}</div>
+              <a href="{{ route('blog.post', $post->slug) }}" class="blog-slider__button">READ MORE</a>
             </div>
           </div>
         {{-- </div> --}}
