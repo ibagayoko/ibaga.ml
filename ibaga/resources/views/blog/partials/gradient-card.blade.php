@@ -5,11 +5,11 @@
 }
 
 body {
-  background-color: #FFE53B;
+  /* background-color: #FFE53B; */
   /* background-image: linear-gradient(147deg, #FFE53B 0%, #fd3838 74%); */
-  background-image: linear-gradient(to right, #4c4c4c 0%, #595959 12%, #666666 25%, #474747 39%, #2c2c2c 50%, #000000 51%, #111111 60%, #2b2b2b 76%, #1c1c1c 91%, #222222 100%);
+  /* background-image: linear-gradient(to right, #4c4c4c 0%, #595959 12%, #666666 25%, #474747 39%, #2c2c2c 50%, #000000 51%, #111111 60%, #2b2b2b 76%, #1c1c1c 91%, #222222 100%); */
   min-height: 100vh;
-  font-family: 'Fira Sans', sans-serif;
+  /* font-family: 'Fira Sans', sans-serif; */
   /* display: flex; */
 }
 
@@ -35,7 +35,7 @@ body {
   .blog-slider {
     min-height: 500px;
     height: auto;
-    margin: 180px auto;
+    margin: 50px auto;
   }
 }
 @media screen and (max-height: 500px) and (min-width: 992px) {
