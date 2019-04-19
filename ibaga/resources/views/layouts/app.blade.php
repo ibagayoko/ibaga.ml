@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'AppName') }}</title>
     <!-- Highlight JS sheets -->
     <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.13.1/build/highlight.min.js"></script>
 
@@ -52,6 +52,7 @@
     opacity: 1;
 }
 </style>
+@yield('styles')
 </head>
 <body>
 <div class="overlay"></div>
