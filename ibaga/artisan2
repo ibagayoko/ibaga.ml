@@ -40,7 +40,7 @@ $status = $kernel->handle(
 );
 // $_SERVER['argv'][2] = "email:parse";
 
-print_r($_SERVER['argv']);
+// print_r($_SERVER['argv']);
 
 /*
 |--------------------------------------------------------------------------

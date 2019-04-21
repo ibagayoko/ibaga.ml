@@ -55,4 +55,7 @@ Route::delete('tags/{id}', 'TagController@destroy')->name('tag.destroy');
 // Stats routes...
 Route::get('stats/', 'StatsController@index')->name('stats.index');
 Route::get('stats/{id}', 'StatsController@show')->name('stats.show');
+
+// Stats routes...
+Route::get('emails/', 'EmailController@index')->name('emails.index');
 });
