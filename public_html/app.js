@@ -5295,6 +5295,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _CardMap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./CardMap */ "./resources/js/components/Card/CardMap.vue");
 var _this = undefined;
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 
 
@@ -5344,13 +5346,12 @@ var _this = undefined;
   },
   computed: {
     classObject: function classObject() {
-      return {
+      return _defineProperty({
         card: true,
         aside: this.aside || false,
         "card-collapsed": this.isCollapsed,
-        "card-fullscreen": this.isFullscreen // `${this.className}`:true,
-
-      };
+        "card-fullscreen": this.isFullscreen
+      }, "".concat(this.className), true);
     }
   }
 });
@@ -5454,8 +5455,7 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     classObject: function classObject() {
       return {
-        "card-header": true,
-        className: true
+        "card-header": true
       };
     }
   }
@@ -5617,7 +5617,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
   name: 'CardTitle',
-  props: ["className"],
+  props: ["className", "title"],
   data: function data() {
     return {
       colorClass: "card-title"
@@ -6261,7 +6261,7 @@ __webpack_require__.r(__webpack_exports__);
   props: ["prefix", "name", "className", "link", "isAriaHidden", "payment", "flag", "onClick", "onMouseEnter", "onMouseLeave", "onPointerEnter", "onPointerLeave", "onFocus", "onBlur"],
   data: function data() {
     var eventProps = {};
-    var prefix = payment && "payment" || flag && "flag" || "fe";
+    var prefix = this.payment && "payment" || this.flag && "flag" || "fe";
     return {
       colorClass: "card-options ".concat(prefix, " ").concat(prefix, "-").concat(name)
     };
@@ -85001,156 +85001,180 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _vm.aside
-    ? _c(
-        "Card",
-        [
-          _c("a", { attrs: { href: _vm.postHref } }, [
-            _c("img", {
-              attrs: {
-                className: "card-img-top",
-                src: _vm.imgSrc,
-                alt: _vm.imgAlt
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("CardBody", { attrs: { className: "d-flex flex-column" } }, [
-            _c("h4", [
-              _c("a", { attrs: { href: _vm.postHref } }, [
-                _vm._v(_vm._s(_vm.title))
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { attrs: { className: "text-muted" } }, [
-              _vm._v(_vm._s(_vm.description))
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                attrs: { className: "d-flex align-items-center pt-5 mt-auto" }
-              },
-              [
-                _c("div", {
-                  style: { backgroundImage: "url(" + _vm.avatarImgSrc },
-                  attrs: { className: "avatar avatar-md mr-3" }
-                }),
-                _vm._v(" "),
-                _c("div", [
-                  _c(
-                    "a",
-                    {
-                      attrs: {
-                        href: _vm.profileHref,
-                        className: "text-default"
-                      }
-                    },
-                    [_vm._v("\n        " + _vm._s(_vm.authorName) + "\n      ")]
-                  ),
-                  _vm._v(" "),
-                  _c("small", { attrs: { className: "d-block text-muted" } }, [
-                    _vm._v(_vm._s(_vm.date))
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { attrs: { className: "ml-auto text-muted" } }, [
-                  _c(
-                    "a",
-                    {
-                      attrs: {
-                        href: _vm.iconHref,
-                        className: "icon d-none d-md-inline-block ml-3"
-                      }
-                    },
-                    [
-                      _c("Icon", {
-                        attrs: { prefix: "fe", name: _vm.iconNameL }
-                      })
-                    ],
-                    1
-                  )
-                ])
-              ]
-            )
-          ])
-        ],
-        1
-      )
-    : _c(
-        "Card",
-        { attrs: { className: "card-aside" } },
-        [
-          _c(
-            "a",
+    ? _c("Card", {
+        scopedSlots: _vm._u(
+          [
             {
-              style: { backgroundImage: "url(" + _vm.imgSrc + ")" },
-              attrs: { href: _vm.postHref, className: "card-aside-column" }
-            },
-            [_vm._v("\n  " + _vm._s("") + "\n")]
-          ),
-          _vm._v(" "),
-          _c("CardBody", { attrs: { className: "d-flex flex-column" } }, [
-            _c("h4", [
-              _c("a", { attrs: { href: _vm.postHref } }, [
-                _vm._v(_vm._s(_vm.title))
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { attrs: { className: "text-muted" } }, [
-              _vm._v(_vm._s(_vm.description))
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                attrs: { className: "d-flex align-items-center pt-5 mt-auto" }
-              },
-              [
-                _c("div", {
-                  style: { backgroundImage: "url(" + _vm.avatarImgSrc },
-                  attrs: { className: "avatar avatar-md mr-3" }
-                }),
-                _vm._v(" "),
-                _c("div", [
-                  _c(
-                    "a",
-                    {
-                      attrs: {
-                        href: _vm.profileHref,
-                        className: "text-default"
-                      }
-                    },
-                    [_vm._v("\n        " + _vm._s(_vm.authorName) + "\n      ")]
-                  ),
+              key: "children",
+              fn: function() {
+                return [
+                  _c("a", { attrs: { href: _vm.postHref } }, [
+                    _c("img", {
+                      staticClass: "card-img-top",
+                      attrs: { src: _vm.imgSrc, alt: _vm.imgAlt }
+                    })
+                  ]),
                   _vm._v(" "),
-                  _c("small", { attrs: { className: "d-block text-muted" } }, [
-                    _vm._v(_vm._s(_vm.date))
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { attrs: { className: "ml-auto text-red" } }, [
                   _c(
-                    "a",
-                    {
-                      attrs: {
-                        href: _vm.iconHref,
-                        className: "icon d-none d-md-inline-block ml-3"
-                      }
-                    },
+                    "CardBody",
+                    { attrs: { "class-name": "d-flex flex-column" } },
                     [
-                      _c("Icon", {
-                        attrs: { prefix: "fe", name: _vm.iconNameL }
-                      })
-                    ],
-                    1
+                      _c("h4", [
+                        _c("a", { attrs: { href: _vm.postHref } }, [
+                          _vm._v(_vm._s(_vm.title))
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "text-muted" }, [
+                        _vm._v(_vm._s(_vm.description))
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "d-flex align-items-center pt-5 mt-auto"
+                        },
+                        [
+                          _c("div", {
+                            staticClass: "avatar avatar-md mr-3",
+                            style: {
+                              backgroundImage: "url(" + _vm.avatarImgSrc
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("div", [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "text-default",
+                                attrs: { href: _vm.profileHref }
+                              },
+                              [
+                                _vm._v(
+                                  "\n             " +
+                                    _vm._s(_vm.authorName) +
+                                    "\n           "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("small", { staticClass: "d-block text-muted" }, [
+                              _vm._v(_vm._s(_vm.date))
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "ml-auto text-muted" }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass:
+                                  "icon d-none d-md-inline-block ml-3",
+                                attrs: { href: _vm.iconHref }
+                              },
+                              [
+                                _c("Icon", {
+                                  attrs: { prefix: "fe", name: _vm.iconNameL }
+                                })
+                              ],
+                              1
+                            )
+                          ])
+                        ]
+                      )
+                    ]
+                  )
+                ]
+              },
+              proxy: true
+            }
+          ],
+          null,
+          false,
+          2037878011
+        )
+      })
+    : _c("Card", {
+        attrs: { className: "card-aside" },
+        scopedSlots: _vm._u([
+          {
+            key: "children",
+            fn: function() {
+              return [
+                _c(
+                  "a",
+                  {
+                    staticClass: "card-aside-column",
+                    style: { backgroundImage: "url(" + _vm.imgSrc + ")" },
+                    attrs: { href: _vm.postHref }
+                  },
+                  [_vm._v("\n       " + _vm._s("") + "\n     ")]
+                ),
+                _vm._v(" "),
+                _c("CardBody", { staticClass: "d-flex flex-column" }, [
+                  _c("h4", [
+                    _c("a", { attrs: { href: _vm.postHref } }, [
+                      _vm._v(_vm._s(_vm.title))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "text-muted" }, [
+                    _vm._v(_vm._s(_vm.description))
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "d-flex align-items-center pt-5 mt-auto" },
+                    [
+                      _c("div", {
+                        staticClass: "avatar avatar-md mr-3",
+                        style: { backgroundImage: "url(" + _vm.avatarImgSrc }
+                      }),
+                      _vm._v(" "),
+                      _c("div", [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "text-default",
+                            attrs: { href: _vm.profileHref }
+                          },
+                          [
+                            _vm._v(
+                              "\n             " +
+                                _vm._s(_vm.authorName) +
+                                "\n           "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("small", { staticClass: "d-block text-muted" }, [
+                          _vm._v(_vm._s(_vm.date))
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "ml-auto text-red" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "icon d-none d-md-inline-block ml-3",
+                            attrs: { href: _vm.iconHref }
+                          },
+                          [
+                            _c("Icon", {
+                              attrs: { prefix: "fe", name: _vm.iconNameL }
+                            })
+                          ],
+                          1
+                        )
+                      ])
+                    ]
                   )
                 ])
               ]
-            )
-          ])
-        ],
-        1
-      )
+            },
+            proxy: true
+          }
+        ])
+      })
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -85177,7 +85201,7 @@ var render = function() {
   return !_vm.isClosed
     ? _c(
         "div",
-        { class: [_vm.classObject, _vm.className] },
+        { class: [_vm.classObject] },
         [
           _vm.statusColor
             ? _c("CardStatus", {
@@ -85185,52 +85209,54 @@ var render = function() {
               })
             : _vm._e(),
           _vm._v(" "),
-          _c(
-            "CardHeader",
-            [
-              _c("CardTitle", [_vm._v(_vm._s(_vm.title))]),
-              _vm._v(" "),
-              _c(
-                "CardOptions",
+          _vm.title
+            ? _c(
+                "CardHeader",
                 [
-                  _vm.options || _vm.isClosable
-                    ? _c("CardOptionsItem", {
-                        attrs: { type: "collapse" },
-                        nativeOn: {
-                          click: function($event) {
-                            return this.handleCollapseOnClick($event)
-                          }
-                        }
-                      })
-                    : _vm._e(),
+                  _c("CardTitle", [_vm._v(_vm._s(_vm.title))]),
                   _vm._v(" "),
-                  _vm.options || _vm.isFullscreenable
-                    ? _c("CardOptionsItem", {
-                        attrs: { type: "fullscreen" },
-                        nativeOn: {
-                          click: function($event) {
-                            return this.handleFullscreenOnClick($event)
-                          }
-                        }
-                      })
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.options || _vm.isClosable
-                    ? _c("CardOptionsItem", {
-                        attrs: { type: "close" },
-                        nativeOn: {
-                          click: function($event) {
-                            return _vm.handleCloseOnClick($event)
-                          }
-                        }
-                      })
-                    : _vm._e()
+                  _c(
+                    "CardOptions",
+                    [
+                      _vm.options || _vm.isClosable
+                        ? _c("CardOptionsItem", {
+                            attrs: { type: "collapse" },
+                            nativeOn: {
+                              click: function($event) {
+                                return this.handleCollapseOnClick($event)
+                              }
+                            }
+                          })
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.options || _vm.isFullscreenable
+                        ? _c("CardOptionsItem", {
+                            attrs: { type: "fullscreen" },
+                            nativeOn: {
+                              click: function($event) {
+                                return this.handleFullscreenOnClick($event)
+                              }
+                            }
+                          })
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.options || _vm.isClosable
+                        ? _c("CardOptionsItem", {
+                            attrs: { type: "close" },
+                            nativeOn: {
+                              click: function($event) {
+                                return _vm.handleCloseOnClick($event)
+                              }
+                            }
+                          })
+                        : _vm._e()
+                    ],
+                    1
+                  )
                 ],
                 1
               )
-            ],
-            1
-          ),
+            : _vm._e(),
           _vm._v(" "),
           _vm.alert && _vm.alertColor
             ? _c(
@@ -85362,7 +85388,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { class: _vm.classObject, style: _vm.styleObject },
+    { class: [_vm.classObject, this.className], style: _vm.styleObject },
     [_vm._t("default")],
     2
   )
@@ -85520,7 +85546,7 @@ var render = function() {
   return _c(
     "h3",
     { class: [_vm.colorClass, _vm.className] },
-    [_vm._t("default")],
+    [_vm._v("\n    " + _vm._s(_vm.title) + "\n"), _vm._t("default")],
     2
   )
 }

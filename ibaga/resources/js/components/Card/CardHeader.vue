@@ -21,7 +21,6 @@
       classObject: function () {
         return {
           "card-header":true,
-            className:true,
         }
       }
     },
@@ -30,7 +29,7 @@
 
 <template>
         <div
-      v-bind:class="classObject"
+      v-bind:class="[classObject, this.className]"
       v-bind:style="styleObject"
     >
       <slot/>

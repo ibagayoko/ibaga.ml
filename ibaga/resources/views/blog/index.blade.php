@@ -40,7 +40,7 @@
                                                     class="text-white font-weight-bold">Continue reading...</a></p>
                         </div>
                     </div>
-                    <blog-card title="{{ $post->title  }}" img-url="{{ $post->featured_image }}"/>
+                    
                 @endif
             @endforeach
         @endif
@@ -62,10 +62,22 @@
                                 <p><a href="{{ route('blog.post', $post->slug) }}" class="text-white text-decoration-none">{{ $post->summary }}</a></p>
                             </div>
                         @endif --}}
-                        <div class=" col-md-12 mr-1 ml-1 my-1">
+                        <blog-card 
+                        
+                        title="{{ $post->title  }}" 
+                        img-src="{{ $post->featured_image }}" 
+                        author-name="{{ $post->author->name }}" 
+                        description="{{ $post->summary }}" 
+                        date="{{ $post->published_at->format('M d, Y') }}"
+                        img-alt=""
+                        {{-- avatar-img-src="https://tabler.github.io/tabler/demo/faces/female/18.jpg" --}}
+                        post-href="{{ route('blog.post', $post->slug) }}"
+                        avatar-img-src="{{ sprintf('%s%s%s', 'https://secure.gravatar.com/avatar/', md5(strtolower(trim($post->author->email))), '?s=200') }}"
+                        />
+                        {{-- <div class=" col-md-12 mr-1 ml-1 my-1"> --}}
 
                             {{-- @include('blog.partials.gradient-card', ["post" => $post]) --}}
-                        </div>
+                        {{-- </div> --}}
                     @endforeach
 
                     

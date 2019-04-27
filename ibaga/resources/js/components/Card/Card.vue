@@ -76,6 +76,7 @@ methods: {
             "card-collapsed": this.isCollapsed,
             "card-fullscreen": this.isFullscreen,
             // `${this.className}`:true,
+            [`${this.className}`]:true
         }
       }
     },
@@ -84,12 +85,12 @@ methods: {
 </script>
 
 <template>
-  <div v-bind:class="[classObject, className]" v-if="!isClosed">
+  <div v-bind:class="[classObject]" v-if="!isClosed">
     <!-- {card_status} -->
     <CardStatus v-if="statusColor" :color="statusColor" :side="statusSide"/>
     <!-- {card_header} -->
 
-    <CardHeader>
+    <CardHeader v-if="title">
       <CardTitle>{{ title }}</CardTitle>
 
       <CardOptions>

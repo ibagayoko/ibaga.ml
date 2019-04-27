@@ -20,7 +20,7 @@
   ],
         data() {
             let eventProps = {};
-            const prefix = (payment && "payment") || (flag && "flag") || "fe";
+            const prefix = (this.payment && "payment") || (this.flag && "flag") || "fe";
             return {
                 colorClass:`card-options ${prefix} ${prefix}-${name}`,
             }

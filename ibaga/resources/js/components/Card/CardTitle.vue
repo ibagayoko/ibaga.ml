@@ -2,7 +2,7 @@
     export default  {
         components: {},
         name: 'CardTitle',
-        props: [ "className"],
+        props: [ "className", "title"],
         data() {
             return {
                 colorClass:`card-title`,
@@ -17,6 +17,7 @@
 
 <template>
         <h3 v-bind:class="[colorClass, className]">
+            {{ title }}
         <slot/>
         </h3>
 </template>

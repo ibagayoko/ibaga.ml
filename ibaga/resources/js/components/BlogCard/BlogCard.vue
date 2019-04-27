@@ -38,64 +38,67 @@ import Icon from "../Icon/Icon";
 
 <template>
         <Card v-if="aside">
+             <template v-slot:children>
              <a :href="postHref">
-        <img className="card-img-top" :src="imgSrc" :alt="imgAlt" />
+        <img class="card-img-top" :src="imgSrc" :alt="imgAlt" />
         </a>
-      <CardBody className="d-flex flex-column">
+      <CardBody class-name="d-flex flex-column">
         <h4>
-          <a :href="postHref">{{title}}</a>
+          <a :href="postHref">{{ title }}</a>
         </h4>
-        <div className="text-muted">{{description}}</div>
-        <div className="d-flex align-items-center pt-5 mt-auto">
+        <div class="text-muted">{{description}}</div>
+        <div class="d-flex align-items-center pt-5 mt-auto">
           <div
-            className="avatar avatar-md mr-3"
+            class="avatar avatar-md mr-3"
             v-bind:style="{ backgroundImage: `url(${avatarImgSrc}` }"
           />
           <div>
-            <a :href="profileHref" className="text-default">
+            <a :href="profileHref" class="text-default">
               {{authorName}}
             </a>
-            <small className="d-block text-muted">{{date}}</small>
+            <small class="d-block text-muted">{{date}}</small>
           </div>
-          <div className="ml-auto text-muted">
-            <a :href="iconHref" className="icon d-none d-md-inline-block ml-3">
+          <div class="ml-auto text-muted">
+            <a :href="iconHref" class="icon d-none d-md-inline-block ml-3">
               <Icon prefix="fe" :name="iconNameL" />
             </a>
           </div>
         </div>
       </CardBody>
+      </template>
         </Card>
         <Card v-else className="card-aside">
+            <template v-slot:children>
       <a
         :href="postHref"
-        className="card-aside-column"
+        class="card-aside-column"
         v-bind:style="{ backgroundImage: `url(${imgSrc})` }"
       >
         {{""}}
       </a>
-      <CardBody className="d-flex flex-column">
+      <CardBody class="d-flex flex-column">
         <h4>
           <a :href="postHref">{{title}}</a>
         </h4>
-        <div className="text-muted">{{ description}}</div>
-        <div className="d-flex align-items-center pt-5 mt-auto">
+        <div class="text-muted">{{ description}}</div>
+        <div class="d-flex align-items-center pt-5 mt-auto">
           <div
-            className="avatar avatar-md mr-3"
+            class="avatar avatar-md mr-3"
             v-bind:style="{ backgroundImage: `url(${avatarImgSrc}` }"
           />
           <div>
-            <a :href="profileHref" className="text-default">
+            <a :href="profileHref" class="text-default">
               {{authorName}}
             </a>
-            <small className="d-block text-muted">{{date}}</small>
+            <small class="d-block text-muted">{{date}}</small>
           </div>
-          <div className="ml-auto text-red">
-            <a :href="iconHref" className="icon d-none d-md-inline-block ml-3">
+          <div class="ml-auto text-red">
+            <a :href="iconHref" class="icon d-none d-md-inline-block ml-3">
               <Icon prefix="fe" :name="iconNameL" />
             </a>
           </div>
         </div>
       </CardBody>
-
+ </template>
         </Card>
 </template>
