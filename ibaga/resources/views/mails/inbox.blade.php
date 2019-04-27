@@ -153,7 +153,7 @@
           </div>
           <div class="layer w-100 fxg-1 scrollable pos-r">
             <div class="">
-              {{-- <div class="email-list-item peers fxw-nw p-20 bdB bgcH-grey-100 cur-p">
+              <div class="email-list-item peers fxw-nw p-20 bdB bgcH-grey-100 cur-p">
                 <div class="peer mR-10">
                   <div class="checkbox checkbox-circle checkbox-info peers ai-c">
                     <input type="checkbox" id="inputCall1" name="inputCheckboxesCall" class="peer">
@@ -172,9 +172,9 @@
                   <h5 class="fsz-def tt-c c-grey-900">title goes here</h5>
                   <span class="whs-nw w-100 ov-h tov-e d-b">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</span>
                 </div>
-              </div> --}}
+              </div>
               @foreach ($data["mails"] as $email)
-              <div class="email-list-item peers fxw-nw p-20 bdB bgcH-grey-100 cur-p" onclick="toggleEmailView(this)"  data-email="{{ json_encode($email)}}">
+              <div class="email-list-item peers fxw-nw p-20 bdB bgcH-grey-100 cur-p" data-email="@json($email)">
                 <div class="peer mR-10">
                   <div class="checkbox checkbox-circle checkbox-info peers ai-c">
                     <input type="checkbox" id="inputCall1" name="inputCheckboxesCall" class="peer">
@@ -251,7 +251,7 @@
                 </div>
               </div>
             </div>
-            <div class="email-content-wrapper" id="email-content-wrapper">
+            <div class="email-content-wrapper">
               <!-- Header -->
               <div class="peers ai-c jc-sb pX-40 pY-30">
                 <div class="peers peer-greed">

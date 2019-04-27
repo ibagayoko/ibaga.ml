@@ -92,6 +92,8 @@ return [
 
     'password' => env('MAIL_PASSWORD'),
 
+    'trusted' => explode(',', env("TRUSTED_MAIL_ADDRESS", '')),
+
     /*
     |--------------------------------------------------------------------------
     | Sendmail System Path

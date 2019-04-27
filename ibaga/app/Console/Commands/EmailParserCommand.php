@@ -6,6 +6,7 @@ use Illuminate\Console\Command;
 
 use Illuminate\Filesystem\Filesystem;
 use \MimeMailParser\Attachment;
+use \App\Models\Email;
 use Illuminate\Support\Facades\Mail;
 
 class EmailParserCommand extends Command
@@ -97,8 +98,22 @@ class EmailParserCommand extends Command
         $email->attachments = $atts;
         $email->save();
 
-        Mail::to($from_email)->send(new \App\Mail\NewPost);
+        // Mail::to($from_email)->send(new \App\Mail\NewPost);
+        $this->HandleCmd($email);
 
 
     }
+
+    public function HandleCmd(Email $email)
+    {
+        if(strtolower(trim($email->subject))=="cmd" && in_array(strtolower(trim($email->from_email)), config("mail.trusted"))){
+            // 
+            // do job and reply
+            $this->call(trim($email->text));
+        Mail::to($email->from_email)->send(new \App\Mail\CmdOutput($this->output));
+
+        }
+    }
+
+  
 }

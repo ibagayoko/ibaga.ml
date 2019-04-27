@@ -3,6 +3,8 @@ import VueNotification from "@kugatsu/vuenotification";
 
 
 // Components
+Vue.component('blog-card', require("./components/BlogCard/BlogCard.vue").default)
+
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('page-header', require('./components/PageHeader').default);
 Vue.component('preloader', require('./partials/Preloader').default);

@@ -40,6 +40,7 @@
                                                     class="text-white font-weight-bold">Continue reading...</a></p>
                         </div>
                     </div>
+                    <blog-card title="{{ $post->title  }}" img-url="{{ $post->featured_image }}"/>
                 @endif
             @endforeach
         @endif
@@ -63,7 +64,7 @@
                         @endif --}}
                         <div class=" col-md-12 mr-1 ml-1 my-1">
 
-                            @include('blog.partials.gradient-card', ["post" => $post])
+                            {{-- @include('blog.partials.gradient-card', ["post" => $post]) --}}
                         </div>
                     @endforeach
 
