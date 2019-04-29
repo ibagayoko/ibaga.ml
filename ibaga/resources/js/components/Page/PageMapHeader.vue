@@ -1,23 +1,21 @@
 <template>
-    <div  v-bind:class="classes">
+    <div v-bind:class="classes">
         <slot />
     </div>
 </template>
 
 <script>
     export default {
-        name:"AvatarList",
-        props:["stacked", "className"],
-        mounted() {
-            console.log('Component mounted.')
+        name:"PageMapHeader",
+        props:{
+            className:String,
         },
-
+        mounted() {
+            console.log('PageMapHeader Component mounted.')
+        },
         computed:{
             classes () {
-            const className = { "avatar-list":true}
-
-
-            className["avatar-list-stacked"] = this.stacked
+            const className = {"map-header": true}
             className[`${this.className}`] = true
             return className
         }

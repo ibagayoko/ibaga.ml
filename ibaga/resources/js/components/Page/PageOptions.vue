@@ -1,23 +1,21 @@
 <template>
-    <div  v-bind:class="classes">
+    <div v-bind:class="classes">
         <slot />
     </div>
 </template>
 
 <script>
     export default {
-        name:"AvatarList",
-        props:["stacked", "className"],
-        mounted() {
-            console.log('Component mounted.')
+        name:"PageOptions",
+        props:{
+            className:String,
         },
-
+        mounted() {
+            console.log('Page Component mounted.')
+        },
         computed:{
             classes () {
-            const className = { "avatar-list":true}
-
-
-            className["avatar-list-stacked"] = this.stacked
+            const className = {"page-options d-flex": true}
             className[`${this.className}`] = true
             return className
         }
