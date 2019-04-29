@@ -17,5 +17,14 @@ export {
     PageSubTitle,
     PageMapHeader, 
     PageContentWithSidebar
-    } 
-    from './Page'
+    } from './Page'
+
+    export{
+        Table,
+        TableBody, 
+        TableCol,
+        TableColHeader,
+        TableHeader,
+        TableRow
+    
+    } from './Table'
