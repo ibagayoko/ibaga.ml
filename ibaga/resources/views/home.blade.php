@@ -42,10 +42,10 @@
     @stack('styles')
 </head>
 <body>
-    {{-- <div id="app"> --}}
+    <div id="app">
         {{-- @yield('body') --}}
-    {{-- </div> --}}
-    
+    </div>
+
 
     <!-- Additional scripts -->
     @stack('scripts')
