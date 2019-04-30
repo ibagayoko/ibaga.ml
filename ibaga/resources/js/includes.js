@@ -1,9 +1,14 @@
 import Vue from 'vue';
 import VueNotification from "@kugatsu/vuenotification";
 
-
-// Components
-Vue.component('blog-card', require("./components/BlogCard/BlogCard.vue").default)
+const entries = Object.entries(require("./components"))
+for (const [key, cmpnt] of entries) {
+  console.log(`There are ${key} `)
+  Vue.component(key, cmpnt)
+}
+// // Components
+// Vue.component('blog-card', require("./components").BlogCard)
+// Vue.component('Container', require("./components").Container)
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('page-header', require('./components/PageHeader').default);
@@ -38,6 +43,8 @@ Vue.use(VueNotification, {
     infiniteTimer:true
   });
 
+  import { Plugin } from 'vue-fragment'
+  Vue.use(Plugin)
 
 // Directives
 Vue.directive('loading', require('./components/loadingButton'));
