@@ -1,6 +1,7 @@
 import {default as Page} from './Page';
 import {default as PageTitle} from './PageTitle';
 import {default as PageSubTitle} from './PageSubTitle';
+import {default as PageMain} from './PageMain';
 import {default as PageOptions} from './PageOptions';
 import {default as PageCard} from './PageCard'
 import {default as PageMapHeader} from './PageMapHeader'
@@ -13,6 +14,7 @@ export {
     PageCard, 
     PageTitle, 
     PageHeader,
+    PageMain,
     PageOptions,
     PageContent,
     PageSubTitle,

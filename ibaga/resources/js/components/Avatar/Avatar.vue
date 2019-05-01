@@ -9,8 +9,7 @@ import { Icon } from "../";
         props: [
             "className",
             "children",
-            "imageURL",
-            "style",
+            "imageUrl",
             "size",
             "status",
             "placeholder",

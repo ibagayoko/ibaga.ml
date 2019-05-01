@@ -1,6 +1,6 @@
 <template>
-    <a  class="header-brand" :href="href" v-bind:class="classes" :col-span="colSpan">
-        <img class="header-brand-img" :src="src" :alt="alt" />
+    <a  class="header-brand" :href="href" v-bind:class="classes" >
+        <img class="header-brand-img" v-bind:src="this.src" :alt="alt" />
     </a>
 </template>
 
@@ -10,9 +10,11 @@
         props:{
             href:String,
             src:String,
-            alt:String
+            alt:String,
+            
         },
         mounted() {
+            console.log(this.src)
             console.log('SiteLogo Component mounted.')
         },
         computed:{

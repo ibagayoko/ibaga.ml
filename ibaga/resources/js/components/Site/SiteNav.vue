@@ -11,7 +11,7 @@
             </GridCol>
             <GridCol className="col-lg order-lg-first">
               <INav
-                tabbed
+                tabbed="true"
                 class-name="border-0 flex-column flex-lg-row"
                 :items="items"
               />
@@ -26,18 +26,27 @@
     export default {
         name:"SiteNav",
         props:{
-            items:[],
-            collapse:Boolean,
+            items:{default:[]},
+            collapse:{default:false},
             withSearchForm:{default:true},
 
         },
         mounted() {
+         
             console.log('SiteNav Component mounted.')
+            this.collapseEvent()
+        },
+        methods:{
+          collapseEvent(){
+this.$on("collapse", function(e){
+            this.collapse = !this.collapse
+          })
+          }
         },
         computed:{
             classes () {
               let cls = {"header d-lg-flex p-0":true}
-              cls[`${this.collapse}`] = this.collapse 
+              cls[`collapse`] = this.collapse 
             return cls
         }
         }

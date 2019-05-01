@@ -43,11 +43,11 @@ import { Icon } from "../";
 
 
             className[`btn-block`] = this.block,
-            className[`btn-outline-${color}`] = this.outline && !!this.color,
+            className[`btn-outline-${this.color}`] = this.outline && !!this.color,
             className[`btn-link`]= this.link,
             className["disabled"] = this.disabled,
-            className[`btn-${color}`] = !!this.color && !this.outline,
-            className[`btn-${social}`] = !!this.social,
+            className[`btn-${this.color}`] = !!this.color && !this.outline,
+            className[`btn-${this.social}`] = !!this.social,
             className["btn-square"]= this.square,
             className["btn-pill"]= this.pill,
             className["btn-icon"]= !this.children,

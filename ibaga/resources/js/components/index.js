@@ -1,6 +1,6 @@
 export { Avatar, AvatarList } from "./Avatar";
 export { default as Icon } from "./Icon";
-export { Card } from "./Card";
+export { Card, CardBody, CardTitle, CardHeader } from "./Card";
 export { default as Container } from "./Container"
 export { IButton } from "./IButton";
 export { default as BlogCard } from "./BlogCard";
@@ -12,6 +12,7 @@ export {
     PageCard, 
     PageTitle, 
     PageHeader,
+    PageMain,
     PageOptions,
     PageContent,
     PageSubTitle,
@@ -20,7 +21,7 @@ export {
     } from './Page'
 
     export{
-        Table,
+        ITable,
         TableBody, 
         TableCol,
         TableColHeader,
@@ -47,3 +48,7 @@ NavSubmenuItem,
     } from './Nav'
 
     export {SiteLogo, SiteWrapper, SiteFooter, SiteNav, SiteHeader} from './Site'
+
+    export {ITextSmall, IText} from './Text'
+    export {default as C3Chart} from './C3Chart'
+    export { default as StatsCard} from "./StatsCard"

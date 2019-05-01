@@ -13,7 +13,7 @@
 
 <script>
     export default {
-        name:"Table",
+        name:"ITable",
         props:{
             className:String,
             cards: {default:false},
@@ -25,19 +25,20 @@
             highlightRowOnHover:Boolean,
             hasOutline:Boolean,
             verticalAlign:String,
+            colSpan:Boolean,
         },
         mounted() {
             console.log('Table Component mounted.')
         },
         computed:{
             classes () {
-            const className = {}
+            const className = {table:true}
             className[`card-table`] = this.cards
             className[`table-striped`] = this.striped
             className[`table-hover`] = this.highlihtRowOnHoer
             className[`table-outline`] = this.hasOutline
             className[`table-outline`] = this.hasOutline
-            className[`table-vcenter`] = this.vertical-Aligh === "center"
+            className[`table-vcenter`] = this.verticalAlign === "center"
             className[`${this.className}`] = true
             return className
         }

@@ -7,26 +7,26 @@
               <GridRow v-if="links">
                     <GridCol :width="6" :md="3">
                       <List :unstyled="true" class-name="mb-0">
-                        <ListItem>{{links[0]}}</ListItem>
-                        <ListItem>{{links[1]}}</ListItem>
+                        <ListItem><a :href="links[0]">{{ linksName[0] }}</a></ListItem>
+                        <ListItem><a :href="links[1]">{{ linksName[1] }}</a></ListItem>
                       </List>
                     </GridCol>
                     <GridCol :width="6" :md="3">
                       <List :unstyled="true" class-name="mb-0">
-                        <ListItem>{{links[2]}}</ListItem>
-                        <ListItem>{{links[3]}}</ListItem>
+                        <ListItem><a :href="links[2]">{{ linksName[2] }}</a></ListItem>
+                        <ListItem><a :href="links[3]">{{ linksName[3] }}</a></ListItem>
                       </List>
                     </GridCol>
                     <GridCol :width="6" :md="3">
                       <List :unstyled="true" class-name="mb-0">
-                        <ListItem>{{links[4]}}</ListItem>
-                        <ListItem>{{links[5]}}</ListItem>
+                       <ListItem><a :href="links[4]">{{ linksName[4] }}</a></ListItem>
+                        <ListItem><a :href="links[5]">{{ linksName[5] }}</a></ListItem>
                       </List>
                     </GridCol>
                     <GridCol :width="6" :md="3">
                       <List :unstyled="true" class-name="mb-0">
-                        <ListItem>{{links[6]}}</ListItem>
-                        <ListItem>{{links[7]}}</ListItem>
+                        <ListItem><a :href="links[6]">{{ linksName[6] }}</a></ListItem>
+                        <ListItem><a :href="links[7]">{{ linksName[7] }}</a></ListItem>
                       </List>
                     </GridCol>
               </GridRow>
@@ -37,15 +37,15 @@
           </GridRow>
         </Container>
       </div>
-      <footer v-if="(nav || copyright)" class="footer">
+      <footer v-if="hasSlotLink" class="footer">
         <Container>
           <GridRow class-name="align-items-center flex-row-reverse">
-            <GridCol auto="true" class-name="ml-auto">
+            <GridCol :auto="true" class-name="ml-auto">
               <GridRow class-name="align-items-center">
                 <slot name="nav"/>
               </GridRow>
             </GridCol>
-            <GridCol :width="12" lg-Auto class-name="mt-3 mt-lg-0 text-center">
+            <GridCol :width="12" :lg-Auto="true" class-name="mt-3 mt-lg-0 text-center">
               <slot name="copyright"/>
             </GridCol>
           </GridRow>
@@ -59,7 +59,9 @@
     export default {
         name:"SiteFooter",
         props:{
-            links:[],
+            links:{default:[]},
+            linksName:{default:[]},
+
             note:String
 
         },
@@ -68,7 +70,7 @@
         },
         computed:{
             hasSlotLink () {
-            return this.$slot["copyright"] || this.$slot["nav"]
+            return this.$slots["copyright"] || this.$slots["nav"]
         }
         }
     }

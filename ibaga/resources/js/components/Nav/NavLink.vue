@@ -11,7 +11,7 @@ import {Icon} from '../'
         name:"NavLink",
         props:{
             active:{default:false},
-            icon:Boolean,
+            icon:String,
             className:String,
             to:String,
             hasSubNav:Boolean,

@@ -22,7 +22,7 @@
             let eventProps = {};
             const prefix = (this.payment && "payment") || (this.flag && "flag") || "fe";
             return {
-                colorClass:`card-options ${prefix} ${prefix}-${name}`,
+                colorClass:`${prefix} ${prefix}-${this.name}`,
             }
         },
         mounted() {

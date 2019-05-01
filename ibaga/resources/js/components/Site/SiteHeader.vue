@@ -3,9 +3,9 @@
       <Container :class-name="align">
         <div class="d-flex">
           <slot/>
-              <SiteLogo :href="href" :alt="alt" :src="imageURL" />
+              <SiteLogo :href="href" :alt="alt" :src="imageUrl" />
               <div class="d-flex order-lg-2 ml-auto">
-                <slot name="navItems"/>
+                <slot name="navItems" />
                 <slot name="notificationsTray"/>
                 <slot name="accountDropdown"/>
               </div>
@@ -26,16 +26,22 @@
         props:{
             href:String,
             align:String,
-            imageURL:String,
-            alt:String,
-            onMenuToggleClick:String,
+            imageUrl:String,
+            alt:String
         },
         mounted() {
             console.log('SiteHeader Component mounted.')
         },
         methods:{
           onMenuToggleClick(){
-            this.$emit("MenuToggleClick")
+            this.$emit("collapse", this.collapseMobileMenu )
+            console.log("click menu", this.collapseMobileMenu)
+            this.collapseMobileMenu = !this.collapseMobileMenu
+          },
+          data(){
+            return {
+              collapseMobileMenu:false
+            }
           }
         },
         computed:{

@@ -36,8 +36,8 @@
         },
         computed:{
             classes () {
-            const className = {col: !ignoreCol}
-      className[`col-${width }`]= this.width
+            const className = {col: !this.ignoreCol}
+      className[`col-${this.width }`]= this.width
       className[`col-xs-${ this.xs}`]= this.xs
       className[`col-xs-auto this.`]= this.xsAuto
       className[`col-sm-${ this.sm}`]= this.sm
@@ -49,7 +49,7 @@
       className[`col-xl-${ this.xl}`]= this.xl
       className[`col-xl-auto this.`]= this.xlAuto
       className["col-auto"]= this.auto
-      className[`offset-${offset }`]= this.offset
+      className[`offset-${this.offset }`]= this.offset
       className[`offset-xs-${ this.offsetXs}`]= this.offsetXs
       className[`offset-sm-${ this.offsetSm}`]= this.offsetSm
       className[`offset-md-${ this.offsetMd}`]= this.offsetMd

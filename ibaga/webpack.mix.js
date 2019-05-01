@@ -18,6 +18,7 @@ process.NODE_ENV = 'development'
 
 mix
     .options({
+        
         uglify: {
             uglifyOptions: {
                 compress: {

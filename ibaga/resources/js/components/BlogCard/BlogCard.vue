@@ -38,10 +38,10 @@ import Icon from "../Icon/Icon";
 
 <template>
         <Card v-if="aside">
-             <template v-slot:children>
+          <template>
              <a :href="postHref">
-        <img class="card-img-top" :src="imgSrc" :alt="imgAlt" />
-        </a>
+              <img class="card-img-top" :src="imgSrc" :alt="imgAlt" />
+            </a>
       <CardBody class-name="d-flex flex-column">
         <h4>
           <a :href="postHref">{{ title }}</a>
@@ -68,7 +68,7 @@ import Icon from "../Icon/Icon";
       </template>
         </Card>
         <Card v-else className="card-aside">
-            <template v-slot:children>
+            <template >
       <a
         :href="postHref"
         class="card-aside-column"

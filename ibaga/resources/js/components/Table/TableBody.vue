@@ -9,6 +9,7 @@
         name:"TableBody",
         props:{
             className:String,
+            colSpan:Boolean
         },
         mounted() {
             console.log('TableBody Component mounted.')

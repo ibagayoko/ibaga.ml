@@ -1,7 +1,7 @@
 <template>
     <div v-bind:class="classes">
         <Container>
-            <PageHeader v-if="title || subTitle || options" :title="title" :sub-title="subTitle" :options="options" />
+            <PageHeader v-if="this.title || subTitle || options" :title="this.title" :sub-title="subTitle" :options="options" />
         <slot />
 
         </Container>
@@ -16,9 +16,6 @@ import { PageHeader } from '.';
         props:["className", "title", "subTitle", "options"],
         components:{
             Container
-        },
-        props:{
-            className:String,
         },
         mounted() {
             console.log('Page Component mounted.')

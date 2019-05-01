@@ -115,7 +115,7 @@ methods: {
     </CardAlert>
     <!-- {card_body || children} -->
     <CardBody v-if="body">{{ body }}</CardBody>
-    <slot name="children"></slot>
+    <slot></slot>
     <!-- {card_footer} -->
     <CardFooter v-if="footer">{{ footer }}</CardFooter>
   </div>

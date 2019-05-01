@@ -391,7 +391,7 @@
         box-shadow: 0 0 0 3px #3490dc !important;
     }
 
-    div.embedded_image[data-laout="wide"] {
+    div.embedded_image[data-layout="wide"] {
         width: 100vw !important;
         position: relative !important;
         left: 50% !important;

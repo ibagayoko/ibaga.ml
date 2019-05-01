@@ -3,9 +3,10 @@ import VueNotification from "@kugatsu/vuenotification";
 
 const entries = Object.entries(require("./components"))
 for (const [key, cmpnt] of entries) {
-  console.log(`There are ${key} `)
   Vue.component(key, cmpnt)
+  console.log(`There are ${key} `)
 }
+console.log("done")
 // // Components
 // Vue.component('blog-card', require("./components").BlogCard)
 // Vue.component('Container', require("./components").Container)
@@ -43,8 +44,8 @@ Vue.use(VueNotification, {
     infiniteTimer:true
   });
 
-  import { Plugin } from 'vue-fragment'
-  Vue.use(Plugin)
+  import { Fragment } from 'vue-fragment'
+  Vue.component("Fragment", Fragment)
 
 // Directives
 Vue.directive('loading', require('./components/loadingButton'));

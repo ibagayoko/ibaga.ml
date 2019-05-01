@@ -1,5 +1,5 @@
 <template>
-    <div v-if="type==='li'" v-click-outside="hide"  v-on:click="_handlOnClick"   v-bind:class="classes">
+    <li v-if="type==='li'" v-click-outside="hide"  v-on:click="_handlOnClick"   v-bind:class="classes">
         <!-- navlink -->
         <NavLink
           :class-name="className"
@@ -7,7 +7,7 @@
           :icon="icon"
           :hasSubNav="hasSubI"
           :active="active"
-          useExact="useExact"
+          :useExact="useExact"
         >
           {{ value }}
           <slot/>
@@ -19,7 +19,7 @@
             :value="item.value" :to="item.to" :icon="item.icon">
             </NavSubItem>
         </DropDowMenu>
-    </div>
+    </li>
     <div v-else v-click-outside="hide"  v-on:click="_handlOnClick"   v-bind:class="classes">
         <!-- navlink -->
         <NavLink
@@ -28,7 +28,7 @@
           :icon="icon"
           :hasSubNav="hasSubI"
           :active="active"
-          useExact="useExact"
+          :useExact="useExact"
         >
           {{ value }}
           <slot/>
@@ -49,14 +49,15 @@ import {Icon} from '../'
         name:"NavItem",
         props:{
             active:{default:false},
-            icon:Boolean,
+            icon:String,
             className:String,
             value:String,
             to:String,
             href:String,
-            type:String,
+            type:{default:"li"},
             hasSubNav:Boolean,
             position:String,
+            useExact:Boolean,
             subItems: []
         },
         methods:{
@@ -83,7 +84,7 @@ import {Icon} from '../'
             return className
         },
         hasSubI(){
-                return this.hasSubNav || this.subItems.length>0 || this.$slots['sub-item']
+                return this.hasSubNav || this.$slots['sub-item'] || (this.subItems && this.subItems.length>0)
         }
         }
     }
