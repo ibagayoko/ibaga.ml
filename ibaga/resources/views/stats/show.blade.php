@@ -56,18 +56,29 @@
                 <h5 class="text-muted small text-uppercase font-weight-bold">Popular Reading Times</h5>
 
                 @if($data['popular_reading_times'])
+                <grid-row>
                     @foreach($data['popular_reading_times'] as $range => $percentage)
-                        <div class="d-flex py-2 @if($loop->first) border-top @endif align-items-center">
-                            <div class="mr-auto">
+                    <grid-col>
+                        {{-- <div class="d-flex py-2 @if($loop->first) border-top @endif align-items-center"> --}}
+                            {{-- <div class="mr-auto">
                                 <p class="mb-0 py-1">
                                     {{ $range }}
                                 </p>
-                            </div>
-                            <div class="ml-auto">
+                            </div> --}}
+                            {{-- <div class="ml-auto">
                                 <span class="text-muted">{{ sprintf('%s%s', $percentage, '%') }}</span>
-                            </div>
-                        </div>
+                            </div> --}}
+                            <Progress-Card
+                            progress-color="red"
+                            :progress-Width="{{$percentage}}"
+                          >
+                          <h5 class="h5" SLOT="header">{{ $range }}</h5>
+                          {{ sprintf('%s%s', $percentage, '%') }}
+                        </Progress-Card>
+                        {{-- </div> --}}
+                    </grid-col>
                     @endforeach
+                </grid-row>
                 @else
                     <p class="py-4 border-top"><em>Waiting until your post has more views to show these insights.</em>
                     </p>

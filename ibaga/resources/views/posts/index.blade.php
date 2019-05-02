@@ -29,6 +29,7 @@ $links= ["https://malimoncton"];
 $linksName = ['<a>Halo'];
 @endphp
 @section('content')
+<Page-Content >
     <post-list :models="{{ $data['posts'] }}" inline-template>
         <div class="container">
             <div class="row justify-content-center">
@@ -37,7 +38,7 @@ $linksName = ['<a>Halo'];
                         <h1 class="mb-4 mt-2">Posts</h1>
                         <div>
                             <i-button icon="list" v-on:click.native="activeListView()"></i-button>
-                            <i-button icon="photo" v-on:click.native="activeCardView()"></i-button>
+                            <i-button icon="grid" v-on:click.native="activeCardView()"></i-button>
                         </div>
                         <dropdown class-name="my-auto" flex="md" :content-Style='{right:"50%"}'>
                                <i-Button slot="trigger" icon="search"></i-Button>
@@ -48,6 +49,7 @@ $linksName = ['<a>Halo'];
                                             <div class="form-group mb-0">
                                                 <input v-model="search"
                                                 type="text"
+                                                name="q"
                                                 class="form-control border-0 pl-0"
                                                 id="search"
                                                 placeholder="Search..."
@@ -116,6 +118,6 @@ $linksName = ['<a>Halo'];
         </div>
     </post-list>
 
-
+</Page-Content>
   
 @endsection
