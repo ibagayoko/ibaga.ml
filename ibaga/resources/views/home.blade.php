@@ -23,6 +23,8 @@
       ];
       $links= ["https://malimoncton"];
     $linksName = ['<a>Halo'];
+
+      
       $data = [
         "columns"=> [
           // each columns data

@@ -1,21 +1,21 @@
 <Site-Header
 href= "/"
 alt="Tabler React"
-image-url= "https://preview.tabler.io/demo/brand/tabler.svg">
+image-url= "{{ asset('assets/imgs/logo.svg') }}">
 <template slot="navItems">
-
-  <Nav-Item type="div" class-Name="d-none d-md-flex">
+    @stack('headerRight')
     <i-Button
-      href="https://github.com/tabler/tabler-react"
+  {{-- <Nav-Item type="div" class-Name="d-none d-md-flex"> --}}
+      to="https://github.com/tabler/tabler-react"
       target="_blank"
       outline
       size="sm"
-      RootComponent="a"
+      root-tag="a"
       color="primary"
     >
       Source code
     </i-Button>
-  </Nav-Item>
+  {{-- </Nav-Item> --}}
 </template>
   {{-- <Nav-Item type="div" class-Name="d-none d-md-flex"> --}}
     <template slot=accountDropdown>

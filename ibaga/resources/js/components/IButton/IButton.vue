@@ -1,9 +1,14 @@
 <template>
-    <button v-bind:class="classes">
-        <Icon v-if="social" :name="social" prefix="fa" :class-name="iconClass()" />
-        <Icon v-if="icon" :name="icon" prefix="fa" :class-name="iconClass()" />
+    <button v-if="rootTag=='button'" v-bind:class="classes">
+        <Icon v-if="social" :name="social" prefix="fa" :class-name="iconClass" />
+        <Icon v-if="icon" :name="icon" prefix="fa" :class-name="iconClass" />
      <slot />
     </button>
+      <a v-else-if="rootTag=='a'" v-bind:class="classes" :href="to">
+        <Icon v-if="social" :name="social" prefix="fa" :class-name="iconClass" />
+        <Icon v-if="icon" :name="icon" prefix="fa" :class-name="iconClass" />
+     <slot />
+    </a>
 </template>
 
 <script>
@@ -13,6 +18,7 @@ import { Icon } from "../";
         props:{
                 size:{ default:""},
     outline:Boolean,
+    rootTag:{default:"button"},
     link:Boolean,
     block:Boolean,
     className:String,
@@ -31,10 +37,13 @@ import { Icon } from "../";
         mounted() {
             console.log('Component mounted.')
         },
-        computed: {
-        hasChild () {
+        methods:{
+            hasChild () {
       return !!this.$slots.default
     },
+        },
+        computed: {
+        
     iconClass(){
         return this.hasChild() ? 'mr-2' : ""
     },

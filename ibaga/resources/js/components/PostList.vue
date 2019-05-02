@@ -8,7 +8,18 @@
         data() {
             return {
                 search: '',
-                postList: this.models ? this.models : []
+                postList: this.models ? this.models : [],
+                view:'list'
+            }
+        },
+        methods:{
+            activeListView(){
+                this.view = 'list'
+
+            },
+             activeCardView(){
+                this.view = 'card'
+                
             }
         },
 

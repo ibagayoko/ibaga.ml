@@ -20,5 +20,6 @@
     </template>
     <template slot=rightColumnComponent>
         {{-- seacrh bar --}}
+        @stack('navRight')
     </template>
 </Site-Nav>

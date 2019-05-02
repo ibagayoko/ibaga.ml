@@ -1,11 +1,33 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 
-@section('actions')
+@push('navRight')
     <a href="{{ route('post.create') }}" class="btn btn-sm btn-outline-primary my-auto mx-3">
         New post
     </a>
-@endsection
-
+@endpush
+@php
+$menu = [
+  [
+    "value"=> "Forms",
+    "to"=> "",
+    "icon"=> "check-square",
+    "subItems" => [
+      [
+        "value"=> "Forms",
+        "to"=> route("home"),
+        "icon"=> "check-square",
+      ],
+    ]
+  ],
+  [
+    "value"=> "Gallery",
+    "to"=> route("post.index"),
+    "icon"=> "image",
+  ],
+];
+$links= ["https://malimoncton"];
+$linksName = ['<a>Halo'];
+@endphp
 @section('content')
     <post-list :models="{{ $data['posts'] }}" inline-template>
         <div class="container">
@@ -13,29 +35,50 @@
                 <div class="col-md-10">
                     <div class="d-flex justify-content-between">
                         <h1 class="mb-4 mt-2">Posts</h1>
-                        <div class="dropdown my-auto">
-                            <a href="#" id="navbarDropdown" class="nav-link px-0 text-secondary pt-0" role="button"
-                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre
-                               style="margin-top: -8px">
-                                <i class="fas fa-search"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right py-0" style="min-width: 15rem;" aria-labelledby="dropdownMenuButton">
-                                <form class="pl-2 w-100">
-                                    <div class="form-group mb-0">
-                                        <input v-model="search"
-                                               type="text"
-                                               class="form-control border-0 pl-0"
-                                               id="search"
-                                               placeholder="Search..."
-                                               autofocus>
-                                    </div>
-                                </form>
-                            </div>
+                        <div>
+                            <i-button icon="list" v-on:click.native="activeListView()"></i-button>
+                            <i-button icon="photo" v-on:click.native="activeCardView()"></i-button>
                         </div>
+                        <dropdown class-name="my-auto" flex="md" :content-Style='{right:"50%"}'>
+                               <i-Button slot="trigger" icon="search"></i-Button>
+                            <template slot="content">
+
+                                <div   class="dropdown-menu dropdown-menu-right show py-0" style="min-width: 15rem;" >
+                                        <form class="pl-2 w-100">
+                                            <div class="form-group mb-0">
+                                                <input v-model="search"
+                                                type="text"
+                                                class="form-control border-0 pl-0"
+                                                id="search"
+                                                placeholder="Search..."
+                                                autofocus>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </template>
+                        </dropdown>
                     </div>
 
                     @if(count($data['posts']))
-                        <div v-cloak>
+                    <grid-row v-if="view=='card'">
+                    <grid-col sm="6" lg="4" v-for="post in filteredList">
+                    <blog-card 
+                    aside="true"
+                    
+                    :title="post.title" 
+                    :img-src="post.featured_image" 
+                    :author-name="post.author" 
+                    :description="post.summary" 
+                    {{-- date="{{ $post->published_at->format('M d, Y') }}" --}}
+                    img-alt=""
+                    {{-- avatar-img-src="https://tabler.github.io/tabler/demo/faces/female/18.jpg" --}}
+                    :post-href="'/posts/' + post.id + '/edit'"
+                    avatar-img-src="https://secure.gravatar.com/avatar/{{ md5(strtolower(trim("bagayoko.ismail@gmail.com")))}}?s=200"
+                    />
+                    </grid-col>
+                    </grid-row>
+                        <div v-cloak v-if="view=='list'">
+                           
                             <div class="d-flex border-top py-3 align-items-center" v-for="post in filteredList">
                                 <div class="mr-auto py-1">
                                     <p class="mb-1">

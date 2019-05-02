@@ -39,7 +39,7 @@
 <template>
         <Card v-if="aside">
           <template>
-             <a :href="postHref">
+             <a :href="postHref" v-if="imgSrc">
               <img class="card-img-top" :src="imgSrc" :alt="imgAlt" />
             </a>
       <CardBody class-name="d-flex flex-column">
@@ -69,7 +69,7 @@
         </Card>
         <Card v-else className="card-aside">
             <template >
-      <a
+      <a v-if="imgSrc"
         :href="postHref"
         class="card-aside-column"
         v-bind:style="{ backgroundImage: `url(${imgSrc})` }"

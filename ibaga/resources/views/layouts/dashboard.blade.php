@@ -54,6 +54,7 @@
     @stack('styles')
 </head>
 <body>
+ 
     <div id="app">
         <site-wrapper>
                 <template v-slot:header>
