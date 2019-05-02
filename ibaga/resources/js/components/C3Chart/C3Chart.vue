@@ -5,6 +5,14 @@ import "./c3jscustom.css";
 export default {
   name: 'C3Chart',
   props: {
+    cstyle:{
+      type: Object,
+      default: () => ({})
+    },
+    size:{
+      type: Object,
+      default: () => ({})
+    },
     config: {
       type: Object,
       default: () => ({})
@@ -73,8 +81,8 @@ export default {
           }
         }
       }
-      const {legend, padding, tooltip, point} = this
-      return defaultsDeep({ axis, color, legend, padding, tooltip, point}, config)
+      const {legend, padding, tooltip, point, size} = this
+      return defaultsDeep({ axis, color, legend, padding, tooltip, point, size}, config)
     },
     update: debounce(function update () {
       const data = this.getData()
@@ -107,7 +115,9 @@ export default {
 </script>
 
 <template>
-  <div ref="root" class="chart-root"></div>
+  <div v-bind:style="cstyle"  ref="root" class="chart-root"></div>
 </template>
 
-<!-- <style src="root/node_modules/c3/c3.css"></style> -->
+<style >
+@import url("./c3jscustom.css");
+</style>

@@ -1,10 +1,10 @@
 <template>
-    <table v-if="!responsive" v-bind:class="classes" :col-span="colSpan">
+    <table :id="tid" v-if="!responsive" v-bind:class="classes" :col-span="colSpan">
         <slot name="header"/>
         <slot />
     </table>
     <div v-else class="table-responsive">
-        <table v-bind:class="classes" :col-span="colSpan">
+        <table :id="tid" v-bind:class="classes" :col-span="colSpan">
         <slot name="header"/>
         <slot />
     </table>
@@ -26,6 +26,7 @@
             hasOutline:Boolean,
             verticalAlign:String,
             colSpan:Boolean,
+            tid:String
         },
         mounted() {
             console.log('Table Component mounted.')

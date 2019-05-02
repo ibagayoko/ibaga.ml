@@ -1,11 +1,11 @@
 <template>
      <Card v-if="layout==2" :class-Name="className">
-        <CardBody #children>
-          <div :class-Name="`card-value float-right text-${movementColor()}`">
-            {{movementString}}
+        <CardBody>
+          <div :class="`card-value float-right text-${movementColor}`">
+            {{ movementString }}
           </div>
-          <HeaderH3 class-Name="mb-1">{{total}}</HeaderH3>
-          <IText muted>{{label}}</IText>
+          <h3 class="h3 mt-0 mb-4 mb-1 ">{{total}}</h3>
+          <IText :muted="true">{{label}}</IText>
         </CardBody>
         <div v-if="chart" class="card-chart-bg">
         <slot />
@@ -19,7 +19,7 @@
             :name='`${!movement ? "minus" : movement > 0 ? "chevron-up" : "chevron-down"}`'
           />
         </IText>
-        <h3 class-Name="m-0">{{total}}</h3>
+        <h3 class="h3 m-0">{{total}}</h3>
         <!-- <Header class-Name="m-0">{{total}}</Header> -->
         <IText color="muted" class-Name=" mb-4">
           {{label}}

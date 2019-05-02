@@ -1,7 +1,7 @@
 <template>
-    <Text root-tag="small" :color="color" :wrap="wrap" :muted="muted" size="sm"   :class-name="className">
+    <IText root-tag="small" :color="color" :wrap="wrap" :muted="muted" size="sm"   :class-name="className">
        <slot />
-    </Text>
+    </IText>
 </template>
 
 <script>
@@ -10,7 +10,7 @@
         props: {
             color:{default:""},
             wrap:String,
-            muted:String,
+            muted:Boolean,
             className:String},
         mounted() {
             console.log('TextSmall mounted.')

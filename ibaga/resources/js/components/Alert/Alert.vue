@@ -1,22 +1,17 @@
 
 
 <script>
-import {Icon, Avatar, IButton} from '../'
+// import {Icon, Avatar, IButton} from '../'
 
     export default {
         name: "Alert",
-        components:{
-            Avatar,
-            Icon,
-            IButton
-        },
         props: {
-          className,
+          className:{default:""},
           type: {default: 'success', type: String},
-          icon,
-          hasExtraSpace,
-          isDismissible,
-          avatar,
+          icon:String,
+          hasExtraSpace:Boolean,
+          isDismissible:Boolean,
+          avatar:String,
 
         },
         data(){

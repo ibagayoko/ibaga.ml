@@ -1,9 +1,9 @@
 <script type="text/ecmascript">
 // Todo bind event function
-import { Icon } from "../";
+// import { Icon } from "../";
     export default  {
         components: {
-            Icon
+            // Icon
         },
         name: 'Avatar',
         props: [
@@ -15,18 +15,12 @@ import { Icon } from "../";
             "placeholder",
             "icon",
             "color",
-            "onClick",
-            "onMouseEnter",
-            "onMouseLeave",
-            "onPointerEnter",
-            "onPointerLeave",
         ],
         data() {
             return {
-                styleObject: this.imageURL
-          ? Object.assign(
+                styleObject: this.imageUrl ? Object.assign(
               {
-                backgroundImage: `url(${this.imageURL})`,
+                backgroundImage: `url(${this.imageUrl})`,
               },
               this.style
             )
@@ -56,7 +50,7 @@ import { Icon } from "../";
         v-bind:style="styleObject"
       >
         <Icon v-if="icon" :name="icon" />
-         <span v-if="status" class-name="`avatar-status bg-${status}`" />
+         <span v-if="status" :class-name="`avatar-status bg-${status}`" />
         <slot/>
         </span>
 </template>

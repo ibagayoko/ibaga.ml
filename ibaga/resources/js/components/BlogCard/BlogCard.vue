@@ -1,12 +1,12 @@
 <script type="text/ecmascript">
-import Card from "../Card/Card";
-import CardBody from "../Card/CardBody";
-import Icon from "../Icon/Icon";
+// import Card from "../Card/Card";
+// import CardBody from "../Card/CardBody";
+// import Icon from "../Icon/Icon";
     export default  {
         components: {
-            Card,
-            CardBody,
-            Icon
+            // Card,
+            // CardBody,
+            // Icon
         },
         name: 'BlogCard',
         props: [ 

@@ -4,9 +4,9 @@ import VueNotification from "@kugatsu/vuenotification";
 const entries = Object.entries(require("./components"))
 for (const [key, cmpnt] of entries) {
   Vue.component(key, cmpnt)
-  console.log(`There are ${key} `)
+  // console.log(`There are ${key} `)
 }
-console.log("done")
+// console.log("done")
 // // Components
 // Vue.component('blog-card', require("./components").BlogCard)
 // Vue.component('Container', require("./components").Container)
@@ -15,7 +15,11 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('page-header', require('./components/PageHeader').default);
 Vue.component('preloader', require('./partials/Preloader').default);
 
-Vue.component('alert', require('./components/Alert').default);
+import Popper from 'vue-popperjs';
+import 'vue-popperjs/dist/vue-popper.css';
+Vue.component('popper', Popper);
+
+// Vue.component('alert', require('./components/Alert').default);
 Vue.component('dropdown', require('./components/DropDown').default);
 Vue.component('modal', require('./components/Modal').default);
 Vue.component('fullscreen-modal', require('./components/FullscreenModal').default);

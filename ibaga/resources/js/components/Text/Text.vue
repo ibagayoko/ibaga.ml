@@ -97,5 +97,8 @@
         <p v-else-if="rootTag==='p'" v-bind:class="classes">
         <slot/>
         </p>
+        <span v-else-if="rootTag==='span'" v-bind:class="classes">
+        <slot/>
+        </span>
 
 </template>

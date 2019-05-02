@@ -1,20 +1,21 @@
 <template>
 <div v-bind:class="classes">
       <Container>
-        <slot />
         <!-- {children || ( -->
           <GridRow class-name="align-items-center">
-            <GridCol :lg="3" class-name="ml-auto" :ignore-col="true">
-              <!-- {/* @TODO: add InlineSearchForm  */} -->
-              <!-- {/* {rightColumnComponent || (withSearchForm && <InlineSearchForm />)} */} -->
-              <slot name="rightColumnComponent"/>
-            </GridCol>
-            <GridCol className="col-lg order-lg-first">
+           
+            <GridCol class-Name="col-lg order-lg-first">
+          <slot name="nav"/>
               <INav
                 tabbed="true"
                 class-name="border-0 flex-column flex-lg-row"
                 :items="items"
               />
+            </GridCol>
+             <GridCol :lg="3" class-name="ml-auto" :ignore-col="true">
+              <!-- {/* @TODO: add InlineSearchForm  */} -->
+              <!-- {/* {rightColumnComponent || (withSearchForm && <InlineSearchForm />)} */} -->
+              <slot name="rightColumnComponent"/>
             </GridCol>
           </GridRow>
         <!-- )} -->

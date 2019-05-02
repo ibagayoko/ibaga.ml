@@ -4,7 +4,7 @@ export { Card, CardBody, CardTitle, CardHeader } from "./Card";
 export { default as Container } from "./Container"
 export { IButton } from "./IButton";
 export { default as BlogCard } from "./BlogCard";
-export { default as Alert } from "./Alert";
+export {  Alert, AlertLink } from "./Alert/index";
 export {GridRow, GridCol} from './Grid';
 
 export {
@@ -52,3 +52,10 @@ NavSubmenuItem,
     export {ITextSmall, IText} from './Text'
     export {default as C3Chart} from './C3Chart'
     export { default as StatsCard} from "./StatsCard"
+
+    export { IProgress, ProgressBar } from './Progress'
+    export { ProgressCard } from './ProgressCard'
+    export { Stamp } from './Stamp'
+    export { StampCard } from './StampCard'
+
+    export { Dropdown, DropdownItem} from "./DropDown"

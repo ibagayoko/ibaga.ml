@@ -1,5 +1,5 @@
 <template>
-        <Page>
+        <Page ignoreCol="true">
         <PageMain>
           <slot name="header">
           </slot>
