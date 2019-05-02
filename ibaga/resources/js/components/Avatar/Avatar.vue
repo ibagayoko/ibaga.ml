@@ -50,7 +50,7 @@
         v-bind:style="styleObject"
       >
         <Icon v-if="icon" :name="icon" />
-         <span v-if="status" :class-name="`avatar-status bg-${status}`" />
+         <span v-if="status" :class="`avatar-status bg-${status}`" />
         <slot/>
         </span>
 </template>

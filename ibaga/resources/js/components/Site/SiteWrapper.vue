@@ -1,5 +1,5 @@
 <template>
-        <Page ignoreCol="true">
+        <Page :ignore-col="true">
         <PageMain>
           <slot name="header">
           </slot>

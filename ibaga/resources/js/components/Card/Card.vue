@@ -109,7 +109,7 @@ methods: {
     </CardHeader>
 
     <!-- {card_alert} -->
-    <CardAlert v-if="alert && alertColor" color="{alertColor}">
+    <CardAlert v-if="alert && alertColor" :color="alertColor">
       <slot name="alert"/>
       <!-- {alert} -->
     </CardAlert>

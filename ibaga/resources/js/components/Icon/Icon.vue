@@ -1,4 +1,5 @@
 <script type="text/ecmascript">
+
     export default  {
         components: {},
         name: 'Icon',

@@ -1,215 +1,81 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <!-- Meta -->
-    @stack('meta')
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+@extends('layouts.dashboard')
 
-    <!-- Title -->
-    <title>@yield('title')</title>
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,400,700,900" rel="stylesheet">
-
-    <!-- HighlightJS scripts -->
-    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.13.1/build/highlight.min.js"></script>
-
-    <!-- HighlightJS sheets -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.13.1/build/styles/github.min.css">
-
-    <!-- Bootstrap 4 sheets -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
-    <!-- Medium-Zoom scripts -->
-    {{-- <script src="https://unpkg.com/medium-zoom@0/dist/medium-zoom.min.js"></script> --}}
-
-    <!-- Bootstrap 4 scripts -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-    
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
-    <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-<link rel="stylesheet" href="http://tabler-react.com/static/css/main.7357ccf6.chunk.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.0/c3.css" /> 
-
-<!-- FontAwesome scripts -->
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js" integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7" crossorigin="anonymous"></script>
-        <!-- Scripts -->
-        <script src="https://momentjs.com/downloads/moment.js"></script>
-        <script src="{{ ('/app.js') }}" defer></script>
-        
-    <!-- Additional style sheets -->
-    @stack('styles')
-</head>
-<body>
+@section('content')
   @php
-      $menu = [[
-                  "value"=> "Forms",
-                  "to"=> "/form-elements",
-                  "icon"=> "check-square"
-],
-                [
-                  "value"=> "Gallery",
-                  "to"=> "/gallery",
-                  "icon"=> "image",
-                ]
+      $menu = [
+        [
+          "value"=> "Forms",
+          "to"=> "",
+          "icon"=> "check-square",
+          "subItems" => [
+            [
+              "value"=> "Forms",
+              "to"=> route("home"),
+              "icon"=> "check-square",
+            ],
+          ]
+        ],
+        [
+          "value"=> "Gallery",
+          "to"=> route("post.index"),
+          "icon"=> "image",
+        ],
       ];
       $links= ["https://malimoncton"];
     $linksName = ['<a>Halo'];
       $data = [
-                                "columns"=> [
-                                  // each columns data
-                                  [
-                                    "data1",
-                                    0,
-                                    5,
-                                    1,
-                                    2,
-                                    7,
-                                    5,
-                                    6,
-                                    8,
-                                    24,
-                                    7,
-                                    12,
-                                    5,
-                                    6,
-                                    3,
-                                    2,
-                                    2,
-                                    6,
-                                    30,
-                                    10,
-                                    10,
-                                    15,
-                                    14,
-                                    47,
-                                    65,
-                                    55,
-                                  ],
-                                ],
-                                // "type"=> "area", // default type of chart
-                                "groups"=> [["data1", "data2", "data3"]],
-                                "colors"=> [
-                                  "data1"=> "#467fcf",
-    ],
-                                "names"=> [
-                                  // name of each serie
-                                  "data1"=> "Purchases",
-    ],
-                              ];
-                $axis = [
-                                "y"=>[
-                                  "padding"=>[
-                                    "bottom"=> 0,
-    ],
-                                  "show"=> false,
-                                  "tick"=> [
-                                    "outer"=> false,
-    ],
-    ],
-                                "x"=> [
-                                  "padding"=> [
-                                    "left"=> 0,
-                                    "right"=> 0,
-    ],
-                                  "show"=>false,
-    ],
-                              ];
-                              $point = [
-                              
-                                "show"=> false,
-                              
-    ];
-    $legend = [
-                                "position"=> "inset",
-                                "padding"=> 0,
-                                "inset"=> [
-                                  "anchor"=> "top-left",
-                                  "x"=> 20,
-                                  "y"=> 8,
-                                  "step"=> 10,
-    ],
-    ];
+        "columns"=> [
+          // each columns data
+          [
+            "data1",
+            0,5,1,2,7,5,6,8,24,7,12,5,6,3,2,2,6,30,10,10,15,14,47,65,55,
+          ],
+        ],
+        // "type"=> "area", // default type of chart
+        "groups"=> [["data1", "data2", "data3"]],
+        "colors"=> [
+          "data1"=> "#467fcf",
+        ],
+        "names"=> [
+          // name of each serie
+          "data1"=> "Purchases",
+        ],
+      ];
+      $axis = [
+        "y"=>[
+          "padding"=>[
+            "bottom"=> 0,
+          ],
+          "show"=> false,
+          "tick"=> [
+            "outer"=> false,
+          ],
+        ],
+        "x"=> [
+          "padding"=> [
+            "left"=> 0,
+            "right"=> 0,
+          ],
+          "show"=>false,
+        ],
+      ];
+      $point = [
+        "show"=> false,
+      ];
+      $legend = [
+        "position"=> "inset",
+        "padding"=> 0,
+        "inset"=> [
+          "anchor"=> "top-left",
+          "x"=> 20,
+          "y"=> 8,
+          "step"=> 10,
+        ],
+      ];
   @endphp
-    <div id="app">
-        <Site-Wrapper>
-            <template v-slot:header>
-                <Site-Header
-                        href= "/"
-                        alt="Tabler React"
-                        image-url= "https://preview.tabler.io/demo/brand/tabler.svg">
-                        <template slot="navItems">
-
-                          <Nav-Item type="div" class-Name="d-none d-md-flex">
-                            <i-Button
-                              href="https://github.com/tabler/tabler-react"
-                              target="_blank"
-                              outline
-                              size="sm"
-                              RootComponent="a"
-                              color="primary"
-                            >
-                              Source code
-                            </i-Button>
-                          </Nav-Item>
-                        </template>
-                          {{-- <Nav-Item type="div" class-Name="d-none d-md-flex"> --}}
-                            <template slot=accountDropdown>
-                              <Dropdown class=""
-                              {{-- position="bottom-end" --}}
-                              {{-- isNavLink --}}
-                              {{-- triggerClassName="pr-0 leading-none" --}}
-                              >
-                              {{-- <template slot=trigger> --}}
-                                <a class="nav-link pr-0 leading-none" slot=trigger>
-                                  <Avatar  image-URL=avatarURL ></Avatar>
-                                  <span class="ml-2 d-none d-lg-block">
-                                    <span class="text-default">Ismail</span>
-                                    <small class="text-muted d-block mt-1">Administrateur</small>
-                                  </span>
-
-                                </a>
-                              {{-- </template> --}}
-                                
-                              
-                              {{-- <template slot=content> --}}
-
-                                  <div slot=content class=" dropdown-menu dropdown-menu-center dropdown-menu-arrow show " data-placement="left">
-                                      <Dropdown-Item icon="tag">Action </Dropdown-Item>
-                                      <Dropdown-Item icon="edit-2">
-                                        @{{" "}}Another action@{{ "" }}
-                                      </Dropdown-Item>
-                                      <Dropdown-Item-Divider />
-                                      <Dropdown-Item icon="link">
-                                        {{" "}}
-                                        Separated link
-                                      </Dropdown-Item>
-                                    </div>
-                              {{-- </template> --}}
-                              </Dropdown>
-                              
-                          {{-- </Nav-Item> --}}
-                        </template>
-
-                        </Site-Header>
-
-            </template>
-            <template #nav >
-                <Site-Nav :items="{{ json_encode($menu)}}" :collapse="this.collapseMobileMenu">
-                  <template slot=rightColumnComponent>
-                    {{-- seacrh bar --}}
-                  </template>
-                </Site-Nav>
-            </template>
+    
+            
+            
             <Page-Content title="Dashboard" >
                     <Grid-Row :cards="true">
                       <Grid-Col width="6" sm="4" lg="2">
@@ -221,7 +87,7 @@
                           :movement="-3"
                           total="17"
                           label="Closed Today"
-                        />
+                        ></Stats-Card>
                       </Grid-Col>
                       <Grid-Col width="6" sm="4" lg="2">
                         <Stats-Card :layout="1" :movement="3" total="7" label="New Replies" />
@@ -338,7 +204,7 @@
 
                       </Grid-Col>
                       <Grid-Col md="6">
-                           <Alert type="primary">
+                        <Alert type="primary">
                              <template>
 
                                ksdhckb k
@@ -349,42 +215,42 @@
                               </Alert-Link>
                               with code samples.
                             </template>
-            </Alert>
-            <Grid-Row>
-                <Grid-Col sm="6">
-                  <Card>
-                    <Card-Header>
-                      <Card-Title>Chart title</Card-Title>
-                    </Card-Header>
-                    <Card-Body>
-                      <C3-Chart
-                        {{-- :style='{ height: "12rem" }' --}}
-                        type="donut"
-                        :data='{
-                          columns: [
-                            // each columns data
-                            ["data1", 63],
-                            ["data2", 37],
-                          ],
-                          type: "donut", // default type of chart
-                          colors: {
-                            data1: "#3866a6",//colors["green"],
-                            data2: "#3788c2"//colors["green-light"],
-                          },
-                          names: {
-                            // name of each serie
-                            data1: "Maximum",
-                            data2: "Minimum",
-                          },
-                        }'
-                        :legend='{
-                          show: false, //hide legend
-                        }'
-                        :padding='{
-                          bottom: 0,
-                          top: 0,
-                        }'
-                      />
+                        </Alert>
+                        <Grid-Row>
+                          <Grid-Col sm="6">
+                            <Card>
+                              <Card-Header>
+                                <Card-Title>Chart title</Card-Title>
+                              </Card-Header>
+                              <Card-Body>
+                                <C3-Chart
+                                {{-- :style='{ height: "12rem" }' --}}
+                                type="donut"
+                                :data='{
+                                  columns: [
+                                    // each columns data
+                                    ["data1", 63],
+                                    ["data2", 37],
+                                  ],
+                                  type: "donut", // default type of chart
+                                  colors: {
+                                    data1: "#3866a6",//colors["green"],
+                                    data2: "#3788c2"//colors["green-light"],
+                                  },
+                                  names: {
+                                    // name of each serie
+                                    data1: "Maximum",
+                                    data2: "Minimum",
+                                  },
+                                }'
+                                :legend='{
+                                  show: false, //hide legend
+                                }'
+                                :padding='{
+                                  bottom: 0,
+                                  top: 0,
+                                }'
+                              />
                     </Card-Body>
                   </Card>
                 </Grid-Col>
@@ -492,11 +358,11 @@
                                       </I-Text>
                                     </Table-Col>
                                     <Table-Col>
-                                      <div class-Name="clearfix">
-                                        <div class-Name="float-left">
+                                      <div class="clearfix">
+                                        <div class="float-left">
                                           <strong>42%</strong>
                                         </div>
-                                        <div class-Name="float-right">
+                                        <div class="float-right">
                                           <I-Text-Small :muted="true">
                                             Jun 11, 2015 - Jul 10, 2015
                                           </I-Text-Small>
@@ -548,7 +414,7 @@
                               <I-Table :cards=true>
                                 <Table-Row>
                                   <Table-Col>Admin Template</Table-Col>
-                                  <Table-Col align-Content="right">
+                                  <Table-Col align-content="right">
                                     <Badge color="default">65%</Badge>
                                   </Table-Col>
                                 </Table-Row>
@@ -712,7 +578,7 @@
 
                                                 </Table-Row>
                                             </Table-Header>
-                                            
+                                            <Table-Body>
                                             <Table-Row>
                                                       <Table-col>
                                                       <I-Text root-Tag="span" :muted=true>
@@ -758,6 +624,7 @@
                                                       </Table-col>
                                             </Table-Row>
                                             @include('tr')
+                                            </Table-Body>
                                           </i-Table>
                                       </Card>
                                     </Grid-Col>
@@ -766,44 +633,16 @@
                     
                     
             </Page-Content>
-            <template  slot=footer >
-
-              <Site-Footer :links="{{ json_encode($links)}}" :links-name="{{ json_encode($linksName) }}" note="Premium and Open Source dashboard template with responsive and high quality UI. For Free!">
-                <template slot="copyright">
-                    Copyright © 2019
-              <a href="."> Tabler-react</a>. Theme by
-              <a
-                href="https://codecalm.net"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                @{{" "}}
-                codecalm.net
-              </a>@{{" "}}
-              All rights reserved.
-                </template>
-                <template slot="nav">
-nav
-                  </template>
-              </Site-Footer>
-            </template>
-                      <Site-Wrapper>
-
-
-    </div>
+            
+         
     {{-- <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script> --}}
     {{-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/datatables.min.css"/> --}}
  
 {{-- <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/datatables.min.js"></script> --}}
-    <script>
-      $(document).ready(function() {
-    $('#example').DataTable();
-} );
-    </script>
+
 
     <!-- Additional scripts -->
-    @stack('scripts')
-</body>
-</html>
+    
+@endsection

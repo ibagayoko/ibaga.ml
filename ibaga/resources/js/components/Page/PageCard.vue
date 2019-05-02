@@ -1,5 +1,5 @@
 <template>
-    <div class-name="my-3 my-md-5">
+    <div class="my-3 my-md-5">
       <Container>
         <GridRow>
           <GridCol width="12">

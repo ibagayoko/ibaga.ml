@@ -1,5 +1,5 @@
 <script>
-import c3 from 'c3'
+// import c3 from 'c3'
 import { debounce, cloneDeep, defaultsDeep } from 'lodash'
 import "./c3jscustom.css";
 export default {

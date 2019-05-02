@@ -26,14 +26,15 @@
         },
         methods:{
             data(){
+              
                 return {
-                    pathName:location.pathname
                 }
             }
         },
         methods:{
-            computeActive(navItem){
-            const  pathName  = this.pathName;
+          computeActive(navItem){
+            const  pathName  = location.href;
+          console.log(pathName, navItem)
 
           if (
             navItem.active !== null &&
@@ -49,7 +50,7 @@
 
           if (navItem.subItems !== null && navItem.subItems !== undefined) {
             if (
-              subItems.find(
+              navItem.subItems.find(
                 item =>
                   item.to !== null && item.to !== undefined && item.to === pathName
               )

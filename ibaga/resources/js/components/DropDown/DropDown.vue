@@ -62,4 +62,11 @@
   left: 50%;
   right: 50%;
 }
+.dropcenter .dropdown-menu {
+    top: 1.75rem;
+    /* right: 50%; */
+    left: 50%;
+    margin-top: 12px;
+    margin-left: 0.125rem;
+}
 </style>

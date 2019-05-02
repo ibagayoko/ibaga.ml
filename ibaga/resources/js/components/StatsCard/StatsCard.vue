@@ -5,7 +5,7 @@
             {{ movementString }}
           </div>
           <h3 class="h3 mt-0 mb-4 mb-1 ">{{total}}</h3>
-          <IText :muted="true">{{label}}</IText>
+          <IText :muted="true">{{ label }}</IText>
         </CardBody>
         <div v-if="chart" class="card-chart-bg">
         <slot />
@@ -14,15 +14,14 @@
     <Card v-else :class-Name="className" >
       <CardBody class-Name="p-3 text-center">
         <IText :color="movementColor" class-name="text-right">
-          {{movementString}}
+          {{ movementString }}
           <Icon
             :name='`${!movement ? "minus" : movement > 0 ? "chevron-up" : "chevron-down"}`'
           />
         </IText>
         <h3 class="h3 m-0">{{total}}</h3>
-        <!-- <Header class-Name="m-0">{{total}}</Header> -->
-        <IText color="muted" class-Name=" mb-4">
-          {{label}}
+        <IText color="muted" class-name="mb-4">
+          {{ label }}
         </IText>
       </CardBody>
     </Card>

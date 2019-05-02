@@ -3,30 +3,30 @@
         components: {},
         name: 'IText',
         props: {   
-        color:{default:""},
-        rootTag:{default:"div"},
-        className:String,
-        wrap:Boolean,
-        muted:Boolean,
-        size:{default:""},
-        align:"left" | "center" | "right" | "justify",
-        left:Boolean,
-        center:Boolean,
-        right:Boolean,
-        justify:Boolean,
-        transform:"lowercase" | "uppercase" | "capitalize",
-        lowercase:Boolean,
-        uppercase:Boolean,
-        capitalize:Boolean,
-        tracking:"tight" | "normal" | "wide",
-        trackingTight:Boolean,
-        trackingNormal:Boolean,
-        trackingWide:Boolean,
-        leading:"none" | "tight" | "normal" | "loose",
-        leadingNone:Boolean,
-        leadingTight:Boolean,
-        leadingNormal:Boolean,
-        leadingLoose:Boolean,
+            color:{default:""},
+            rootTag:{default:"div"},
+            className:String,
+            wrap:Boolean,
+            muted:Boolean,
+            size:{default:""},
+            align:"left" | "center" | "right" | "justify",
+            left:Boolean,
+            center:Boolean,
+            right:Boolean,
+            justify:Boolean,
+            transform:"lowercase" | "uppercase" | "capitalize",
+            lowercase:Boolean,
+            uppercase:Boolean,
+            capitalize:Boolean,
+            tracking:"tight" | "normal" | "wide",
+            trackingTight:Boolean,
+            trackingNormal:Boolean,
+            trackingWide:Boolean,
+            leading:"none" | "tight" | "normal" | "loose",
+            leadingNone:Boolean,
+            leadingTight:Boolean,
+            leadingNormal:Boolean,
+            leadingLoose:Boolean,
 
 
     },
@@ -39,7 +39,7 @@
         },
         mounted() {
         },
-        methods: {},
+        // methods: {},
         computed:{
             
 
@@ -71,17 +71,19 @@
                 (this.leadingNormal && "normal") ||
                 (this.leadingLoose && "loose") ||
                 "";
-            const className = {}
-            className[`text-wrap p-lg-6`] = this.wrap
-            className[`text-${this.color}`] = this.color
-            className[`${this.size}`] = this.size
-            className[`text-muted`] = this.muted
-            className[`text-${align}`] = align
-            className[`text-${transform}`] = transform
-            className[`tracking-${tracking}`] = tracking
-            className[`leading-${leading}`] = leading
-            className[`${this.className}`] = true
-            return className
+            let mclasses = {}
+
+            mclasses[`text-wrap p-lg-6`] = this.wrap
+            mclasses[`text-${this.color}`] = this.color
+            mclasses[`${this.size}`] = this.size
+            mclasses[`text-muted`] = this.muted
+            mclasses[`text-${align}`] = align
+            mclasses[`text-${transform}`] = transform
+            mclasses[`tracking-${tracking}`] = tracking
+            mclasses[`leading-${leading}`] = leading
+            mclasses[`${this.className}`] = true
+            
+            return mclasses
         }
         }
     }
