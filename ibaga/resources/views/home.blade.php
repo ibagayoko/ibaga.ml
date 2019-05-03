@@ -2,7 +2,7 @@
 
 @section('content')
   @php
-    dd(Route::all());
+    // dd(Route::all());
       $menu = [
         [
           "value"=> "Forms",
