@@ -27,7 +27,7 @@
     export default {
         name:"SiteNav",
         props:{
-            items:{default:[]},
+            items:{default:()=> []},
             collapse:{default:false},
             withSearchForm:{default:true},
 

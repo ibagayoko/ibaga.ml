@@ -10,7 +10,7 @@ import {Icon} from '../'
     export default {
         name:"NavSubItem",
         props:{
-            icon:Boolean,
+            icon:String,
             className:String,
             to:String,
             value:String,

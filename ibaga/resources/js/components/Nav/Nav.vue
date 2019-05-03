@@ -20,7 +20,7 @@
         name:"INav",
         props:{
             tabbed:{default:true},
-            items:{default:[]},
+            items:{default:()=>[]},
             className:String,
             
         },

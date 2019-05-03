@@ -1,21 +1,34 @@
-<Site-Nav :items="{{ json_encode($menu)}}" :collapse="this.collapseMobileMenu">
+<Site-Nav :collapse="this.collapseMobileMenu">
     <template slot="nav">
-        {{-- <I-Nav
+        <I-Nav
         tabbed="true"
         class-name="border-0 flex-column flex-lg-row"
-        :items="items"
-        > --}}
-        {{-- <Nav-Item
-        key="key"
-        value="item.value"
-        to="item.to"
-        icon="item.icon"
-        sub-items="item.subItems"
-        has-sub-nav="!!item.subItems"
-        active="computeActive(item)"
-        useExact="item.useExact"
-      > --}}
-      </Nav-Item>
+        {{-- :items="{{ json_encode($menu)}}" --}}
+        >
+        @foreach ($items as $item)
+            
+        <Nav-Item
+            {{-- key="key" --}}
+            value="{{ $item->title}}"
+            to="{{ $item->url}}"
+            icon="{{ $item->icon_class }}"
+            {{-- sub-items="item.subItems" --}}
+            :has-sub-nav="{{ count($item->children)? "true" : "false" }}"
+            active="{{ $item->active }}"
+            :use-Exact="true"
+            >
+            @if (count($item->children))
+                
+            <template slot="sub-item">
+                @foreach ($item->children as $child)
+                    
+                <Nav-Sub-Item value="{{ $child->title}}" to="{{ $item->url}}" icon="{{ $item->icon_class }}">
+                </Nav-Sub-Item>
+                @endforeach
+            </template>
+            @endif
+            </Nav-Item>
+            @endforeach
         </I-Nav>
     </template>
     <template slot=rightColumnComponent>

@@ -17,6 +17,8 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         $this->registerEvents();
+
+        $this->loadHelpers();
     }
 
     /**
@@ -43,6 +45,15 @@ class AppServiceProvider extends ServiceProvider
             foreach ($listeners as $listener) {
                 $events->listen($event, $listener);
             }
+        }
+    }
+    /**
+     * Load helpers.
+     */
+    protected function loadHelpers()
+    {
+        foreach (glob(__DIR__.'/../Helpers/*.php') as $filename) {
+            require_once $filename;
         }
     }
 }

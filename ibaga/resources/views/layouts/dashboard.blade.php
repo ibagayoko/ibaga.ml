@@ -61,7 +61,8 @@
                     @yield('header', View::make('components.site.header'))
                 </template>
                 <template #nav >
-                    @yield('nav', View::make('components.site.navbar', compact('menu')))
+                    @yield('nav', menu('home', 'components.site.navbar' ))
+                    {{-- View::make('components.site.navbar', compact('menu'))) --}}
                 </template>
 
                 @yield("content")
