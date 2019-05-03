@@ -41,7 +41,7 @@
             
         },
         mounted() {
-            console.log('StatsCard mounted.')
+            // console.log('StatsCard mounted.')
         },
          computed:{
         movementString(){

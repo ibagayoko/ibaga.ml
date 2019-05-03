@@ -14,7 +14,7 @@
             className:String,
         },
         mounted() {
-            console.log('List Component mounted.')
+            // console.log('List Component mounted.')
         },
         computed:{
             classes () {

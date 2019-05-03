@@ -17,7 +17,7 @@
         props:{
         },
         mounted() {
-            console.log('SiteLogo Component mounted.')
+            // console.log('SiteLogo Component mounted.')
         },
         computed:{
         }

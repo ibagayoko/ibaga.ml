@@ -1,5 +1,5 @@
 <template>
-    <th v-bind:class="classes" :col-span="colSpan">
+    <th v-bind:class="classes" :colspan="colspan">
         <slot />
     </th>
 </template>
@@ -9,11 +9,11 @@
         name:"TableColHeader",
         props:{
             className:String,
-            colSpan:String,
+            colspan:String,
             alignContent:String
         },
         mounted() {
-            console.log('TableColHeader Component mounted.')
+            // console.log('TableColHeader Component mounted.')
         },
         computed:{
             classes () {

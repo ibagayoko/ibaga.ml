@@ -58,6 +58,6 @@ NavSubmenuItem,
     export { Stamp } from './Stamp'
     export { StampCard } from './StampCard'
 
-    export { Dropdown, DropdownItem} from "./DropDown"
+    export { Dropdown, DropdownItem, DropdownItemDivider} from "./DropDown"
 
     export { Badge } from './Badge'

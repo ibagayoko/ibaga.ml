@@ -25,7 +25,7 @@ import { PageHeader, PageContent } from './';
             className:String,
         },
         mounted() {
-            console.log('Page Component mounted.')
+            // console.log('Page Component mounted.')
         },
         computed:{
             classes () {

@@ -19,7 +19,7 @@ import {Icon} from '../'
             to:String
         },
         mounted() {
-            console.log('ListIGrouptem Component mounted.')
+            // console.log('ListIGrouptem Component mounted.')
         },
         computed:{
             classes () {

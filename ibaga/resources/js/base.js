@@ -8,7 +8,7 @@ import {Bus} from './bus.js';
 export default {
     computed: {
         Wink() {
-            return Wink;
+            return {};
         }
     },
 

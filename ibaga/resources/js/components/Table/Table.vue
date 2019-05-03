@@ -29,7 +29,7 @@
             tid:String
         },
         mounted() {
-            console.log('Table Component mounted.')
+            // console.log('Table Component mounted.')
         },
         computed:{
             classes () {

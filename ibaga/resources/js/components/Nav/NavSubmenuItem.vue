@@ -18,7 +18,7 @@ import {Icon} from '../'
             to:String
         },
         mounted() {
-            console.log('NavSubmenuItem Component mounted.')
+            // console.log('NavSubmenuItem Component mounted.')
         },
         computed:{
             classes () {

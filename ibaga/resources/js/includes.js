@@ -1,23 +1,20 @@
 import Vue from 'vue';
 import VueNotification from "@kugatsu/vuenotification";
+import { Fragment } from 'vue-fragment'
 
 const entries = Object.entries(require("./components"))
 for (const [key, cmpnt] of entries) {
   Vue.component(key, cmpnt)
   // console.log(`There are ${key} `)
 }
-// console.log("done")
-// // Components
-// Vue.component('blog-card', require("./components").BlogCard)
-// Vue.component('Container', require("./components").Container)
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('page-header', require('./components/PageHeader').default);
 Vue.component('preloader', require('./partials/Preloader').default);
 
-import Popper from 'vue-popperjs';
-import 'vue-popperjs/dist/vue-popper.css';
-Vue.component('popper', Popper);
+// import Popper from 'vue-popperjs';
+// import 'vue-popperjs/dist/vue-popper.css';
+// Vue.component('popper', Popper);
 
 // Vue.component('alert', require('./components/Alert').default);
 Vue.component('dropdown', require('./components/DropDown').default);
@@ -41,6 +38,7 @@ Vue.component('facebook-card', require('./components/FacebookCard').default);
 Vue.component('post-list', require('./components/PostList').default);
 Vue.component('line-chart', require('./components/LineChart').default);
 
+Vue.component("Fragment", Fragment)
 
 // Plugins
 Vue.use(VueNotification, {
@@ -48,8 +46,6 @@ Vue.use(VueNotification, {
     infiniteTimer:true
   });
 
-  import { Fragment } from 'vue-fragment'
-  Vue.component("Fragment", Fragment)
 
 // Directives
 Vue.directive('loading', require('./components/loadingButton'));

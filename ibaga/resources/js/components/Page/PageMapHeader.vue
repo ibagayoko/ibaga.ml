@@ -11,7 +11,7 @@
             className:String,
         },
         mounted() {
-            console.log('PageMapHeader Component mounted.')
+            // console.log('PageMapHeader Component mounted.')
         },
         computed:{
             classes () {

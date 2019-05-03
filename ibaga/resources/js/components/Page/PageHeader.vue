@@ -21,7 +21,7 @@ import {PageTitle, PageOptions, PageSubTitle} from './';
             options:String,
         },
         mounted() {
-            console.log('PageHeader Component mounted.')
+            // console.log('PageHeader Component mounted.')
         },
         computed:{
             classes () {

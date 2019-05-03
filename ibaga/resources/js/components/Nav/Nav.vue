@@ -34,7 +34,6 @@
         methods:{
           computeActive(navItem){
             const  pathName  = location.href;
-          console.log(pathName, navItem)
 
           if (
             navItem.active !== null &&
@@ -63,7 +62,7 @@
         }
         },
         mounted() {
-            console.log('INav Component mounted.')
+            // console.log('INav Component mounted.')
         },
         computed:{
             classes () {

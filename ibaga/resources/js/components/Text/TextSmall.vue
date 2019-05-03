@@ -13,7 +13,7 @@
             muted:Boolean,
             className:String},
         mounted() {
-            console.log('TextSmall mounted.')
+            // console.log('TextSmall mounted.')
         },
          computed:{
             classes () {

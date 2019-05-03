@@ -14,8 +14,7 @@
             
         },
         mounted() {
-            console.log(this.src)
-            console.log('SiteLogo Component mounted.')
+            // console.log('SiteLogo Component mounted.')
         },
         computed:{
             classes () {

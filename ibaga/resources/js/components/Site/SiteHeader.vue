@@ -30,12 +30,12 @@
             alt:String
         },
         mounted() {
-            console.log('SiteHeader Component mounted.')
+            // console.log('SiteHeader Component mounted.')
         },
         methods:{
           onMenuToggleClick(){
             this.$emit("collapse", this.collapseMobileMenu )
-            console.log("click menu", this.collapseMobileMenu)
+            // console.log("click menu", this.collapseMobileMenu)
             this.collapseMobileMenu = !this.collapseMobileMenu
           },
           data(){

@@ -34,7 +34,7 @@
         },
         mounted() {
          
-            console.log('SiteNav Component mounted.')
+            // console.log('SiteNav Component mounted.')
             this.collapseEvent()
         },
         methods:{

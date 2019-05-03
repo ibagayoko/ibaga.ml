@@ -12,7 +12,7 @@
             colSpan:Boolean
         },
         mounted() {
-            console.log('TableBody Component mounted.')
+            // console.log('TableBody Component mounted.')
         },
         computed:{
             classes () {

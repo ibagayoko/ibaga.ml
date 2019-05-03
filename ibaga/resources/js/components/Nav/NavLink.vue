@@ -19,7 +19,7 @@ import {Icon} from '../'
             useExact:Boolean,
         },
         mounted() {
-            console.log('NavLink Component mounted.')
+            // console.log('NavLink Component mounted.')
         },
         computed:{
             classes () {

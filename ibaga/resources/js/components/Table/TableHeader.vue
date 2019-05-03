@@ -11,7 +11,7 @@
             className:String,
         },
         mounted() {
-            console.log('TableHeader Component mounted.')
+            // console.log('TableHeader Component mounted.')
         },
         computed:{
             classes () {

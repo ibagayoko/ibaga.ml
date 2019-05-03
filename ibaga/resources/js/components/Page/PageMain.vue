@@ -11,7 +11,7 @@
             className:String,
         },
         mounted() {
-            console.log('PageMain Component mounted.')
+            // console.log('PageMain Component mounted.')
         },
         computed:{
             classes () {

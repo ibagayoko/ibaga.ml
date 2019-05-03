@@ -9,7 +9,7 @@
         name:"AvatarList",
         props:["stacked", "className"],
         mounted() {
-            console.log('AvatarList mounted.')
+            // console.log('AvatarList mounted.')
         },
 
         computed:{

@@ -18,7 +18,7 @@ import { PageHeader } from '.';
             Container
         },
         mounted() {
-            console.log('Page Component mounted.')
+            // console.log('Page Component mounted.')
         },
         computed:{
             classes () {

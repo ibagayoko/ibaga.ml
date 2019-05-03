@@ -80,7 +80,7 @@ import {Icon} from '../'
             },
         },
         mounted() {
-            console.log('NavItem Component mounted.')
+            // console.log('NavItem Component mounted.')
         },
         computed:{
             classes () {

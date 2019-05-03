@@ -11,7 +11,7 @@
             className:String,
         },
         mounted() {
-            console.log('NavSubmenu Component mounted.')
+            // console.log('NavSubmenu Component mounted.')
         },
         computed:{
             classes () {

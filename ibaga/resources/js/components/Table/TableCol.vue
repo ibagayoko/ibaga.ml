@@ -13,7 +13,7 @@
             alignContent:String
         },
         mounted() {
-            console.log('TableCol Component mounted.')
+            // console.log('TableCol Component mounted.')
         },
         computed:{
             classes () {

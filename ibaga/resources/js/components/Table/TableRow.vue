@@ -11,7 +11,7 @@
             className:String,
         },
         mounted() {
-            console.log('TableRow Component mounted.')
+            // console.log('TableRow Component mounted.')
         },
         computed:{
             classes () {
