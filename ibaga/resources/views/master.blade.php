@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ config('app.locale') }}" dir="{{ __('voyager::generic.is_rtl') == 'true' ? 'rtl' : 'ltr' }}">
+<html lang="{{ config('app.locale') }}" >
 <head>
     {{-- <title>@yield('page_title', setting('admin.title') . " - " . setting('admin.description'))</title> --}}
     <meta name="viewport" content="width=device-width, initial-scale=1">
