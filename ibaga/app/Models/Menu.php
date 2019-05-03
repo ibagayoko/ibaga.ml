@@ -63,7 +63,7 @@ class Menu extends Model
             $items = static::processItems($items);
         }
         if ($type == 'admin') {
-            $type = 'voyager::menu.'.$type;
+            $type = 'menu.'.$type;
         } else {
             if (is_null($type)) {
                 $type = 'voyager::menu.default';

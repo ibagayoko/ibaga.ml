@@ -42,6 +42,23 @@ Route::get('posts/{id}/edit', 'PostsController@edit')->name(('post.edit'));
 Route::put('posts/{id}', 'PostsController@update')->name('post.update');
 Route::delete('posts/{id}', 'PostsController@destroy')->name('post.destroy');
 
+// Menu Routes
+Route::group([
+    'as'     => 'menus.',
+    'prefix' => 'menus/{menu}',
+], function ()  {
+    Route::get('builder', ['uses' => 'MenuController@builder',    'as' => 'builder']);
+    Route::post('order', ['uses' => 'MenuController@order_item', 'as' => 'order']);
+    Route::group([
+        'as'     => 'item.',
+        'prefix' => 'item',
+    ], function ()    {
+        Route::delete('{id}', ['uses' => 'MenuController@delete_menu', 'as' => 'destroy']);
+        Route::post('/', ['uses' => 'MenuController@add_item',    'as' => 'add']);
+        Route::put('/', ['uses' => 'MenuController@update_item', 'as' => 'update']);
+    });
+});
+
 
 // Tag routes...
 Route::get('tags', 'TagController@index')->name('tag.index');
