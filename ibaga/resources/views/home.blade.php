@@ -24,7 +24,7 @@
       $links= ["https://malimoncton"];
     $linksName = ['<a>Halo'];
 
-      
+
       $data = [
         "columns"=> [
           // each columns data
@@ -81,7 +81,7 @@
             <Page-Content title="Dashboard" >
                     <Grid-Row :cards="true">
                       <Grid-Col width="6" sm="4" lg="2">
-                        <Stats-Card :layout="1" :movement="6" total="43" label="New Tickets" />
+                        <Stats-Card :layout="1" :movement="7" total="43" label="New Tickets" />
                       </Grid-Col>
                       <Grid-Col width="6" sm="4" lg="2">
                         <Stats-Card
@@ -133,7 +133,7 @@
                           >
                             <Table-Header>
                               <Table-Row>
-                                <Table-Col-Header col-Span="2">User</Table-Col-Header>
+                                <Table-Col-Header colspan="2">User</Table-Col-Header>
                                 <Table-Col-Header>Commit</Table-Col-Header>
                                 <Table-Col-Header>Date</Table-Col-Header>
                                 <Table-Col-Header />
