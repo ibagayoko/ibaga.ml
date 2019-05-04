@@ -1,4 +1,4 @@
-{{-- @if(config('voyager.show_dev_tips')) --}}
+{{-- @if(config('show_dev_tips')) --}}
     <div class="container-fluid">
         <div class="alert alert-info">
             <strong>{{ __('generic.how_to_use') }}:</strong>

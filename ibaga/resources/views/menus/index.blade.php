@@ -5,16 +5,13 @@
 @endphp
 
 @push('navRight')
-{{-- @can('add',app($dataType->model_name)) --}}
 <a href="{{ route('menus.create') }}" class="btn btn-success">
     <i class="voyager-plus"></i> {{ __('generic.add_new') }}
 </a>
-{{-- @endcan --}}
 @endpush
 
 @section('content')
 <Page-Content title="{{ __('Menus') }}" >
-        {{-- @include('voyager::alerts') --}}
         <Grid-Row :cards="true" :deck="true">
                 <Grid-Col width=12>
                   <Card>
@@ -35,9 +32,6 @@
                               </Table-Col-Header>
                                   <Table-Col-Header>
                                 </Table-Col-Header>
-                                {{-- <Table-Col-Header>
-                                </Table-Col-Header> --}}
-
                             </Table-Row>
                     </Table-Header>
                     <Table-Body>
@@ -63,21 +57,13 @@
                                             {{ __('generic.delete') }}
                                     </i-Button>
                                 </Table-col>
-                            {{-- <Table-col> --}}
-                               {{-- <Icon link name="edit" />  --}}
-                            {{-- </Table-col> --}}
                         </Table-Row>
                         @endforeach
                     </Table-Body>
-                        
                     </I-Table>
                   </Card>
                 </Grid-Col>
         </Grid-Row>
-                    {{-- <div class="panel-body"> --}}
-                        {{-- <table id="dataTable" class="table table-hover"> --}}
-                        {{-- </table> --}}
-                    {{-- </div> --}}
                     <div class="modal modal-danger fade" tabindex="-1" id="delete_modal" role="dialog">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -114,17 +100,8 @@ document.addEventListener('DOMContentLoaded', function(){
       </script>
 @endpush
 @push('scripts')
-    <!-- DataTables -->
     <script>
         document.addEventListener('DOMContentLoaded', function(){ 
-        // $(document).ready(function () {
-        //     $('#dataTable').DataTable({
-        //         "order": [],
-        //         "language": {!! json_encode(__('datatable'), true) !!},
-        //         "columnDefs": [{"targets": -1, "searchable":  false, "orderable": false}]
-        //         @if(config('dashboard.data_tables.responsive')), responsive: true @endif
-        //     });
-        // });
         $('td').on('click', '.delete', function (e) {
             $('#delete_form')[0].action = '{{ route('menus.destroy', ['menu' => '__menu']) }}'.replace('__menu', $(this).data('id'));
             $('#delete_modal').modal('show');

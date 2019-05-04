@@ -61,23 +61,13 @@
                 <grid-row>
                     @foreach($data['popular_reading_times'] as $range => $percentage)
                     <grid-col>
-                        {{-- <div class="d-flex py-2 @if($loop->first) border-top @endif align-items-center"> --}}
-                            {{-- <div class="mr-auto">
-                                <p class="mb-0 py-1">
-                                    {{ $range }}
-                                </p>
-                            </div> --}}
-                            {{-- <div class="ml-auto">
-                                <span class="text-muted">{{ sprintf('%s%s', $percentage, '%') }}</span>
-                            </div> --}}
-                            <Progress-Card
+                        <Progress-Card class-name="@if($loop->first) border-top @endif"
                             progress-color="red"
                             :progress-Width="{{$percentage}}"
                           >
                           <h5 class="h5" SLOT="header">{{ $range }}</h5>
                           {{ sprintf('%s%s', $percentage, '%') }}
                         </Progress-Card>
-                        {{-- </div> --}}
                     </grid-col>
                     @endforeach
                 </grid-row>

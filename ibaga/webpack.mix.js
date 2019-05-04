@@ -57,7 +57,7 @@ mix
     // .copy('../public_html', '../winktest/public_html/vendor/wink');
     
 mix    
-    .copy('resources/css', '../public_html/styles')
+    // .copy('resources/css', '../public_html/styles')
     .copy('resources/assets', '../public_html/assets')
     .copy('resources/images', '../public_html/images')
     .copy('resources/fonts', '../public_html/fonts');
