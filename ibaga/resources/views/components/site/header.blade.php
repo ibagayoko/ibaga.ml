@@ -8,7 +8,7 @@ image-url= "{{ asset('assets/imgs/logo.svg') }}">
     <template slot="accountDropdown">
       <Dropdown>
         <a class="nav-link pr-0 leading-none" slot="trigger">
-          <Avatar  image-URL=avatarURL ></Avatar>
+          <Avatar  image-url="{{ Auth::user()->avatar }}" ></Avatar>
           <span class="ml-2 d-none d-lg-block">
             <span class="text-default">{{ Auth::user()->name }}</span>
             <small class="text-muted d-block mt-1">Administrateur</small>

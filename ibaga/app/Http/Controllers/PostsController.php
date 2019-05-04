@@ -17,7 +17,7 @@ class PostsController
     public function index()
     {
         $data = [
-            'posts' => Post::orderByDesc('created_at')->with('tags')->get(),
+            'posts' => Post::orderByDesc('created_at')->with(['tags', 'author'])->get(),
         ];
 
         return view('posts.index', compact('data'));

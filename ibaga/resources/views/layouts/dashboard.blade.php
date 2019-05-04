@@ -53,7 +53,7 @@
     <!-- Additional style sheets -->
     @stack('styles')
 </head>
-<body style="overflow: hidden">
+<body style="overflow-x: hidden">
     @php
         $links = $linksName =[]
     @endphp

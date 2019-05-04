@@ -44,27 +44,27 @@
 
                     @if(count($data['posts']))
                     <fragment v-if="view=='card'">
-                    <grid-row  >
+                    <grid-row :cards="true" :deck="true" class="pt-5"  >
                     <grid-col sm="6" lg="4" v-for="post in filteredList">
                     <blog-card 
                     aside="true"
                     
                     :title="post.title" 
                     :img-src="post.featured_image" 
-                    :author-name="post.author" 
+                    :author-name="post.author.name" 
                     :description="post.summary" 
                     {{-- date="{{ $post->published_at->format('M d, Y') }}" --}}
                     img-alt=""
                     {{-- avatar-img-src="https://tabler.github.io/tabler/demo/faces/female/18.jpg" --}}
                     :post-href="'/posts/' + post.id + '/edit'"
-                    avatar-img-src="https://secure.gravatar.com/avatar/{{ md5(strtolower(trim("bagayoko.ismail@gmail.com")))}}?s=200"
+                    :avatar-img-src="post.author.avatar"
                     icon-name="link"
                     :icon-href="'{{ route('blog.post', '__slug') }}'.replace('__slug', post.slug)"
                     />
                     </grid-col>
                     </grid-row>
                     </fragment>
-                        <div v-cloak v-if="view=='list'">
+                        <div v-cloak v-if="view=='list'" class="pt-5"  >
                            
                             <div class="d-flex border-top py-3 align-items-center" v-for="post in filteredList">
                                 <div class="mr-auto py-1">
