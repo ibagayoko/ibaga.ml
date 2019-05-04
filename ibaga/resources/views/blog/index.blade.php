@@ -61,21 +61,25 @@
                                 <p class="blog-post-meta small">{{ $post->published_at->format('M d') }} — {{ $post->readTime }}</p>
                                 <p><a href="{{ route('blog.post', $post->slug) }}" class="text-white text-decoration-none">{{ $post->summary }}</a></p>
                             </div>
-                        @endif --}}
-                        <blog-card 
-                        
-                        title="{{ $post->title  }}" 
-                        img-src="{{ $post->featured_image }}" 
-                        author-name="{{ $post->author->name }}" 
-                        description="{{ $post->summary }}" 
-                        date="{{ $post->published_at->format('M d, Y') }}"
-                        img-alt=""
-                        {{-- avatar-img-src="https://tabler.github.io/tabler/demo/faces/female/18.jpg" --}}
-                        post-href="{{ route('blog.post', $post->slug) }}"
-                        avatar-img-src="{{ sprintf('%s%s%s', 'https://secure.gravatar.com/avatar/', md5(strtolower(trim($post->author->email))), '?s=200') }}"
-                        />
-                        {{-- <div class=" col-md-12 mr-1 ml-1 my-1"> --}}
+                            @endif --}}
+                            {{-- @if(!$loop->first) --}}
+                                <blog-card 
+                                
+                                title="{{ $post->title  }}" 
+                                img-src="{{ $post->featured_image }}" 
+                                author-name="{{ $post->author->name }}" 
+                                description="{{ $post->summary }}" 
+                                date="{{ $post->published_at->format('M d, Y') }}"
+                                img-alt=""
 
+                                icon-name="noname"
+                                {{-- avatar-img-src="https://tabler.github.io/tabler/demo/faces/female/18.jpg" --}}
+                                post-href="{{ route('blog.post', $post->slug) }}"
+                                avatar-img-src="{{ sprintf('%s%s%s', 'https://secure.gravatar.com/avatar/', md5(strtolower(trim($post->author->email))), '?s=200') }}"
+                                ></blog-card>
+                            {{-- @endif --}}
+                                {{-- <div class=" col-md-12 mr-1 ml-1 my-1"> --}}
+                                    
                             {{-- @include('blog.partials.gradient-card', ["post" => $post]) --}}
                         {{-- </div> --}}
                     @endforeach

@@ -37,7 +37,7 @@
       <div class="form-group ember-view">
         <label for="twitter-title">Twitter Title</label>
         <input :form="form" ref="title" v-model="ntitle" name="twitter_title" 
-          class="post-setting-twitter-title ember-text-field gh-input ember-view" type="text"
+          class="form-control border-0 px-0" type="text"
         />
         <p style="display: none;" class="response ember-view"></p>
       </div>
@@ -48,7 +48,7 @@
           v-model="ndescription"
           name="twitter_description"
           :form="form"
-          class="post-setting-twitter-description ember-text-area gh-input ember-view"
+          class="form-control border-0 px-0"
         ></textarea>
         <p style="display: none;" class="response ember-view"></p>
       </div>

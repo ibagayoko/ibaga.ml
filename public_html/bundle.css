@@ -2,6 +2,21 @@
 /**
  * Dashboard UI
  */
+:root {
+  /* Colours */
+  --darkgrey: #343f44;
+  --midgrey: #738a94;
+  --lightgrey: #e5eff5;
+  --blue: #3eb0ef;
+  --red: #f05230;
+  --orange: #fecd35;
+  --green: #a4d037;
+  /* Style values */
+  --border-radius: 4px;
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Droid Sans", "Helvetica Neue", sans-serif;
+  --font-family-mono: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
@@ -19666,4 +19681,558 @@ svg {
 
 .fe-zoom-out:before {
   content: "\EA06";
+}
+
+/* Post settings meta
+/* ---------------------------------------------------------- */
+/* Google SERP Preview */
+.seo-preview {
+  font-family: Arial, sans-serif;
+  background: #fff;
+  padding: 10px 12px;
+}
+
+.seo-preview-title {
+  color: #1e0fbe;
+  font-size: 1.8rem;
+  line-height: 2.16rem;
+  text-overflow: ellipses;
+  word-wrap: break-word;
+  -webkit-text-overflow: ellipsis;
+}
+
+.seo-preview-link {
+  margin: 1px 0 2px 0;
+  color: #006621;
+  font-size: 1.3rem;
+  line-height: 1.6rem;
+  word-wrap: break-word;
+}
+
+.seo-preview-description {
+  color: #545454;
+  font-size: 1.3rem;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+/* Facebook Card Preview */
+.gh-og-preview {
+  background: #fff;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) inset, 0 -1px 0 0 rgba(0, 0, 0, 0.06) inset, 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.gh-og-preview-image {
+  width: 100%;
+  height: 160px;
+  background-size: cover;
+  background-position: center center;
+}
+
+.gh-og-preview-content {
+  padding: 10px 12px;
+}
+
+.gh-og-preview-title {
+  color: #1d2129;
+  max-height: 110px;
+  overflow: hidden;
+  margin-bottom: 5px;
+  font-family: Georgia, serif;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 500;
+  word-wrap: break-word;
+}
+
+.gh-og-preview-description {
+  color: #4b4f56;
+  max-height: 80px;
+  overflow: hidden;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: -0.1px;
+}
+
+.gh-og-preview-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gh-og-preview-footer-left {
+  overflow: hidden;
+  padding-top: 18px;
+  color: #90949c;
+  font-size: 11px;
+  line-height: 11px;
+  letter-spacing: -0.1px;
+  text-transform: uppercase;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.gh-og-preview-footer-left-divider {
+  padding: 0 5px;
+}
+
+.gh-og-preview-footer-author {
+  color: #3b5998;
+}
+
+/* Twitter Card Preview */
+.gh-twitter-preview {
+  overflow: hidden;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #e1e8ed;
+  color: #292f33;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.4rem;
+  line-height: 1.3em;
+  background: #fff;
+  border-radius: 0.42857em;
+  -webkit-font-smoothing: antialiased;
+}
+
+.gh-twitter-preview-image {
+  width: 100%;
+  height: 160px;
+  background-size: cover;
+  background-position: center center;
+}
+
+.gh-twitter-preview-content {
+  padding: 12px 14px;
+}
+
+.gh-twitter-preview-title {
+  max-height: 1.3em;
+  overflow: hidden;
+  margin: 0 0 0.15em;
+  font-weight: bold;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.gh-twitter-preview-description {
+  overflow: hidden;
+  margin-top: 0.32333em;
+}
+
+.gh-twitter-preview-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.35em;
+}
+
+.gh-twitter-preview-footer-left {
+  max-height: 1.3em;
+  overflow: hidden;
+  color: #8899a6;
+  text-transform: lowercase;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Nav Lists
+/* ---------------------------------------------------------- */
+.nav-list {
+  padding: 0;
+  max-width: 500px;
+  border: 1px solid color-mod(var(--lightgrey) l(-5%) s(-10%));
+  background: #fff;
+  border-radius: var(--border-radius);
+}
+
+.nav-list.nav-list-block {
+  max-width: none;
+}
+
+.nav-list-item {
+  position: relative;
+  display: block;
+  margin: 0;
+  padding: 9px 40px 10px 12px;
+  color: var(--darkgrey);
+}
+
+.nav-list-item:hover {
+  background: color-mod(var(--lightgrey) l(6%));
+  cursor: pointer;
+}
+
+.nav-list-item:first-of-type {
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+}
+
+.nav-list-item:last-of-type {
+  border-bottom-right-radius: var(--border-radius);
+  border-bottom-left-radius: var(--border-radius);
+}
+
+.nav-list-item:not(:last-of-type) {
+  border-bottom: 1px solid color-mod(var(--lightgrey) l(-5%) s(-10%));
+}
+
+.nav-list-item button {
+  text-align: left;
+}
+
+.nav-list-item a {
+  color: var(--darkgrey);
+}
+
+.nav-list-item b {
+  display: block;
+  font-size: 1.6rem;
+  line-height: 1.375;
+  font-weight: normal;
+}
+
+.nav-list-item span {
+  display: block;
+  color: var(--midgrey);
+  font-size: 1.1rem;
+  line-height: 1.375;
+  letter-spacing: 0.2px;
+}
+
+.nav-list-item svg {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  margin-top: -0.9rem;
+  height: 1.4rem;
+  width: 1.4rem;
+}
+
+.nav-list-item svg path {
+  fill: var(--midgrey);
+}
+
+/* Radio / Checkboxes
+/* ---------------------------------------------------------- */
+.for-radio label,
+.for-checkbox label {
+  display: block;
+  padding-bottom: 4px;
+  cursor: pointer;
+}
+
+.for-radio label p,
+.for-checkbox label p {
+  overflow: auto;
+  color: var(--darkgrey);
+  font-weight: normal;
+}
+
+.for-radio input,
+.for-checkbox input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+}
+
+.for-radio .input-toggle-component,
+.for-checkbox .input-toggle-component {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  float: left;
+  width: 18px;
+  height: 18px;
+  margin-right: 7px;
+  border: 1px solid color-mod(var(--lightgrey) l(-5%) s(-10%));
+  background: color-mod(var(--lightgrey) l(4%));
+}
+
+.for-checkbox label:hover input:not(:checked) + .input-toggle-component,
+.for-radio label:hover input:not(:checked) + .input-toggle-component {
+  border-color: color-mod(var(--lightgrey) l(-15%) s(-10%));
+}
+
+.for-checkbox .input-toggle-component {
+  border-radius: 4px;
+}
+
+.for-checkbox .input-toggle-component {
+  transition: background 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.for-checkbox .input-toggle-component:before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 3px;
+  width: 10px;
+  height: 6px;
+  border: 2px solid #fff;
+  border-top: none;
+  border-right: none;
+  opacity: 0;
+  transition: opacity 0.15s ease-in-out;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.for-checkbox input:checked + .input-toggle-component {
+  --green:green;
+  border-color: var(--green);
+  background: var(--green);
+}
+
+.for-checkbox input:checked + .input-toggle-component:before {
+  opacity: 1;
+}
+
+.for-radio .input-toggle-component {
+  border-radius: 100px;
+}
+
+.for-radio .input-toggle-component {
+  transition: background 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.for-radio .input-toggle-component:before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  border-radius: 100%;
+  opacity: 0;
+  transition: opacity 0.15s ease-in-out;
+}
+
+.for-radio input:checked + .input-toggle-component {
+  border-color: green;
+  background: var(--green);
+}
+
+.for-radio input:checked + .input-toggle-component:before {
+  opacity: 1;
+}
+
+/* Settings Menu
+/* ---------------------------------------------------------- */
+/* Container
+/* ---------------------------------------------------------- */
+.settings-menu-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  width: 350px;
+  max-width: 100%;
+  overflow: hidden;
+  background: var(--lightgrey);
+  /* background: color-mod(var(--lightgrey) l(+4%)); */
+  transition: -webkit-transform 0.4s cubic-bezier(0.1, 0.7, 0.1, 1);
+  transition: transform 0.4s cubic-bezier(0.1, 0.7, 0.1, 1);
+  transition: transform 0.4s cubic-bezier(0.1, 0.7, 0.1, 1), -webkit-transform 0.4s cubic-bezier(0.1, 0.7, 0.1, 1);
+  -webkit-transform: translate3d(350px, 0px, 0px);
+          transform: translate3d(350px, 0px, 0px);
+}
+
+.settings-menu-expanded.settings-menu-container {
+  -webkit-transform: translate3d(0, 0px, 0px) !important;
+          transform: translate3d(0, 0px, 0px) !important;
+}
+
+.settings-menu-container .settings-menu-pane {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0px, 0px);
+          transform: translate3d(0, 0px, 0px);
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (min-width: 901px) {
+  .settings-menu-container .settings-menu-pane {
+    transition: -webkit-transform 0.4s cubic-bezier(0.1, 0.7, 0.1, 1);
+    transition: transform 0.4s cubic-bezier(0.1, 0.7, 0.1, 1);
+    transition: transform 0.4s cubic-bezier(0.1, 0.7, 0.1, 1), -webkit-transform 0.4s cubic-bezier(0.1, 0.7, 0.1, 1);
+  }
+}
+.settings-menu-container .settings-menu-pane.settings-menu-pane-out-left {
+  -webkit-transform: translate3d(-100%, 0px, 0px);
+          transform: translate3d(-100%, 0px, 0px);
+}
+
+.settings-menu-container .settings-menu-pane.settings-menu-pane-out-right {
+  -webkit-transform: translate3d(100%, 0px, 0px);
+          transform: translate3d(100%, 0px, 0px);
+}
+
+.settings-menu-container .settings-menu-pane.settings-menu-pane-in {
+  -webkit-transform: translate3d(0, 0px, 0px);
+          transform: translate3d(0, 0px, 0px);
+}
+
+/* Header
+/* ---------------------------------------------------------- */
+.settings-menu-header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 24px;
+}
+
+.settings-menu-header h4 {
+  margin: 0;
+  font-size: 1.6rem;
+  line-height: 1.375;
+  font-weight: normal;
+}
+
+.settings-menu-header .close {
+  margin-right: -15px;
+  padding: 10px 15px;
+  font-size: 12px;
+  line-height: 12px;
+}
+
+.settings-menu-header .close svg {
+  width: 12px;
+  height: 12px;
+  fill: var(--darkgrey);
+}
+
+.settings-menu-header.subview h4 {
+  text-align: center;
+}
+
+.settings-menu-header.subview .back {
+  margin-left: -15px;
+  padding: 10px 15px;
+  line-height: 14px;
+}
+
+.settings-menu-header.subview .back svg {
+  width: 14px;
+  height: 14px;
+}
+
+.settings-menu-header.subview .back svg path {
+  fill: var(--darkgrey);
+}
+
+/* Content
+/* ---------------------------------------------------------- */
+.settings-menu-content {
+  padding: 0 24px 24px;
+}
+
+.settings-menu-content label code {
+  font-weight: normal;
+}
+
+.settings-menu-content textarea {
+  height: 108px;
+}
+
+.settings-menu-content .nav-list {
+  margin-top: 3rem;
+}
+
+.settings-menu-content .word-count {
+  font-weight: bold;
+}
+
+.ghost-url-preview {
+  width: 98%;
+  /*     Preview never wider than input */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.settings-menu-delete-button {
+  padding-left: 0;
+  color: var(--red);
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.settings-menu-delete-button span {
+  padding: 0;
+  font-size: inherit;
+}
+
+.settings-menu-delete-button svg {
+  margin-bottom: 1px;
+}
+
+.settings-menu-delete-button svg path {
+  stroke: var(--red);
+  fill: var(--red);
+  stroke-width: 1px;
+}
+
+.settings-menu-delete-button:hover,
+.settings-menu-delete-button:hover svg path {
+  stroke: red;
+  fill: red;
+  color: red;
+}
+
+.settings-menu-content .for-radio .input-toggle-component,
+.settings-menu-content .for-checkbox .input-toggle-component {
+  background: #fff;
+}
+
+/* Background
+/* ---------------------------------------------------------- */
+.settings-menu-expanded .content-cover,
+.mobile-menu-expanded .content-cover {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 900;
+  transition: -webkit-transform 0.4s cubic-bezier(0.1, 0.7, 0.1, 1);
+  transition: transform 0.4s cubic-bezier(0.1, 0.7, 0.1, 1);
+  transition: transform 0.4s cubic-bezier(0.1, 0.7, 0.1, 1), -webkit-transform 0.4s cubic-bezier(0.1, 0.7, 0.1, 1);
+  /* Not off the screen, to give a parallax effect */
+}
+
+.settings-menu-expanded .content-cover {
+  -webkit-transform: translate3d(-350px, 0px, 0px);
+          transform: translate3d(-350px, 0px, 0px);
+}
+
+.mobile-menu-expanded .content-cover {
+  -webkit-transform: translate3d(205px, 0px, 0px);
+          transform: translate3d(205px, 0px, 0px);
+}
+
+/* Badges
+/* ---------------------------------------------------------- */
+.gh-setting-title .gh-badge {
+  font-size: 13px;
+}
+
+#subview > div {
+  display: none;
+  height: 100vh;
+  background: var(--lightgrey);
+}
+
+#subview > div.active {
+  display: block !important;
 }

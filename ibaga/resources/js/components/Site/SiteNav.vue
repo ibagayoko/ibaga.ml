@@ -13,9 +13,11 @@
               />
             </GridCol>
              <GridCol :lg="3" class-name="ml-auto" :ignore-col="true">
+               <GridRow>
               <!-- {/* @TODO: add InlineSearchForm  */} -->
               <!-- {/* {rightColumnComponent || (withSearchForm && <InlineSearchForm />)} */} -->
               <slot name="rightColumnComponent"/>
+               </GridRow>
             </GridCol>
           </GridRow>
         <!-- )} -->

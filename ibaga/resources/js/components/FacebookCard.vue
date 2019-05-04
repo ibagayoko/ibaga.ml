@@ -47,7 +47,7 @@
                     v-model="ntitle"
                       name="og_title"
                       id="og-title"
-                      class="post-setting-og-title ember-text-field gh-input ember-view"
+                      class="form-control border-0 px-0"
                       type="text"
                     />
                     <p
@@ -64,7 +64,7 @@
                     v-model="ndescription"
                       name="og_description"
                       id="og-description"
-                      class="post-setting-og-description ember-text-area gh-input ember-view"
+                      class="form-control border-0 px-0"
                     ></textarea>
                     <p
                       id="ember783"

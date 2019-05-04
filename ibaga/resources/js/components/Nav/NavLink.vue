@@ -6,7 +6,6 @@
 </template>
 
 <script>
-import {Icon} from '../'
     export default {
         name:"NavLink",
         props:{

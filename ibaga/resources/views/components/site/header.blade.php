@@ -1,11 +1,11 @@
 <Site-Header
 href= "/"
-alt="Tabler React"
+alt="{{ config("app.name") }}"
 image-url= "{{ asset('assets/imgs/logo.svg') }}">
 <template slot="navItems">
     @stack('headerRight')
-    <i-Button
-  {{-- <Nav-Item type="div" class-Name="d-none d-md-flex"> --}}
+    {{-- <Nav-Item type="div" class-Name="d-none d-md-flex"> --}}
+    {{-- <i-Button
       to="https://github.com/tabler/tabler-react"
       target="_blank"
       outline
@@ -14,7 +14,7 @@ image-url= "{{ asset('assets/imgs/logo.svg') }}">
       color="primary"
     >
       Source code
-    </i-Button>
+    </i-Button> --}}
   {{-- </Nav-Item> --}}
 </template>
   {{-- <Nav-Item type="div" class-Name="d-none d-md-flex"> --}}

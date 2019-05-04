@@ -39,7 +39,7 @@
                       ref="title"
                       :form="form"
                       name="meta_title"
-                      class="post-setting-meta-title ember-text-field gh-input ember-view"
+                      class="form-control border-0 px-0"
                       type="text"
                       v-model="ntitle"
                       disabled
@@ -63,7 +63,7 @@
                       v-model="ndescription"
                       name="meta_description"
                       id="meta-description"
-                      class="post-setting-meta-description ember-text-area gh-input ember-view"
+                      class="form-control border-0 px-0"
                     ></textarea>
                     <p>
                       Recommended: <b>156</b> characters. You’ve used

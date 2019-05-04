@@ -31,24 +31,15 @@
                      </svg>
                     </a> --}}
                   
-                  <div class="gh-input-icon gh-icon-link">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                      <path
-                        d="M14.5 12.5l.086.086a2 2 0 0 0 2.828 0l3.965-3.964a3.01 3.01 0 0 0 0-4.243l-1.758-1.757a3.008 3.008 0 0 0-4.242 0l-3.965 3.964a2 2 0 0 0 0 2.829l.086.085m-2 2l-.086-.085a2 2 0 0 0-2.828 0l-3.965 3.964a3.01 3.01 0 0 0 0 4.243l1.758 1.757a3.008 3.008 0 0 0 4.242 0l3.965-3.964a2 2 0 0 0 0-2.829L12.5 14.5m-4.389 1.389l7.778-7.778"
-                        stroke="#000"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-miterlimit="10"
-                        fill="none"
-                      ></path>
-                    </svg>
+                  <div >
+                    {{-- iconc?? --}}
                     
                     <input
                     form="form-create"
                       name="slug"
                       v-model="name"
                       id="url"
-                      class="post-setting-slug ember-text-field gh-input ember-view"
+                      class="form-control "
                       type="text"
                     />
                   </div>

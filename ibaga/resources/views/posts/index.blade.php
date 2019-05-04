@@ -6,36 +6,17 @@
     </a>
 @endpush
 @php
-$menu = [
-  [
-    "value"=> "Forms",
-    "to"=> "",
-    "icon"=> "check-square",
-    "subItems" => [
-      [
-        "value"=> "Forms",
-        "to"=> route("home"),
-        "icon"=> "check-square",
-      ],
-    ]
-  ],
-  [
-    "value"=> "Gallery",
-    "to"=> route("post.index"),
-    "icon"=> "image",
-  ],
-];
-$links= ["https://malimoncton"];
-$linksName = ['<a>Halo'];
+
+
 @endphp
 @section('content')
-<Page-Content >
+<Page-Content  title="Posts" sub-title="Chois pour editer">
     <post-list :models="{{ $data['posts'] }}" inline-template>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-10">
                     <div class="d-flex justify-content-between">
-                        <h1 class="mb-4 mt-2">Posts</h1>
+                        {{-- <h1 class="mb-4 mt-2">Posts</h1> --}}
                         <div>
                             <i-button icon="list" v-on:click.native="activeListView()"></i-button>
                             <i-button icon="grid" v-on:click.native="activeCardView()"></i-button>
@@ -62,7 +43,8 @@ $linksName = ['<a>Halo'];
                     </div>
 
                     @if(count($data['posts']))
-                    <grid-row v-if="view=='card'">
+                    <fragment v-if="view=='card'">
+                    <grid-row  >
                     <grid-col sm="6" lg="4" v-for="post in filteredList">
                     <blog-card 
                     aside="true"
@@ -76,9 +58,12 @@ $linksName = ['<a>Halo'];
                     {{-- avatar-img-src="https://tabler.github.io/tabler/demo/faces/female/18.jpg" --}}
                     :post-href="'/posts/' + post.id + '/edit'"
                     avatar-img-src="https://secure.gravatar.com/avatar/{{ md5(strtolower(trim("bagayoko.ismail@gmail.com")))}}?s=200"
+                    icon-name="link"
+                    :icon-href="'{{ route('blog.post', '__slug') }}'.replace('__slug', post.slug)"
                     />
                     </grid-col>
                     </grid-row>
+                    </fragment>
                         <div v-cloak v-if="view=='list'">
                            
                             <div class="d-flex border-top py-3 align-items-center" v-for="post in filteredList">
@@ -91,7 +76,7 @@ $linksName = ['<a>Halo'];
                                         <span v-if="post.published_at <= new Date().toJSON().slice(0, 19).replace('T', ' ')">Published @{{post.published_at }}</span>
                                         <span v-else class="text-danger">Draft</span>
                                         ―
-                                        Updated @{{ post.updated_at }}
+                                        Updated @{{ timeAgo(post.updated_at) }}
                                     </p>
                                 </div>
                                 <div class="ml-auto d-none d-lg-block">

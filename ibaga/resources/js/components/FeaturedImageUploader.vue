@@ -59,10 +59,10 @@
             <preloader v-if="uploading"></preloader>
 
                 <img :src="imageUrl" class="w-100">
-            <div class="input-group py-2" v-if="imageUrl && !uploading">
+            <div class="form-group py-2" v-if="imageUrl && !uploading">
                 <label class="input-label">Caption</label>
 
-                <textarea :form="form" name="featured_image_caption" rows="2" v-model="caption" ref="caption" class="input" placeholder="Add caption to the image"></textarea>
+                <textarea :form="form" name="featured_image_caption" rows="2" v-model="caption" ref="caption" class="form-control border-0 px-0" placeholder="Add caption to the image"></textarea>
             </div>
         </div>
 

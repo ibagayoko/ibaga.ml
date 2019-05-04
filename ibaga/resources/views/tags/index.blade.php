@@ -45,7 +45,7 @@
                                 </div>
                                 <div class="ml-auto">
                                     <span class="text-muted mr-3">@{{ tag.posts_count }} Post(s)</span>
-                                    Created @{{ moment(tag.created_at).fromNow() }}
+                                    Created @{{ timeAgo(tag.created_at) }}
                                 </div>
                             </div>
 
