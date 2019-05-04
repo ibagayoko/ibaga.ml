@@ -23,6 +23,8 @@
         <link rel="stylesheet" href="{{ voyager_asset('css/rtl.css') }}">
     @endif
 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/nestable2/1.6.0/jquery.nestable.min.css">
+
     <!-- Few Dynamic Styles -->
     <style type="text/css">
         .voyager .side-menu .navbar-header {

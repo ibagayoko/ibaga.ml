@@ -1,7 +1,19 @@
 <template>
     <li v-if="type==='li'" v-click-outside="hide"  v-on:click="_handlOnClick"   v-bind:class="classes">
         <!-- navlink -->
-        <Dropdown class-name="dropcenter" :content-Style='{right:"50%"}'>
+        <NavLink v-if="!hasSubI"
+            slot="trigger"
+          :class-name="className"
+          :to="to"
+          :icon="icon"
+          :hasSubNav="hasSubI"
+          :active="active"
+          :useExact="useExact"
+        >
+          {{ value }}
+          <slot/>
+        </NavLink>
+        <Dropdown class-name="dropcenter" :content-Style='{right:"50%"}' v-if="hasSubI">
         <NavLink
             slot="trigger"
           :class-name="className"
@@ -25,7 +37,19 @@
     </li>
     <div v-else v-click-outside="hide"  v-on:click="_handlOnClick"   v-bind:class="classes">
         <!-- navlink -->
-        <Dropdown class-name="dropcenter" :content-Style='{right:"50%"}'>
+         <NavLink v-if="!hasSubI"
+            slot="trigger"
+          :class-name="className"
+          :to="to"
+          :icon="icon"
+          :hasSubNav="hasSubI"
+          :active="active"
+          :useExact="useExact"
+        >
+          {{ value }}
+          <slot/>
+        </NavLink>
+        <Dropdown class-name="dropcenter" :content-Style='{right:"50%"}' v-if="hasSubI">
         <NavLink
             slot="trigger"
           :class-name="className"

@@ -1,16 +1,24 @@
-@extends('master')
+@extends('layouts.dashboard')
 
 @section('page_title', __('generic.menu_builder'))
 
-@section('page_header')
-    <h1 class="page-title">
-        <i class="voyager-list"></i>{{ __('generic.menu_builder') }} ({{ $menu->name }})
+@push('navRight')
+        {{-- <i class="voyager-list"></i>{{ __('generic.menu_builder') }} ({{ $menu->name }}) --}}
         <div class="btn btn-success add_item"><i class="voyager-plus"></i> {{ __('menu_builder.new_menu_item') }}</div>
-    </h1>
     {{-- @include('voyager::multilingual.language-selector') --}}
-@stop
+@endpush
 
+
+@push('styles')
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/nestable2/1.6.0/jquery.nestable.min.css">
+
+    
+@endpush
 @section('content')
+@php
+    $links = $linksName = [];
+@endphp
+<Page-Content title="{{ __('generic.menu_builder') }} ({{ $menu->name }})" >
     @include('menus.partial.notice')
 
     <div class="page-content container-fluid">
@@ -119,12 +127,15 @@
 
 
 
-
+</Page-Content>
 @stop
 
-@section('javascript')
+@push('scripts')
+{{-- <script type="text/javascript" src="{{ asset('js/app.js') }}"></script> --}}
+<script src="//cdnjs.cloudflare.com/ajax/libs/nestable2/1.6.0/jquery.nestable.min.js" defer></script>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function(){ 
         $(document).ready(function () {
             @if ($isModelTranslatable)
                 /**
@@ -275,5 +286,6 @@
                 });
             });
         });
+    })
     </script>
-@stop
+@endpush

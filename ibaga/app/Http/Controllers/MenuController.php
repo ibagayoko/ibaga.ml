@@ -16,7 +16,10 @@ class MenuController extends Controller
      */
     public function index()
     {
-        //
+        $data = [
+            'menus' => Menu::all(),
+        ];
+        return view('menus.index', compact("data"));
     }
 
     /**
@@ -82,7 +85,9 @@ class MenuController extends Controller
      */
     public function destroy(Menu $menu)
     {
-        //
+        // $menu->delete();
+
+        return redirect(route('menus.index'));
     }
 
     public function builder($id)

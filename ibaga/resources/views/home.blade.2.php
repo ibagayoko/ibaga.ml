@@ -521,7 +521,7 @@
                                     </Table-Col>
                                   </Table-Row>
                                 </Table-Body>
-                              </Table>
+                              </i-Table>
                             </Card>
                           </Grid-Col>
                         </Grid-Row>

@@ -43,11 +43,15 @@ Route::put('posts/{id}', 'PostsController@update')->name('post.update');
 Route::delete('posts/{id}', 'PostsController@destroy')->name('post.destroy');
 
 // Menu Routes
+Route::get('menus/', ['uses' => 'MenuController@index',    'as' => 'menus.index']);
+Route::get('menus/create', ['uses' => 'MenuController@create',    'as' => 'menus.create']);
 Route::group([
     'as'     => 'menus.',
     'prefix' => 'menus/{menu}',
 ], function ()  {
+    Route::delete('/', ['uses' => 'MenuController@destroy',    'as' => 'destroy']);
     Route::get('builder', ['uses' => 'MenuController@builder',    'as' => 'builder']);
+    Route::get('edit', ['uses' => 'MenuController@edit',    'as' => 'edit']);
     Route::post('order', ['uses' => 'MenuController@order_item', 'as' => 'order']);
     Route::group([
         'as'     => 'item.',
