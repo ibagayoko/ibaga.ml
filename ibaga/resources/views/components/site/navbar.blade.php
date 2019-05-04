@@ -10,7 +10,7 @@
         <Nav-Item
             {{-- key="key" --}}
             value="{{ $item->title}}"
-            to="{{ $item->url}}"
+            to="{{ $item->link()}}"
             icon="{{ $item->icon_class }}"
             {{-- sub-items="item.subItems" --}}
             :has-sub-nav="{{ count($item->children)? "true" : "false" }}"
@@ -22,7 +22,7 @@
             <template slot="sub-item">
                 @foreach ($item->children as $child)
                     
-                <Nav-Sub-Item value="{{ $child->title}}" to="{{ $item->url}}" icon="{{ $item->icon_class }}">
+                <Nav-Sub-Item value="{{ $child->title}}" to="{{ $child->link() }}" icon="{{ $child->icon_class }}">
                 </Nav-Sub-Item>
                 @endforeach
             </template>
@@ -31,7 +31,7 @@
             @endforeach
         </I-Nav>
     </template>
-    <template slot=rightColumnComponent>
+    <template slot="rightColumnComponent">
         {{-- seacrh bar --}}
         @stack('navRight')
     </template>

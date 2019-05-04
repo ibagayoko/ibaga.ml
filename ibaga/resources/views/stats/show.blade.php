@@ -1,13 +1,15 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 
-@section('actions')
+@push('navRight')
     <a href="{{ route('stats.index') }}" class="btn btn-sm btn-outline-primary my-auto mx-3">
         See all stats
     </a>
-@endsection
-
+@endpush
+@php
+    $links = $linksName =[];
+@endphp
 @section('content')
-    <div class="container">
+    <page-content>
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <h5 class="text-muted small text-uppercase font-weight-bold mt-2">
@@ -85,5 +87,5 @@
                 @endif
             </div>
         </div>
-    </div>
+    </page-content>
 @endsection

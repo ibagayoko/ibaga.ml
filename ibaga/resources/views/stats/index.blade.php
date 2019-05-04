@@ -1,16 +1,17 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 
-@section('actions')
+@push('navRight')
     <a href="{{ route('post.create') }}" class="btn btn-sm btn-outline-primary my-auto mx-3">
         New post
     </a>
-@endsection
-
+@endpush
+@php
+    $links = $linksName = [];
+@endphp
 @section('content')
-    <div class="container">
+<Page-Content title="Stats" >
         <div class="row justify-content-center">
             <div class="col-md-10">
-                <h1 class="mt-2">Stats</h1>
 
                 @if($data['posts']['all']->isNotEmpty())
                     <p class="mt-3 mb-4">Click a post below to view more specific insights.</p>
@@ -72,5 +73,5 @@
                 @endif
             </div>
         </div>
-    </div>
+</Page-Content>
 @endsection

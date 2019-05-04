@@ -11,7 +11,6 @@ try {
     window.$ = window.jQuery = require('jquery');
     require('bootstrap');
     require("./plugins")
-    // window.c3 = require('c3')
 
 } catch (e) {
     console.log(e)

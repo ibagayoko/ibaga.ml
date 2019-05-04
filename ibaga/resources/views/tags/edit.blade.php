@@ -1,19 +1,23 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 
-@section('actions')
+@push('navRight')
     <a href="#" class="btn btn-sm btn-outline-primary my-auto"
        onclick="event.preventDefault();document.getElementById('form-edit').submit();"
        aria-label="Save">Save changes</a>
 
-    <div class="dropdown">
-        <a id="navbarDropdown" class="nav-link px-3 text-secondary" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-            <i class="fas fa-sliders-h fa-fw fa-rotate-270"></i>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+    <Dropdown>
+        {{-- <template slot="trigger"> --}}
+
+            <a id="" class="nav-link px-3 text-secondary leading-none"  slot="trigger" href="#" role="button" aria-haspopup="true" aria-expanded="false" >
+                <icon name="sliders"></icon>
+            </a>
+        {{-- </template> --}}
+
+        <div slot="content" class="dropdown-menu dropdown-menu-right show" aria-labelledby="dropdownMenuButton">
             <a href="#" class="dropdown-item text-danger" data-toggle="modal" data-target="#modal-delete">Delete</a>
         </div>
-    </div>
-@endsection
+    </Dropdown>
+@endpush
 
 @section('content')
     <div class="container">
@@ -24,4 +28,8 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('footer')
+    
 @endsection

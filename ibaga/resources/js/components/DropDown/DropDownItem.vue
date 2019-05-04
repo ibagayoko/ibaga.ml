@@ -1,6 +1,7 @@
 <script type="text/ecmascript">
     export default {
-        props:["icon",
+        props:[
+            "icon",
         "classname",
   "value",
   "badge",

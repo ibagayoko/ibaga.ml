@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 
-@section('actions')
+@push('navRight')
     <a href="{{ route('tag.create') }}" class="btn btn-sm btn-outline-primary my-auto mx-3">
         New tag
     </a>
-@endsection
+@endpush
 
 @section('content')
     <tag-list :models="{{ $data['tags'] }}" inline-template>
@@ -58,4 +58,12 @@
             </div>
         </div>
     </tag-list>
+@endsection
+
+@php
+    $links = $linksName = [];
+@endphp
+@section('footer')
+{{-- ndik --}}
+    
 @endsection

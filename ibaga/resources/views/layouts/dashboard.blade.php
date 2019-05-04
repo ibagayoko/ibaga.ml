@@ -54,6 +54,9 @@
     @stack('styles')
 </head>
 <body>
+    @php
+        $links = $linksName =[]
+    @endphp
  
     <div id="app">
         <site-wrapper>

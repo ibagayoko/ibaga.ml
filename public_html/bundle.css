@@ -15239,19 +15239,16 @@ Icon input
   text-align: center;
 }
 
-.map,
-.chart {
+.map {
   position: relative;
   padding-top: 56.25%;
 }
 
-.map-square,
-.chart-square {
+.map-square {
   padding-top: 100%;
 }
 
-.map-content,
-.chart-content {
+.map-content {
   position: absolute;
   top: 0;
   left: 0;
