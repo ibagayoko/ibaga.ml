@@ -5,10 +5,13 @@ namespace App\Models;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Str;
 
 class User extends Authenticatable
 {
     use Notifiable;
+
+    protected $table = "users";
 
     /**
      * The attributes that are mass assignable.
@@ -83,6 +86,16 @@ class User extends Authenticatable
     public function getAuthIdentifier()
     {
         return $this->{$this->getAuthIdentifierName()};
+    }
+
+    public function scopeByUsername($query, $username)
+    {
+        $slug = Str::lower(
+            str_replace("@", "",
+                str_replace(".", "", $username)
+                )
+            );
+        return $query->where('slug', $slug);
     }
 
       /**

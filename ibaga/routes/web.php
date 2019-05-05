@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,8 @@ Route::post('/handler/media/uploads', 'MediaController@store')->name('media.stor
 
 Route::middleware(['auth'])->group(function () {
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('{username}', 'UserProfileController@show')->name('users.profile')->where('username', "@[A-Za-z0-9.]+");
 
 // Post routes...
 Route::get('posts', 'PostsController@index')->name('post.index');
