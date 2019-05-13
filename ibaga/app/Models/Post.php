@@ -9,7 +9,8 @@ use Illuminate\Support\Str;
 // use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-// use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+
 
 class Post extends AbstractModel
 {
@@ -97,6 +98,16 @@ class Post extends AbstractModel
     public function views(): HasMany
     {
         return $this->hasMany(View::class);
+    }
+
+        /**
+     * Get the topics relationship.
+     *
+     * @return belongsToMany
+     */
+    public function topic(): BelongsToMany
+    {
+        return $this->belongsToMany(Topic::class, 'posts_topics', 'post_id', 'topic_id');
     }
     
     /**

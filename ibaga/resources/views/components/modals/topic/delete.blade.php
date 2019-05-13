@@ -12,7 +12,7 @@
                    aria-label="Delete">Delete</a>
                 <button type="button" class="btn btn-link text-muted" data-dismiss="modal">Cancel</button>
 
-                <form id="form-delete" action="{{ route('canvas.topic.destroy', $data['topic']->id) }}" method="POST" style="display: none">
+                <form id="form-delete" action="{{ route('topic.destroy', $data['topic']->id) }}" method="POST" style="display: none">
                     @method('DELETE')
                     @csrf
                 </form>

@@ -1,5 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+Route::get('link', function ()
+{
+    return Artisan::call("storage:link");
+    // storage:link
+});
 Auth::routes();
 
 // blog
@@ -74,6 +79,14 @@ Route::post('tags', 'TagController@store')->name('tag.store');
 Route::get('tags/{id}/edit', 'TagController@edit')->name(('tag.edit'));
 Route::put('tags/{id}', 'TagController@update')->name('tag.update');
 Route::delete('tags/{id}', 'TagController@destroy')->name('tag.destroy');
+
+// Topic routes...
+Route::get('topics', 'TopicController@index')->name('topic.index');
+Route::get('topics/create', 'TopicController@create')->name('topic.create');
+Route::post('topics', 'TopicController@store')->name('topic.store');
+Route::get('topics/{id}/edit', 'TopicController@edit')->name('topic.edit');
+Route::put('topics/{id}', 'TopicController@update')->name('topic.update');
+Route::delete('topics/{id}', 'TopicController@destroy')->name('topic.destroy');
 
 
 // Stats routes...

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tag;
 use App\Models\Post;
-// use Canvas\Topic;
+use App\Models\Topic;
 use Illuminate\View\View;
 use App\Events\PostViewed;
 
@@ -19,7 +19,7 @@ class BlogController extends Controller
     {
         $data = [
             'posts'  => Post::live()->orderByDesc('published_at')->simplePaginate(10),
-            'topics' => \collect([]), //Topic::all(),
+            'topics' => Topic::all(),
             'tags'   => Tag::all(),
         ];
         // return json_encode($data);
@@ -70,7 +70,7 @@ class BlogController extends Controller
                 'meta'   => $post->meta,
                 'next'   => $next,
                 'random' => $random,
-                // 'topic'  => $post->topic->first() ?? null,
+                'topic'  => $post->topic->first() ?? null,
             ];
 
             event(new PostViewed($post));
@@ -95,7 +95,7 @@ class BlogController extends Controller
             $data = [
                 'tag'    => $tag,
                 'tags'   => Tag::all(),
-                'topics' =>\collect([]),// Topic::all(),
+                'topics' => Topic::all(),
                 'posts'  => Post::whereHas('tags', function ($query) use ($slug) {
                     $query->where('slug', $slug);
                 })->published()->orderByDesc('published_at')->simplePaginate(10),
@@ -115,12 +115,12 @@ class BlogController extends Controller
      */
     public function topic(string $slug): View
     {
-        $topic = null;// Topic::with('posts')->where('slug', $slug)->first();
+        $topic = Topic::with('posts')->where('slug', $slug)->first();
 
         if ($topic) {
             $data = [
                 'tags'   => Tag::all(),
-                // 'topics' => Topic::all(),
+                'topics' => Topic::all(),
                 'topic'  => $topic,
                 'posts'  => Post::whereHas('topic', function ($query) use ($slug) {
                     $query->where('slug', $slug);
