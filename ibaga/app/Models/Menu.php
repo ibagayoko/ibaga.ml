@@ -9,7 +9,7 @@ class Menu extends Model
     protected $table = 'menus';
     protected $guarded = [];
 
-    const PREFIX = "voyager_menu";
+    const PREFIX = "cached_menu";
 
     public static function boot()
     {

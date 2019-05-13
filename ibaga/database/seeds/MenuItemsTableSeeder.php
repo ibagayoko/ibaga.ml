@@ -22,7 +22,7 @@ class MenuItemsTableSeeder extends Seeder
         if (!$menuItem->exists) {
             $menuItem->fill([
                 'target'     => '_self',
-                'icon_class' => 'voyager-boat',
+                'icon_class' => 'boat',
                 'color'      => null,
                 'parent_id'  => null,
                 'order'      => 1,
@@ -37,7 +37,7 @@ class MenuItemsTableSeeder extends Seeder
         if (!$menuItem->exists) {
             $menuItem->fill([
                 'target'     => '_self',
-                'icon_class' => 'voyager-images',
+                'icon_class' => 'images',
                 'color'      => null,
                 'parent_id'  => null,
                 'order'      => 5,
@@ -45,14 +45,14 @@ class MenuItemsTableSeeder extends Seeder
         }
         $menuItem = MenuItem::firstOrNew([
             'menu_id' => $menu->id,
-            'title'   => __('seeders.menu_items.users'),
+            'title'   => __('menu_items.users'),
             'url'     => '',
             'route'   => 'users.index',
         ]);
         if (!$menuItem->exists) {
             $menuItem->fill([
                 'target'     => '_self',
-                'icon_class' => 'voyager-person',
+                'icon_class' => 'person',
                 'color'      => null,
                 'parent_id'  => null,
                 'order'      => 3,
@@ -60,14 +60,14 @@ class MenuItemsTableSeeder extends Seeder
         }
         $menuItem = MenuItem::firstOrNew([
             'menu_id' => $menu->id,
-            'title'   => __('seeders.menu_items.roles'),
+            'title'   => __('menu_items.roles'),
             'url'     => '',
             'route'   => 'roles.index',
         ]);
         if (!$menuItem->exists) {
             $menuItem->fill([
                 'target'     => '_self',
-                'icon_class' => 'voyager-lock',
+                'icon_class' => 'lock',
                 'color'      => null,
                 'parent_id'  => null,
                 'order'      => 2,
@@ -75,13 +75,13 @@ class MenuItemsTableSeeder extends Seeder
         }
         $toolsMenuItem = MenuItem::firstOrNew([
             'menu_id' => $menu->id,
-            'title'   => __('seeders.menu_items.tools'),
+            'title'   => __('menu_items.tools'),
             'url'     => '',
         ]);
         if (!$toolsMenuItem->exists) {
             $toolsMenuItem->fill([
                 'target'     => '_self',
-                'icon_class' => 'voyager-tools',
+                'icon_class' => 'tools',
                 'color'      => null,
                 'parent_id'  => null,
                 'order'      => 9,
@@ -89,14 +89,14 @@ class MenuItemsTableSeeder extends Seeder
         }
         $menuItem = MenuItem::firstOrNew([
             'menu_id' => $menu->id,
-            'title'   => __('seeders.menu_items.menu_builder'),
+            'title'   => __('menu_items.menu_builder'),
             'url'     => '',
             'route'   => 'menus.index',
         ]);
         if (!$menuItem->exists) {
             $menuItem->fill([
                 'target'     => '_self',
-                'icon_class' => 'voyager-list',
+                'icon_class' => 'list',
                 'color'      => null,
                 'parent_id'  => $toolsMenuItem->id,
                 'order'      => 10,
@@ -104,14 +104,14 @@ class MenuItemsTableSeeder extends Seeder
         }
         $menuItem = MenuItem::firstOrNew([
             'menu_id' => $menu->id,
-            'title'   => __('seeders.menu_items.database'),
+            'title'   => __('menu_items.database'),
             'url'     => '',
             'route'   => 'database.index',
         ]);
         if (!$menuItem->exists) {
             $menuItem->fill([
                 'target'     => '_self',
-                'icon_class' => 'voyager-data',
+                'icon_class' => 'data',
                 'color'      => null,
                 'parent_id'  => $toolsMenuItem->id,
                 'order'      => 11,
@@ -119,14 +119,14 @@ class MenuItemsTableSeeder extends Seeder
         }
         $menuItem = MenuItem::firstOrNew([
             'menu_id' => $menu->id,
-            'title'   => __('seeders.menu_items.compass'),
+            'title'   => __('menu_items.compass'),
             'url'     => '',
             'route'   => 'compass.index',
         ]);
         if (!$menuItem->exists) {
             $menuItem->fill([
                 'target'     => '_self',
-                'icon_class' => 'voyager-compass',
+                'icon_class' => 'compass',
                 'color'      => null,
                 'parent_id'  => $toolsMenuItem->id,
                 'order'      => 12,
@@ -134,14 +134,14 @@ class MenuItemsTableSeeder extends Seeder
         }
         $menuItem = MenuItem::firstOrNew([
             'menu_id' => $menu->id,
-            'title'   => __('seeders.menu_items.bread'),
+            'title'   => __('menu_items.bread'),
             'url'     => '',
             'route'   => 'bread.index',
         ]);
         if (!$menuItem->exists) {
             $menuItem->fill([
                 'target'     => '_self',
-                'icon_class' => 'voyager-bread',
+                'icon_class' => 'bread',
                 'color'      => null,
                 'parent_id'  => $toolsMenuItem->id,
                 'order'      => 13,
@@ -149,14 +149,14 @@ class MenuItemsTableSeeder extends Seeder
         }
         $menuItem = MenuItem::firstOrNew([
             'menu_id' => $menu->id,
-            'title'   => __('seeders.menu_items.settings'),
+            'title'   => __('menu_items.settings'),
             'url'     => '',
             'route'   => 'settings.index',
         ]);
         if (!$menuItem->exists) {
             $menuItem->fill([
                 'target'     => '_self',
-                'icon_class' => 'voyager-settings',
+                'icon_class' => 'settings',
                 'color'      => null,
                 'parent_id'  => null,
                 'order'      => 14,
