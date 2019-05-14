@@ -15,8 +15,6 @@
         "cross",
         "feedback",
         "readOnly",
-        "name",
-        "value",
         "disabled"
   ],
         data() {
@@ -47,11 +45,11 @@
 <template>
             <!-- <slot></slot> -->
     <Fragment v-if="!label">
-        <textarea :class="classes" v-bind="$attrs">{{ this.$slots.default[0].text }}</textarea>
+        <textarea :class="classes" v-bind="$attrs" v-model="$slots.default[0].text"></textarea>
         <span v-if="feedback1" class="invalid-feedback">{{ feedback1 }}</span>
     </Fragment>
     <FormGroup v-else :label="label">
-        <textarea :class="classes" v-bind="$attrs">{{ this.$slots.default[0].text }}</textarea>
+        <textarea :class="classes" v-bind="$attrs" v-model="$slots.default[0].text"></textarea>
         <span v-if="feedback1" class="invalid-feedback">{{ feedback1 }}</span>
     </FormGroup>
 </template>

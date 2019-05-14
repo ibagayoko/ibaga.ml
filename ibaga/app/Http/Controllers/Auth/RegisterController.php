@@ -67,8 +67,12 @@ class RegisterController extends Controller
         $user = new User();
         $uuid =  (string) Str::uuid();
         $user->setUUID($uuid);
-        $user->setSlug(Str::slug($data['name']).$uuid);
+        $username = Str::slug($data['name'], "").Str::random(5);
+        $username =  Str::lower($username);
+        $user->setSlug($username);
 
+        $user->setUsername($username);
+        
         $user->fill([
             'name' => $data['name'],
             'email' => $data['email'],

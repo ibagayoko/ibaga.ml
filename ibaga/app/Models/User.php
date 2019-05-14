@@ -19,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'bio'
     ];
 
     /**
@@ -67,7 +67,7 @@ class User extends Authenticatable
      */
     public function posts()
     {
-        return $this->hasMany(Post::class, 'author_id');
+        return $this->hasMany(Post::class);
     }
     /**
      * Get the name of the unique identifier for the user.
@@ -108,7 +108,7 @@ class User extends Authenticatable
         $this->{$this->getAuthIdentifierName()} = $uuid;
     }
 
-          /**
+    /**
      * Get the unique identifier for the user.
      *
      * @return mixed
@@ -116,6 +116,15 @@ class User extends Authenticatable
     public function setSlug($slug)
     {
         $this->slug = $slug;
+    }
+    /**
+     * Get the unique identifier for the user.
+     *
+     * @return mixed
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
     }
 
 

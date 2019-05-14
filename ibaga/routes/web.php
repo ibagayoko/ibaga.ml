@@ -40,7 +40,10 @@ Route::post('/handler/media/uploads', 'MediaController@store')->name('media.stor
 Route::middleware(['auth'])->group(function () {
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('@{username}', 'UserProfileController@show')->name('user.profile')->where('username', "[A-Za-z0-9.]+");
+Route::get('@{username}', 'UserProfileController@show')->name('user.show')->where('username', "[A-Za-z0-9.]+");
+Route::put('@{username}/info', 'UserProfileController@updateInfo')->name('user.update.info')->where('username', "[A-Za-z0-9.]+");
+Route::put('@{username}/password', 'UserProfileController@updatePassword')->name('user.update.password')->where('username', "[A-Za-z0-9.]+");
+Route::get('me', 'UserProfileController@me')->name('user.me');
 
 // Post routes...
 Route::get('posts', 'PostsController@index')->name('post.index');

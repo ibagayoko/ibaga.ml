@@ -48,18 +48,13 @@ class UserProfileController extends Controller
      */
     public function show(string $username)
     {
-        // $slug = Str::lower(
-        //     str_replace("@", "",
-        //         str_replace(".", "", $username)
-        //         )
-        //     );
         $user = User::byUsername( $username)->first();
-        // dd($user);
         if ($user) {
             $data = [
                 "user" => $user,
+                "posts" => $user->posts,
             ];
-            return view("users.profile",compact('data'));
+            return view("users.profile", compact('data'));
         } else {
             abort(404);
         }
@@ -75,6 +70,7 @@ class UserProfileController extends Controller
     public function me()
     {
         $user = Auth::user();
+        return redirect(route('user.show', $user->username));
     }
 
     /**
@@ -90,14 +86,70 @@ class UserProfileController extends Controller
 
     /**
      * Update the specified resource in storage.
+     * name, bio attrs
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function updateInfo(Request $request, string $username)
     {
-        //
+        $user = User::byUsername($username)->first();
+        if ($user) {
+            $data = [
+                'id'   => request('id'),
+                'name' => request('name'),
+                'bio' => request('bio'),
+            ];
+
+            validator($data, [
+                'name' => 'required',
+            ])->validate();
+
+            $user->fill($data);
+            $user->save();
+        }
+        return redirect(route("user.show", $username));
+    }
+
+        /**
+     * Update the specified resource in storage.
+     * name, bio attrs
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function updatePassword(Request $request, string $username)
+    {
+        $user = User::byUsername($username)->first();
+        if ($user) {
+
+            $messages = [
+                'current_password.required' => 'Please enter current password',
+                'password.required' => 'Please enter password',
+            ];
+
+            $data = [
+                'current-password'   => request('current-password'),
+                'password' => request('password'),
+                'password_confirmation' => request('password_confirmation'),
+            ];
+            validator($data, [
+                'current-password' => 'required',
+                'password' => 'required|string|min:8|same:password',
+                'password_confirmation' => 'required|same:password',  
+            ], $messages)->validate();
+            $current_password = $user->password;  
+
+            if(Hash::check($data['current_password'], $current_password)){
+
+                $user->password = Hash::make($data['password']);
+                $user->save();
+            }
+        }
+        return redirect(route("user.show", $username));
+
     }
 
     /**

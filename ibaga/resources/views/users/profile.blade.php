@@ -31,100 +31,126 @@
                       </Card>
                     </grid-Col>
                     <grid-col lg="8">
-                        <form class="card">
+                        <form  action="{{ route("user.update.info", $data['user']->username) }}" method="POST">
+                            @method('PUT')
+                            @csrf
+                            <card  titre="Edit Profile Username" options="true">
+                            {{-- <card-Title >Edit Profile Username</card-Title> --}}
+                            <Card-Alert color="success">
+                                Adding action was successful
+                            </Card-Alert>
                             <card-Body>
-                              <card-Title>Edit Profile</card-Title>
                               <grid-Row>
-                                <grid-Col md="5">
-                                  <Form-Group>
-                                    <Form-Label>Company</Form-Label>
-                                    <Form-Input
-                                      type="text"
-                                      disabled
-                                      placeholder="Company"
-                                      value="Creative Code Inc."
-                                    />
+                                <grid-Col md="12">
+                                  <Form-Group is-required="true" label="Username">
+                                    <Form-Input-Group>
+                                    <Form-Input-Group-Prepend>
+                                    <Form-Input-Group-Text>@</Form-Input-Group-Text>
+                                    </Form-Input-Group-Prepend>
+                                      <Form-Input
+                                        type="text"
+                                        
+                                        placeholder="{{ __("user.form.username") }}"
+                                        name="name"
+                                        value="{{ $data["user"]->username }}"
+                                      ></Form-Input>
+                                    </Form-Input-Group>
                                   </Form-Group>
                                 </grid-Col>
-                                <grid-Col sm="6" md="3">
-                                  <Form-Group>
-                                    <Form-Label>Username</Form-Label>
-                                    <Form-Input
-                                      type="text"
-                                      placeholder="Username"
-                                      value="michael23"
-                                    />
-                                  </Form-Group>
-                                </grid-Col>
-                                <grid-Col sm="6" md="4">
-                                  <Form-Group>
-                                    <Form-Label>Email address</Form-Label>
-                                    <Form-Input type="email" placeholder="Email" />
-                                  </Form-Group>
-                                </grid-Col>
-                                <grid-Col sm="6" md="6">
-                                  <Form-Group>
-                                    <Form-Label>First Name</Form-Label>
-                                    <Form-Input
-                                      type="text"
-                                      placeholder="First Name"
-                                      value="Chet"
-                                    />
-                                  </Form-Group>
-                                </grid-Col>
-                                <grid-Col sm="6" md="6">
-                                  <Form-Group>
-                                    <Form-Label>Last Name</Form-Label>
-                                    <Form-Input
-                                      type="text"
-                                      placeholder="Last Name"
-                                      value="Faker"
-                                    />
-                                  </Form-Group>
-                                </grid-Col>
+                  
+                              </grid-Row>
+                            </card-Body>
+                            <card-Footer class-name="text-right">
+                              <i-Button type="submit" color="primary">
+                                Update Profile
+                              </i-Button>
+                            </Card-Footer>
+                            </card>
+                          </form>
+                        <form class="card" action="{{ route("user.update.password", $data['user']->username) }}" method="POST">
+                            @method('PUT')
+                            @csrf
+                            <card-Body>
+                              <card-Title>Edit Profile Password</card-Title>
+                              <grid-Row>
                                 <grid-Col md="12">
                                   <Form-Group>
-                                    <Form-Label>Address</Form-Label>
+                                    <Form-Label>{{ __("user.form.label.current_password") }}</Form-Label>
                                     <Form-Input
-                                      type="text"
-                                      placeholder="Home Address"
-                                      value="Melbourne, Australia"
+                                      type="password"
+                                      placeholder="{{ __("user.form.placeholder.current_password") }}"
+                                      name="current_password"
+                                      value=""
                                     />
                                   </Form-Group>
                                 </grid-Col>
-                                <grid-Col sm="6" md="4">
-                                  <Form-Group>
-                                    <Form-Label>City</Form-Label>
+
+                                <grid-Col md="12">
+                                    <Form-Group>
+                                      <Form-Label>{{ __("user.form.label.new_password") }}</Form-Label>
+                                      <Form-Input
+                                        type="password"
+                                        placeholder="{{ __("user.form.placeholder.new_password") }}"
+                                        name="password"
+                                        value=""
+                                      />
+                                    </Form-Group>
+                                  </grid-Col>
+
+                                  <grid-Col md="12">
+                                      <Form-Group>
+                                        <Form-Label>{{ __("user.form.label.password_confirmation") }}</Form-Label>
+                                        <Form-Input
+                                          type="password"
+                                          placeholder="{{ __("user.form.placeholder.password_confirmation") }}"
+                                          name="password_confirmation"
+                                          value=""
+                                        />
+                                      </Form-Group>
+                                    </grid-Col>
+                                    <div class="text-center p-t-12">
+                                        <span class="txt1">
+                                            
+                                        </span>
+                                        <a class="txt2" href="{{ route('password.request') }}">
+                                            Forgot Password?
+                                        </a>
+                                    </div>
+                               
+                              </grid-Row>
+                            </card-Body>
+                            <card-Footer class-name="text-right">
+                              <i-Button type="submit" color="primary">
+                                Update Password
+                              </i-Button>
+                            </Card-Footer>
+                          </form>
+                   
+                        <form class="card" action="{{ route("user.update.info", $data['user']->username) }}" method="POST">
+                            @method('PUT')
+                            @csrf
+                            <card-Body>
+                              <card-Title>Edit Profile Info</card-Title>
+                              <grid-Row>
+                                <grid-Col md="12">
+                                  <Form-Group is-required="true" label="Name">
                                     <Form-Input
                                       type="text"
-                                      placeholder="City"
-                                      value="Melbourne"
+                                      
+                                      placeholder="{{ __("user.form.name") }}"
+                                      name="name"
+                                      value="{{ $data["user"]->name }}"
                                     />
                                   </Form-Group>
                                 </grid-Col>
-                                <grid-Col sm="6" md="3">
-                                  <Form-Group>
-                                    <Form-Label>Postal Code</Form-Label>
-                                    <Form-Input type="number" placeholder="ZIP Code" />
-                                  </Form-Group>
-                                </grid-Col>
-                                <grid-Col md="5">
-                                  <Form-Group>
-                                    <Form-Label>Country</Form-Label>
-                                    <form-select>
-                                      <option>Germany</option>
-                                    </form-select>
-                                  </Form-Group>
-                                </grid-Col>
+                  
                                 <grid-Col md="12">
                                   <Form-Group class-name="mb=0" label="About Me">
                                     <form-Textarea 
+                                      name="bio"
                                       rows="5"
                                       placeholder="Here can be your description"
-                                    > Oh so, your weak rhyme You doubt I'll bother, reading
-                                      into it I'll probably won't, left to my own devices
-                                      But that's the difference in our opinions.
-                                    </form-Textarea>
+                                    >{{ $data["user"]->bio }}&nbsp;</form-Textarea>
                                   </Form-Group>
 
                                 </grid-Col>
