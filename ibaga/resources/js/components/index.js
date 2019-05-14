@@ -1,6 +1,6 @@
 export { Avatar, AvatarList } from "./Avatar";
 export { default as Icon } from "./Icon";
-export { Card, CardBody, CardTitle, CardHeader, CardFooter } from "./Card";
+export { Card, CardAlert, CardBody, CardTitle, CardHeader, CardFooter } from "./Card";
 export { default as Container } from "./Container"
 export { IButton } from "./IButton";
 export { default as BlogCard } from "./BlogCard";
@@ -75,4 +75,10 @@ NavSubmenuItem,
 
     export {SocialNetworksList}  from './SocialNetworksList';
 
-    export { FormGroup, FormLabel, FormInput, FormSelect, FormTextarea  } from './Form'
+    export {
+        FormGroup,
+        FormInputGroup,
+        FormLabel, FormInput,
+        FormSelect, FormTextarea, 
+        FormInputGroupPrepend, FormInputGroupText
+    } from './Form'
