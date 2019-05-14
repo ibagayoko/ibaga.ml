@@ -25,6 +25,7 @@
         "sass": "^1.15.3",
         "sass-loader": "7.*",
         "tailwindcss": "^0.7.2",
+        "v-tooltip": "^3.0.0-alpha.7",
         "vue": "^2.5.21",
         "vue-c3": "^1.2.11",
         "vue-fragment": "^1.5.1",

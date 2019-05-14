@@ -56,7 +56,10 @@ class UserProfileController extends Controller
         $user = User::byUsername( $username)->first();
         // dd($user);
         if ($user) {
-
+            $data = [
+                "user" => $user,
+            ];
+            return view("users.profile",compact('data'));
         } else {
             abort(404);
         }

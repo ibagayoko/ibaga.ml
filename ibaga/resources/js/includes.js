@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueNotification from "@kugatsu/vuenotification";
 import { Fragment } from 'vue-fragment'
+import VTooltip from 'v-tooltip'
 
 const entries = Object.entries(require("./components"))
 for (const [key, cmpnt] of entries) {
@@ -47,6 +48,8 @@ Vue.use(VueNotification, {
     infiniteTimer:true
   });
 
+  
+  Vue.use(VTooltip)
 
 // Directives
 Vue.directive('loading', require('./components/loadingButton'));

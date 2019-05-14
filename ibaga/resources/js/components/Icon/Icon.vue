@@ -11,13 +11,6 @@
         "isAriaHidden",
         "payment",
         "flag",
-        "onClick",
-        "onMouseEnter",
-        "onMouseLeave",
-        "onPointerEnter",
-        "onPointerLeave",
-        "onFocus",
-        "onBlur"
   ],
         data() {
             let eventProps = {};

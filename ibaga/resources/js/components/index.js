@@ -1,6 +1,6 @@
 export { Avatar, AvatarList } from "./Avatar";
 export { default as Icon } from "./Icon";
-export { Card, CardBody, CardTitle, CardHeader } from "./Card";
+export { Card, CardBody, CardTitle, CardHeader, CardFooter } from "./Card";
 export { default as Container } from "./Container"
 export { IButton } from "./IButton";
 export { default as BlogCard } from "./BlogCard";
@@ -61,3 +61,18 @@ NavSubmenuItem,
     export { Dropdown, DropdownItem, DropdownItemDivider} from "./DropDown"
 
     export { Badge } from './Badge'
+
+
+    export {
+        Media,
+        MediaBody,
+        MediaBodySocial,
+        MediaHeading,
+        MediaList,
+        MediaListItem,
+        MediaObject,
+    } from './Media'
+
+    export {SocialNetworksList}  from './SocialNetworksList';
+
+    export { FormGroup, FormLabel, FormInput, FormSelect, FormTextarea  } from './Form'
