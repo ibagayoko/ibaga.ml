@@ -15,7 +15,7 @@ export default   {
   name:"Card",
   props: [
   "className",
-  "title",
+  "titre",
   "body",
   "RootComponent",
   "options",
@@ -43,40 +43,37 @@ components: {
   CardMap,
 },
 data(){
-    let state = {
-    isClosed: this.isClosed || false,
-    isCollapsed: this.isCollapsed || false,
+    return {
+    Closed: this.isClosed || false,
+    Collapsed: this.isCollapsed || false,
     isFullscreen: false,
     }
-    return {state}
+    // return {state}
 },
 methods: {
-  handleCloseOnClick : () => {
-    //   this.setState(s => ({
-      this.isClosed = !this.isClosed
-    // }));
+  handleCloseOnClick ()  {
+      this.Closed = !this.Closed
   },
 
-  handleCollapseOnClick : () => {
-    // this.setState(s => ({
-        this.isCollapsed = this.isCollapsed
-    // }));
+  handleCollapseOnClick ()  {
+
+        this.Collapsed = !this.Collapsed
   },
 
-  handleFullscreenOnClick :() => {
+  handleFullscreenOnClick()  {
       this.isFullscreen = !this.isFullscreen
   },
 
 },
       computed: {
-      classObject: function () {
+      classes: function () {
         return {
           card: true,
           aside: this.aside || false,
-            "card-collapsed": this.isCollapsed,
+            "card-collapsed": this.Collapsed,
             "card-fullscreen": this.isFullscreen,
             // `${this.className}`:true,
-            [`${this.className}`]:true
+            [`${this.className}`]:this.className
         }
       }
     },
@@ -85,26 +82,30 @@ methods: {
 </script>
 
 <template>
-  <div v-bind:class="[classObject]" v-if="!isClosed">
+  <div v-bind:class="classes" v-if="!Closed">
     <!-- {card_status} -->
     <CardStatus v-if="statusColor" :color="statusColor" :side="statusSide"/>
     <!-- {card_header} -->
 
-    <CardHeader v-if="title">
-      <CardTitle>{{ title }}</CardTitle>
+    <CardHeader v-if="!!titre">
+      <CardTitle>{{ titre }}</CardTitle>
 
       <CardOptions>
         <CardOptionsItem
           v-if="options || isClosable"
-          v-on:click.native="this.handleCollapseOnClick"
+          v-on:click.native="handleCollapseOnClick"
           type="collapse"
         />
         <CardOptionsItem
           v-if="options || isFullscreenable"
+          v-on:click.native="handleFullscreenOnClick"
           type="fullscreen"
-          v-on:click.native="this.handleFullscreenOnClick"
         />
-        <CardOptionsItem v-if="options || isClosable" type="close" v-on:click.native="handleCloseOnClick"/>
+        <CardOptionsItem 
+          v-if="options || isClosable" 
+          v-on:click.native="handleCloseOnClick"
+          type="close" 
+          />
       </CardOptions>
     </CardHeader>
 

@@ -5,7 +5,7 @@
         props: [ "className", "color"],
         data() {
             return {
-                colorClass:`card-alert alert alert-${color} mb-0`,
+                colorClass:`card-alert alert alert-${this.color} mb-0`,
                 
             }
         },
@@ -16,9 +16,7 @@
 </script>
 
 <template>
-        <div
-      v-bind:class="[colorClass, className]"
-    >
+        <div v-bind:class="[colorClass, className]"   >
       <slot/>
     </div>
 </template>
