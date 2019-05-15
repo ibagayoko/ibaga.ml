@@ -11,12 +11,10 @@ class MediaController extends Controller
      */
     public function store(): string
     {
-        $path = request()->image->store("posts/uploads");
+        $path = request()->image->store('posts/uploads');
 
         return json_encode([
         'url' => Storage::url($path),
         ]);
     }
-
-    
 }
