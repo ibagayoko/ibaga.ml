@@ -2,8 +2,8 @@
 
 namespace App\Mail;
 
-
 use Illuminate\Mail\Mailable;
+
 class ResetPasswordEmail extends Mailable
 {
     /**
@@ -12,16 +12,19 @@ class ResetPasswordEmail extends Mailable
      * @var string
      */
     public $token;
+
     /**
      * New instance.
      *
-     * @param  string  $token
+     * @param string $token
+     *
      * @return void
      */
     public function __construct($token)
     {
         $this->token = $token;
     }
+
     /**
      * Build the message.
      *

@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Menu;
 use App\Models\MenuItem;
 use Illuminate\Http\Request;
-
 use Illuminate\Support\Arr;
+
 class MenuController extends Controller
 {
     /**
@@ -19,7 +19,8 @@ class MenuController extends Controller
         $data = [
             'menus' => Menu::all(),
         ];
-        return view('menus.index', compact("data"));
+
+        return view('menus.index', compact('data'));
     }
 
     /**
@@ -35,7 +36,8 @@ class MenuController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -46,7 +48,8 @@ class MenuController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Menu  $menu
+     * @param \App\Models\Menu $menu
+     *
      * @return \Illuminate\Http\Response
      */
     public function show(Menu $menu)
@@ -57,7 +60,8 @@ class MenuController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Menu  $menu
+     * @param \App\Models\Menu $menu
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit(Menu $menu)
@@ -68,8 +72,9 @@ class MenuController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Menu  $menu
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Menu         $menu
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Menu $menu)
@@ -80,7 +85,8 @@ class MenuController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Menu  $menu
+     * @param \App\Models\Menu $menu
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy(Menu $menu)
@@ -97,12 +103,14 @@ class MenuController extends Controller
         $isModelTranslatable = false; //is_bread_translatable(Voyager::model('MenuItem'));
         return view('menus.builder', compact('menu', 'isModelTranslatable'));
     }
+
     public function delete_menu($menu, $id)
     {
         $item = MenuItem::findOrFail($id);
         // $this->authorize('delete', $item);
         // $item->deleteAttributeTranslation('title');
         $item->destroy($id);
+
         return redirect()
             ->route('menus.builder', [$menu])
             ->with([
@@ -110,6 +118,7 @@ class MenuController extends Controller
                 'alert-type' => 'success',
             ]);
     }
+
     public function add_item(Request $request)
     {
         // $menu = Voyager::model('Menu');
@@ -118,7 +127,7 @@ class MenuController extends Controller
             $request->all()
         );
         unset($data['id']);
-        $data['order'] = (new MenuItem)->highestOrderMenuItem();
+        $data['order'] = (new MenuItem())->highestOrderMenuItem();
         // Check if is translatable
         // $_isTranslatable = is_bread_translatable(Voyager::model('MenuItem'));
         // if ($_isTranslatable) {
@@ -137,6 +146,7 @@ class MenuController extends Controller
                 'alert-type' => 'success',
             ]);
     }
+
     public function update_item(Request $request)
     {
         $id = $request->input('id');
@@ -151,6 +161,7 @@ class MenuController extends Controller
         //     $menuItem->setAttributeTranslations('title', $trans, true);
         // }
         $menuItem->update($data);
+
         return redirect()
             ->route('menus.builder', [$menuItem->menu_id])
             ->with([
@@ -158,11 +169,13 @@ class MenuController extends Controller
                 'alert-type' => 'success',
             ]);
     }
+
     public function order_item(Request $request)
     {
         $menuItemOrder = json_decode($request->input('order'));
         $this->orderMenu($menuItemOrder, null);
     }
+
     private function orderMenu(array $menuItems, $parentId)
     {
         foreach ($menuItems as $index => $menuItem) {
@@ -175,6 +188,7 @@ class MenuController extends Controller
             }
         }
     }
+
     protected function prepareParameters($parameters)
     {
         switch (Arr::get($parameters, 'type')) {
@@ -189,6 +203,7 @@ class MenuController extends Controller
         if (isset($parameters['type'])) {
             unset($parameters['type']);
         }
+
         return $parameters;
     }
 }

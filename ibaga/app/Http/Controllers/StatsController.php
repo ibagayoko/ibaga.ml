@@ -47,6 +47,7 @@ class StatsController extends Controller
      * Show data analytics for a single post.
      *
      * @param string $id
+     *
      * @return \Illuminate\View\View
      */
     public function show(string $id)

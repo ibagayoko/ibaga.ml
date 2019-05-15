@@ -3,15 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Support\Facades\Route;
+
 // use Illuminate\Database\Eloquent\Model;
 
 class MenuItem extends AbstractModel
 {
     protected $table = 'menu_items';
 
-
     protected $guarded = [];
-
 
     public static function boot()
     {
@@ -26,23 +25,28 @@ class MenuItem extends AbstractModel
             $model->menu->removeMenuFromCache();
         });
     }
+
     public function children()
     {
-        return $this->hasMany(MenuItem::class, 'parent_id')
+        return $this->hasMany(self::class, 'parent_id')
             ->with('children');
     }
+
     public function menu()
     {
         return $this->belongsTo(Menu::class);
     }
+
     public function link($absolute = false)
     {
         return $this->prepareLink($absolute, $this->route, $this->parameters, $this->url);
     }
+
     public function translatorLink($translator, $absolute = false)
     {
         return $this->prepareLink($absolute, $translator->route, $translator->parameters, $translator->url);
     }
+
     protected function prepareLink($absolute, $route, $parameters, $url)
     {
         if (is_null($parameters)) {
@@ -59,17 +63,21 @@ class MenuItem extends AbstractModel
             if (!Route::has($route)) {
                 return '#';
             }
+
             return route($route, $parameters, $absolute);
         }
         if ($absolute) {
             return url($url);
         }
+
         return $url;
     }
+
     public function getParametersAttribute()
     {
         return json_decode($this->attributes['parameters']);
     }
+
     public function setParametersAttribute($value)
     {
         if (is_array($value)) {
@@ -77,6 +85,7 @@ class MenuItem extends AbstractModel
         }
         $this->attributes['parameters'] = $value;
     }
+
     public function setUrlAttribute($value)
     {
         if (is_null($value)) {
@@ -84,6 +93,7 @@ class MenuItem extends AbstractModel
         }
         $this->attributes['url'] = $value;
     }
+
     /**
      * Return the Highest Order Menu Item.
      *
@@ -100,6 +110,7 @@ class MenuItem extends AbstractModel
         if (!is_null($item)) {
             $order = intval($item->order) + 1;
         }
+
         return $order;
     }
 }

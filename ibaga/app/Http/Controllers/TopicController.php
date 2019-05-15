@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Topic;
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
-use Illuminate\Routing\Controller;
 
 class TopicController extends Controller
 {
@@ -41,6 +41,7 @@ class TopicController extends Controller
      * Edit a given topic.
      *
      * @param string $id
+     *
      * @return \Illuminate\View\View
      */
     public function edit(string $id)
@@ -85,6 +86,7 @@ class TopicController extends Controller
      * Save a given topic.
      *
      * @param string $id
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
     public function update(string $id)
@@ -116,6 +118,7 @@ class TopicController extends Controller
      * Delete a given topic.
      *
      * @param string $id
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(string $id)

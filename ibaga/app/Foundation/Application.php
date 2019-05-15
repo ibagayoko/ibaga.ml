@@ -1,13 +1,11 @@
 <?php
+
 namespace App\Foundation;
 
 use Illuminate\Foundation\Application as BaseApplication;
 
-class Application extends BaseApplication 
+class Application extends BaseApplication
 {
-
-
-
     /**
      * Get the path to the public / web directory.
      *

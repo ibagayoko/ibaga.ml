@@ -2,16 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
 
 class User extends Authenticatable
 {
     use Notifiable;
 
-    protected $table = "users";
+    protected $table = 'users';
 
     /**
      * The attributes that are mass assignable.
@@ -19,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'bio'
+        'name', 'email', 'password', 'bio',
     ];
 
     /**
@@ -49,7 +48,7 @@ class User extends Authenticatable
      * @var bool
      */
     public $incrementing = false;
-    
+
     /**
      * The attributes that should be cast to native types.
      *
@@ -57,7 +56,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'meta' => 'array',
+        'meta'              => 'array',
     ];
 
     /**
@@ -69,6 +68,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class);
     }
+
     /**
      * Get the name of the unique identifier for the user.
      *
@@ -78,6 +78,7 @@ class User extends Authenticatable
     {
         return $this->getKeyName();
     }
+
     /**
      * Get the unique identifier for the user.
      *
@@ -91,14 +92,15 @@ class User extends Authenticatable
     public function scopeByUsername($query, $username)
     {
         $slug = Str::lower(
-            str_replace("@", "",
-                str_replace(".", "", $username)
+            str_replace('@', '',
+                str_replace('.', '', $username)
                 )
             );
+
         return $query->where('slug', $slug);
     }
 
-      /**
+    /**
      * Set the unique identifier for the user.
      *
      * @return mixed
@@ -117,6 +119,7 @@ class User extends Authenticatable
     {
         $this->slug = $slug;
     }
+
     /**
      * Get the unique identifier for the user.
      *
@@ -127,7 +130,6 @@ class User extends Authenticatable
         $this->username = $username;
     }
 
-
     /**
      * Get the password for the user.
      *
@@ -137,6 +139,7 @@ class User extends Authenticatable
     {
         return $this->password;
     }
+
     /**
      * Get the token value for the "remember me" session.
      *
@@ -144,7 +147,7 @@ class User extends Authenticatable
      */
     public function getRememberToken()
     {
-        if (! empty($this->getRememberTokenName())) {
+        if (!empty($this->getRememberTokenName())) {
             return (string) $this->{$this->getRememberTokenName()};
         }
     }
@@ -152,15 +155,17 @@ class User extends Authenticatable
     /**
      * Set the token value for the "remember me" session.
      *
-     * @param  string  $value
+     * @param string $value
+     *
      * @return void
      */
     public function setRememberToken($value)
     {
-        if (! empty($this->getRememberTokenName())) {
+        if (!empty($this->getRememberTokenName())) {
             $this->{$this->getRememberTokenName()} = $value;
         }
     }
+
     /**
      * Get the column name for the "remember me" token.
      *
@@ -170,10 +175,12 @@ class User extends Authenticatable
     {
         return $this->rememberTokenName;
     }
+
     /**
      * Get the authors's avatar.
      *
-     * @param  string  $value
+     * @param string $value
+     *
      * @return string
      */
     public function getAvatarAttribute($value)

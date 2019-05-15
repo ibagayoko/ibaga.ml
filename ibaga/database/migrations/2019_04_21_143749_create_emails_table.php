@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateEmailsTable extends Migration
 {
@@ -15,14 +15,14 @@ class CreateEmailsTable extends Migration
     {
         Schema::create('emails', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string("from");
-            $table->string("from_email");
-            $table->string("to_email");
-            $table->string("subject")->nullable();
-            $table->string("to");
-            $table->text("text")->nullable();
-            $table->text("html")->nullable();
-            $table->text("attachments")->nullable();
+            $table->string('from');
+            $table->string('from_email');
+            $table->string('to_email');
+            $table->string('subject')->nullable();
+            $table->string('to');
+            $table->text('text')->nullable();
+            $table->text('html')->nullable();
+            $table->text('attachments')->nullable();
             $table->timestamps();
         });
     }

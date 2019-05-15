@@ -57,11 +57,11 @@ return [
 
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'name'    => env('MAIL_FROM_NAME', 'Example'),
     ],
     'reply_to' => [
         'address' => env('MAIL_REPLY_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_REPLY_NAME', 'Example')
+        'name'    => env('MAIL_REPLY_NAME', 'Example'),
     ],
 
     /*
@@ -92,7 +92,7 @@ return [
 
     'password' => env('MAIL_PASSWORD'),
 
-    'trusted' => explode(',', env("TRUSTED_MAIL_ADDRESS", '')),
+    'trusted' => explode(',', env('TRUSTED_MAIL_ADDRESS', '')),
 
     /*
     |--------------------------------------------------------------------------
@@ -137,6 +137,6 @@ return [
     |
     */
 
-    'log_channel' => env('MAIL_LOG_CHANNEL', "stack"),
+    'log_channel' => env('MAIL_LOG_CHANNEL', 'stack'),
 
 ];

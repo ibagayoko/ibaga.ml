@@ -2,11 +2,8 @@
 
 namespace App\Listeners;
 
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
-
-use App\Models\Post;
 use App\Events\PostViewed;
+use App\Models\Post;
 
 class StoreViewData
 {
@@ -24,11 +21,12 @@ class StoreViewData
      * Handle the event.
      *
      * @param PostViewed $event
+     *
      * @return void
      */
     public function handle(PostViewed $event)
     {
-        if (! $this->wasRecentlyViewed($event->post)) {
+        if (!$this->wasRecentlyViewed($event->post)) {
             $view_data = [
                 'post_id' => $event->post->id,
                 'ip'      => request()->getClientIp(),
@@ -46,6 +44,7 @@ class StoreViewData
      * Check if a given post exists in the session.
      *
      * @param Post $post
+     *
      * @return bool
      */
     private function wasRecentlyViewed(Post $post): bool
@@ -59,6 +58,7 @@ class StoreViewData
      * Add the post ID into the session.
      *
      * @param Post $post
+     *
      * @return void
      */
     private function storeInSession(Post $post)

@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Tag;
+
 use App\Models\Post;
+use App\Models\Tag;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
-use App\Http\Resources\PostsResource;
+
 class PostsController
 {
     /**
@@ -21,8 +22,8 @@ class PostsController
         ];
 
         return view('posts.index', compact('data'));
- 
     }
+
     /**
      * Show the form for creating a new post.
      *
@@ -32,7 +33,7 @@ class PostsController
     {
         $data = [
             'id'     => Str::uuid(),
-            'tags'   => Tag::all()
+            'tags'   => Tag::all(),
         ];
 
         return view('posts.create', compact('data'));
@@ -42,6 +43,7 @@ class PostsController
      * Show the form for editing an existing post.
      *
      * @param string $id
+     *
      * @return \Illuminate\View\View
      */
     public function edit(string $id)
@@ -52,7 +54,7 @@ class PostsController
             'post'   => $post,
             'meta'   => $post->meta,
             'tags'   => Tag::all(),
-            'topics' => []//Topic::all(),
+            'topics' => [], //Topic::all(),
         ];
 
         return view('posts.edit', compact('data'));
@@ -72,7 +74,7 @@ class PostsController
             'summary'                => request('summary', null),
             'body'                   => request('body', null),
             'published_at'           => Carbon::parse(request('published_at'))->toDateTimeString(),
-            'published'              => request('published', 'off') =='on' ? true : false,
+            'published'              => request('published', 'off') == 'on' ? true : false,
             'featured_image'         => request('featured_image', null),
             'featured_image_caption' => request('featured_image_caption', null),
             'user_id'                => auth()->user()->id,
@@ -98,13 +100,13 @@ class PostsController
         $post->meta = $data['meta'];
         $post->save();
 
-        if (! is_null(request('tags'))) {
+        if (!is_null(request('tags'))) {
             $post->tags()->sync(
                 $this->collectTags(request('tags') ?? [])
             );
         }
 
-        if (! is_null(request('topic'))) {
+        if (!is_null(request('topic'))) {
             $post->topic()->sync(
                 $this->assignTopics([request('topic')] ?? [])
             );
@@ -117,6 +119,7 @@ class PostsController
      * Update a post in storage.
      *
      * @param string $id
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
     public function update(string $id)
@@ -130,7 +133,7 @@ class PostsController
             'summary'                => request('summary', $post->summary),
             'body'                   => request('body', $post->body),
             'published_at'           => Carbon::parse(request('published_at'))->toDateTimeString(),
-            'published'              => request('published', false)? true : false,
+            'published'              => request('published', false) ? true : false,
             'featured_image'         => request('featured_image', $post->featured_image),
             'featured_image_caption' => request('featured_image_caption', $post->featured_image_caption),
             'user_id'                => $post->user->id,
@@ -154,13 +157,13 @@ class PostsController
         $post->meta = $data['meta'];
         $post->save();
 
-        if (! is_null(request('tags'))) {
+        if (!is_null(request('tags'))) {
             $post->tags()->sync(
                 $this->collectTags(request('tags') ?? [])
             );
         }
 
-        if (! is_null(request('topic'))) {
+        if (!is_null(request('topic'))) {
             $post->topic()->sync(
                 $this->assignTopics([request('topic')] ?? [])
             );
@@ -173,6 +176,7 @@ class PostsController
      * Soft delete a post in storage.
      *
      * @param string $id
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(string $id)
@@ -186,7 +190,8 @@ class PostsController
     /**
      * Collect tags from the request.
      *
-     * @param  array $incomingTags
+     * @param array $incomingTags
+     *
      * @return array
      *
      * @source https://gihtub.com/writingink/wink
@@ -198,7 +203,7 @@ class PostsController
         return collect($incomingTags)->map(function ($incomingTag) use ($tags) {
             $tag = $tags->where('slug', $incomingTag['slug'])->first();
 
-            if (! $tag) {
+            if (!$tag) {
                 $tag = Tag::create([
                     'id'   => $id = Str::uuid(),
                     'name' => $incomingTag['name'],
@@ -214,6 +219,7 @@ class PostsController
      * Assign a post to a selected topic.
      *
      * @param array $incomingTopics
+     *
      * @return array
      *
      * @source https://gihtub.com/writingink/wink
@@ -225,7 +231,7 @@ class PostsController
         return collect($incomingTopics)->map(function ($incomingTopic) use ($topics) {
             $topic = $topics->where('slug', $incomingTopic['slug'])->first();
 
-            if (! $topic) {
+            if (!$topic) {
                 $topic = Topic::create([
                     'id'   => $id = Str::uuid(),
                     'name' => $incomingTopic['name'],

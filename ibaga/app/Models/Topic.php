@@ -2,14 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Topic extends AbstractModel 
+class Topic extends AbstractModel
 {
     //
     use SoftDeletes;
-     /**
+    /**
      * The attributes that aren't mass assignable.
      *
      * @var array
@@ -39,6 +39,7 @@ class Topic extends AbstractModel
      * @var bool
      */
     public $incrementing = false;
+
     /**
      * Get the posts relationship.
      *
