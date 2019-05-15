@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
@@ -147,7 +147,7 @@ class User extends Authenticatable
      */
     public function getRememberToken()
     {
-        if (!empty($this->getRememberTokenName())) {
+        if (! empty($this->getRememberTokenName())) {
             return (string) $this->{$this->getRememberTokenName()};
         }
     }
@@ -161,7 +161,7 @@ class User extends Authenticatable
      */
     public function setRememberToken($value)
     {
-        if (!empty($this->getRememberTokenName())) {
+        if (! empty($this->getRememberTokenName())) {
             $this->{$this->getRememberTokenName()} = $value;
         }
     }

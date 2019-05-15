@@ -59,8 +59,8 @@ class MenuItem extends AbstractModel
         } elseif (is_object($parameters)) {
             $parameters = json_decode(json_encode($parameters), true);
         }
-        if (!is_null($route)) {
-            if (!Route::has($route)) {
+        if (! is_null($route)) {
+            if (! Route::has($route)) {
                 return '#';
             }
 
@@ -107,7 +107,7 @@ class MenuItem extends AbstractModel
         $item = $this->where('parent_id', '=', $parent)
             ->orderBy('order', 'DESC')
             ->first();
-        if (!is_null($item)) {
+        if (! is_null($item)) {
             $order = intval($item->order) + 1;
         }
 

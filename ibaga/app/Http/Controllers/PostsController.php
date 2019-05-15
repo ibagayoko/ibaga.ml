@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
-use App\Models\Tag;
 use Carbon\Carbon;
+use App\Models\Tag;
+use App\Models\Post;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
@@ -100,13 +100,13 @@ class PostsController
         $post->meta = $data['meta'];
         $post->save();
 
-        if (!is_null(request('tags'))) {
+        if (! is_null(request('tags'))) {
             $post->tags()->sync(
                 $this->collectTags(request('tags') ?? [])
             );
         }
 
-        if (!is_null(request('topic'))) {
+        if (! is_null(request('topic'))) {
             $post->topic()->sync(
                 $this->assignTopics([request('topic')] ?? [])
             );
@@ -157,13 +157,13 @@ class PostsController
         $post->meta = $data['meta'];
         $post->save();
 
-        if (!is_null(request('tags'))) {
+        if (! is_null(request('tags'))) {
             $post->tags()->sync(
                 $this->collectTags(request('tags') ?? [])
             );
         }
 
-        if (!is_null(request('topic'))) {
+        if (! is_null(request('topic'))) {
             $post->topic()->sync(
                 $this->assignTopics([request('topic')] ?? [])
             );
@@ -203,7 +203,7 @@ class PostsController
         return collect($incomingTags)->map(function ($incomingTag) use ($tags) {
             $tag = $tags->where('slug', $incomingTag['slug'])->first();
 
-            if (!$tag) {
+            if (! $tag) {
                 $tag = Tag::create([
                     'id'   => $id = Str::uuid(),
                     'name' => $incomingTag['name'],
@@ -231,7 +231,7 @@ class PostsController
         return collect($incomingTopics)->map(function ($incomingTopic) use ($topics) {
             $topic = $topics->where('slug', $incomingTopic['slug'])->first();
 
-            if (!$topic) {
+            if (! $topic) {
                 $topic = Topic::create([
                     'id'   => $id = Str::uuid(),
                     'name' => $incomingTopic['name'],
