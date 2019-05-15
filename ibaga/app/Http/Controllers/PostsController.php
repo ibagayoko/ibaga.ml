@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\Tag;
 use App\Models\Post;
+use App\Models\Topic;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
@@ -34,6 +35,7 @@ class PostsController
         $data = [
             'id'     => Str::uuid(),
             'tags'   => Tag::all(),
+            'topics'   => Topic::all(),
         ];
 
         return view('posts.create', compact('data'));
@@ -54,7 +56,7 @@ class PostsController
             'post'   => $post,
             'meta'   => $post->meta,
             'tags'   => Tag::all(),
-            'topics' => [], //Topic::all(),
+            'topics' => Topic::all(),
         ];
 
         return view('posts.edit', compact('data'));

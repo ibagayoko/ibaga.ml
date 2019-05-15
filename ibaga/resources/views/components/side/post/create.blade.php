@@ -56,7 +56,11 @@
       
                 <div class="form-group">
                   <label for="tag-input">Tags</label>
-                <tag-select form="form-create" :tags="{{ $data['tags'] }}" :tagged="@json(old('tags', []))"></tag-select>
+                <tag-select form="form-create" :tags="{{ $data['tags'] }}" :tagged="{{ json_encode(old('tags', [])) }}"></tag-select>
+                </div>
+                <div class="form-group">
+                  <label for="topic-input">Topics</label>
+                <topic-select form="form-create" :topics="{{ $data['topics'] }}" :assigned="{{ json_encode(old('topic',null)) }}"></topic-select>
                 </div>
       
                 <div  class="form-group ember-view">

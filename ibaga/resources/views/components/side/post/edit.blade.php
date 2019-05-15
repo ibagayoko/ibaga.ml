@@ -59,6 +59,10 @@
                   <label for="tag-input">Tags</label>
                 <tag-select form="form-edit" :tags="{{ $data['tags'] }}" :tagged="{{ $data['post']['tags']}}"></tag-select>
                 </div>
+                <div class="form-group">
+                  <label for="topic-input">Topic</label>
+                <topic-select form="form-edit" :topics="{{ $data['topics'] }}" :assigned="{{ $data['post']['topic']}}"></topic-select>
+                </div>
       
                 <div  class="form-group ember-view">
                   <label for="custom-excerpt">Summary</label>
