@@ -19,8 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('link', function () {
-    
-     Artisan::call('storage:link');
+    Artisan::call('storage:link');
     dd(Artisan::output());
     // storage:link
 });
