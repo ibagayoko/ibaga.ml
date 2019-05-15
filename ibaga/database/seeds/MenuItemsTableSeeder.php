@@ -20,7 +20,7 @@ class MenuItemsTableSeeder extends Seeder
             'url'     => '',
             'route'   => 'dashboard',
         ]);
-        if (!$menuItem->exists) {
+        if (! $menuItem->exists) {
             $menuItem->fill([
                 'target'     => '_self',
                 'icon_class' => 'boat',
@@ -35,7 +35,7 @@ class MenuItemsTableSeeder extends Seeder
             'url'     => '',
             'route'   => 'media.index',
         ]);
-        if (!$menuItem->exists) {
+        if (! $menuItem->exists) {
             $menuItem->fill([
                 'target'     => '_self',
                 'icon_class' => 'images',
@@ -50,7 +50,7 @@ class MenuItemsTableSeeder extends Seeder
             'url'     => '',
             'route'   => 'users.index',
         ]);
-        if (!$menuItem->exists) {
+        if (! $menuItem->exists) {
             $menuItem->fill([
                 'target'     => '_self',
                 'icon_class' => 'person',
@@ -65,7 +65,7 @@ class MenuItemsTableSeeder extends Seeder
             'url'     => '',
             'route'   => 'roles.index',
         ]);
-        if (!$menuItem->exists) {
+        if (! $menuItem->exists) {
             $menuItem->fill([
                 'target'     => '_self',
                 'icon_class' => 'lock',
@@ -79,7 +79,7 @@ class MenuItemsTableSeeder extends Seeder
             'title'   => __('menu_items.tools'),
             'url'     => '',
         ]);
-        if (!$toolsMenuItem->exists) {
+        if (! $toolsMenuItem->exists) {
             $toolsMenuItem->fill([
                 'target'     => '_self',
                 'icon_class' => 'tools',
@@ -94,7 +94,7 @@ class MenuItemsTableSeeder extends Seeder
             'url'     => '',
             'route'   => 'menus.index',
         ]);
-        if (!$menuItem->exists) {
+        if (! $menuItem->exists) {
             $menuItem->fill([
                 'target'     => '_self',
                 'icon_class' => 'list',
@@ -109,7 +109,7 @@ class MenuItemsTableSeeder extends Seeder
             'url'     => '',
             'route'   => 'database.index',
         ]);
-        if (!$menuItem->exists) {
+        if (! $menuItem->exists) {
             $menuItem->fill([
                 'target'     => '_self',
                 'icon_class' => 'data',
@@ -124,7 +124,7 @@ class MenuItemsTableSeeder extends Seeder
             'url'     => '',
             'route'   => 'compass.index',
         ]);
-        if (!$menuItem->exists) {
+        if (! $menuItem->exists) {
             $menuItem->fill([
                 'target'     => '_self',
                 'icon_class' => 'compass',
@@ -139,7 +139,7 @@ class MenuItemsTableSeeder extends Seeder
             'url'     => '',
             'route'   => 'bread.index',
         ]);
-        if (!$menuItem->exists) {
+        if (! $menuItem->exists) {
             $menuItem->fill([
                 'target'     => '_self',
                 'icon_class' => 'bread',
@@ -154,7 +154,7 @@ class MenuItemsTableSeeder extends Seeder
             'url'     => '',
             'route'   => 'settings.index',
         ]);
-        if (!$menuItem->exists) {
+        if (! $menuItem->exists) {
             $menuItem->fill([
                 'target'     => '_self',
                 'icon_class' => 'settings',

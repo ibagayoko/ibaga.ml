@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Events\PostViewed;
-use App\Models\Post;
 use App\Models\Tag;
+use App\Models\Post;
 use App\Models\Topic;
 use Illuminate\View\View;
+use App\Events\PostViewed;
 
 class BlogController extends Controller
 {

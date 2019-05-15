@@ -2,8 +2,8 @@
 
 namespace App\Listeners;
 
-use App\Events\PostViewed;
 use App\Models\Post;
+use App\Events\PostViewed;
 
 class StoreViewData
 {
@@ -26,7 +26,7 @@ class StoreViewData
      */
     public function handle(PostViewed $event)
     {
-        if (!$this->wasRecentlyViewed($event->post)) {
+        if (! $this->wasRecentlyViewed($event->post)) {
             $view_data = [
                 'post_id' => $event->post->id,
                 'ip'      => request()->getClientIp(),

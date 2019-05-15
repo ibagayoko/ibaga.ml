@@ -53,7 +53,7 @@ class Menu extends Model
             ->first();
         });
         // Check for Menu Existence
-        if (!isset($menu)) {
+        if (! isset($menu)) {
             return false;
         }
         // event(new MenuDisplay($menu));
@@ -68,11 +68,11 @@ class Menu extends Model
         } else {
             if (is_null($type)) {
                 $type = 'voyager::menu.default';
-            } elseif ($type == 'bootstrap' && !view()->exists($type)) {
+            } elseif ($type == 'bootstrap' && ! view()->exists($type)) {
                 $type = 'voyager::menu.bootstrap';
             }
         }
-        if (!isset($options->locale)) {
+        if (! isset($options->locale)) {
             $options->locale = app()->getLocale();
         }
         if ($type === '_json') {
@@ -112,7 +112,7 @@ class Menu extends Model
             }
             if ($item->children->count() > 0) {
                 $item->setRelation('children', static::processItems($item->children));
-                if (!$item->children->where('active', true)->isEmpty()) {
+                if (! $item->children->where('active', true)->isEmpty()) {
                     $item->active = true;
                 }
             }
@@ -121,7 +121,7 @@ class Menu extends Model
         });
         // Filter items by permission
         $items = $items->filter(function ($item) {
-            return !$item->children->isEmpty() || app('VoyagerAuth')->user()->can('browse', $item);
+            return ! $item->children->isEmpty() || app('VoyagerAuth')->user()->can('browse', $item);
         })->filter(function ($item) {
             // Filter out empty menu-items
             if ($item->url == '' && $item->route == '' && $item->children->count() == 0) {

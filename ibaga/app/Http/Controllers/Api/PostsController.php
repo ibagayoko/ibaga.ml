@@ -2,11 +2,11 @@
 
 namespace App\Http\Api\Controllers;
 
-use App\Http\Resources\PostsResource;
-use App\Models\Post;
 use App\Models\Tag;
+use App\Models\Post;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
+use App\Http\Resources\PostsResource;
 
 class PostsController
 {
@@ -108,7 +108,7 @@ class PostsController
 
         return collect($incomingTags)->map(function ($incomingTag) use ($allTags) {
             $tag = $allTags->where('slug', Str::slug($incomingTag['name']))->first();
-            if (!$tag) {
+            if (! $tag) {
                 $tag = Tag::create([
                     'id'   => $id = Str::uuid(),
                     'name' => $incomingTag['name'],
