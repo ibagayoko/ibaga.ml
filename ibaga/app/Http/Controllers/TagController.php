@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tag;
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
-use Illuminate\Routing\Controller;
 
 class TagController extends Controller
 {
@@ -41,6 +41,7 @@ class TagController extends Controller
      * Show the form for editing a tag.
      *
      * @param string $id
+     *
      * @return \Illuminate\View\View
      */
     public function edit(string $id)
@@ -81,6 +82,7 @@ class TagController extends Controller
      * Update a tag in storage.
      *
      * @param string $id
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
     public function update(string $id)
@@ -108,6 +110,7 @@ class TagController extends Controller
      * Soft delete a tag in storage.
      *
      * @param string $id
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(string $id)

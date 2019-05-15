@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use App\Models\Post;
 use App\Models\Tag;
 use App\Models\User;
@@ -36,7 +34,7 @@ class HomeController extends Controller
     public function index()
     {
         $posts = Post::withCount('views')->orderByDesc('created_at')->paginate();
-        $tags  = Tag::all();
+        $tags = Tag::all();
         $users = User::all();
         $views = View::whereBetween('created_at', [
             now()->subDays(self::DAYS_PRIOR)->toDateTimeString(),
@@ -54,30 +52,28 @@ class HomeController extends Controller
         $data = [
             'posts' => [
                 'all'       => $posts,
-                'count'    => [
-                    'total' => $posts->count(),
+                'count'     => [
+                    'total'     => $posts->count(),
                     'published' => $posts->where('published_at', '<=', now()->toDateTimeString())->count(),
                     'drafts'    => $posts->where('published_at', '>', now()->toDateTimeString())->count(),
                     ],
             ],
             'tags' => [
-                'all' => $tags,
+                'all'   => $tags,
                 'count' => $tags->count(),
             ],
             'users' => [
-                'all' => $users,
+                'all'   => $users,
                 'count' => $users->count(),
             ],
             'views' => [
                 'count' => $views->count(),
                 'trend' => [
-                    ["x"] + $keys, 
-                    ["data1"]+ $values
+                    ['x'] + $keys,
+                    ['data1'] + $values,
                 ], //json_encode([["x"]+ $keys, ["data1"]+$values]),
             ],
         ];
-
-       
 
         return view('home', compact('data'));
     }

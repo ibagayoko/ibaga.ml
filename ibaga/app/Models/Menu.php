@@ -9,7 +9,7 @@ class Menu extends Model
     protected $table = 'menus';
     protected $guarded = [];
 
-    const PREFIX = "cached_menu";
+    const PREFIX = 'cached_menu';
 
     public static function boot()
     {
@@ -26,13 +26,14 @@ class Menu extends Model
     {
         return $this->hasMany(MenuItem::class);
     }
+
     public function parent_items()
     {
         return $this->hasMany(MenuItem::class)
             ->whereNull('parent_id');
     }
 
-      /**
+    /**
      * Display menu.
      *
      * @param string      $menuName
@@ -77,6 +78,7 @@ class Menu extends Model
         if ($type === '_json') {
             return $items;
         }
+
         return new \Illuminate\Support\HtmlString(
             \Illuminate\Support\Facades\View::make($type, ['items' => $items, 'options' => $options])->render()
         );
@@ -114,6 +116,7 @@ class Menu extends Model
                     $item->active = true;
                 }
             }
+
             return $item;
         });
         // Filter items by permission
@@ -124,9 +127,10 @@ class Menu extends Model
             if ($item->url == '' && $item->route == '' && $item->children->count() == 0) {
                 return false;
             }
+
             return true;
         });
+
         return $items->values();
     }
-
 }

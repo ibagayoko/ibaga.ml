@@ -1,4 +1,5 @@
 <?php
+
 return [
     'color'                => 'Color in RGB or Hex (optional)',
     'color_ph'             => 'Color, ex. #ffffff or rgb(255, 255, 255)',

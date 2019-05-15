@@ -1,4 +1,5 @@
 <?php
+
 return [
     'is_rtl'                 => 'false',
     'action'                 => 'Action',

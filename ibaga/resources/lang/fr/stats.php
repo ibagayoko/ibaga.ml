@@ -1,8 +1,9 @@
 <?php
+
 return [
-    "details"=> [
-        "referer"=> [
-            "other" => "Autre",
+    'details'=> [
+        'referer'=> [
+            'other' => 'Autre',
 
         ],
 

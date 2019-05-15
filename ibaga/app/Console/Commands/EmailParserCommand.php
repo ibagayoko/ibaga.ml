@@ -2,12 +2,11 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Email;
 use Illuminate\Console\Command;
-
 use Illuminate\Filesystem\Filesystem;
-use \MimeMailParser\Attachment;
-use \App\Models\Email;
 use Illuminate\Support\Facades\Mail;
+use MimeMailParser\Attachment;
 
 class EmailParserCommand extends Command
 {
@@ -42,9 +41,8 @@ class EmailParserCommand extends Command
      */
     public function handle()
     {
-        
         $Parser = new \PhpMimeMailParser\Parser();
-        $rawEmail = file_get_contents("php://stdin", "r");
+        $rawEmail = file_get_contents('php://stdin', 'r');
         $Parser->setText($rawEmail);
 
         $from = $Parser->getHeader('from');
@@ -64,21 +62,21 @@ class EmailParserCommand extends Command
 
         $attachments = $Parser->getAttachments([$include_inline]);
 
-        $filesystem = new Filesystem;
-        $atts =[];
+        $filesystem = new Filesystem();
+        $atts = [];
         foreach ($attachments as $attachment) {
-            $filesystem->put(public_path() . '/uploads/' . $attachment->getFilename(), $attachment->getContent());
+            $filesystem->put(public_path().'/uploads/'.$attachment->getFilename(), $attachment->getContent());
             $atts[] = [
-                'name'=>$attachment->getFilename(),
-                'path'=>public_path() . '/uploads/' . $attachment->getFilename()
+                'name'=> $attachment->getFilename(),
+                'path'=> public_path().'/uploads/'.$attachment->getFilename(),
             ];
         }
 
         $re = '/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/i';
         // $str = 'bagayokoismail@gmail.com';
-        
+
         preg_match_all($re, $from, $matches, PREG_SET_ORDER, 0);
-        
+
         // Print the entire match result
         // var_dump($matches);
         $from_email = $matches[0][0];
@@ -87,7 +85,7 @@ class EmailParserCommand extends Command
 
         $to_email = $matches[0][0];
 
-        $email = new \App\Models\Email;
+        $email = new \App\Models\Email();
         $email->from = $from;
         $email->to = $to;
         $email->from_email = $from_email;
@@ -100,20 +98,15 @@ class EmailParserCommand extends Command
 
         // Mail::to($from_email)->send(new \App\Mail\NewPost);
         $this->HandleCmd($email);
-
-
     }
 
     public function HandleCmd(Email $email)
     {
-        if(strtolower(trim($email->subject))=="cmd" && in_array(strtolower(trim($email->from_email)), config("mail.trusted"))){
-            // 
+        if (strtolower(trim($email->subject)) == 'cmd' && in_array(strtolower(trim($email->from_email)), config('mail.trusted'))) {
+            //
             // do job and reply
             $this->call(trim($email->text));
-        Mail::to($email->from_email)->send(new \App\Mail\CmdOutput($this->output));
-
+            Mail::to($email->from_email)->send(new \App\Mail\CmdOutput($this->output));
         }
     }
-
-  
 }

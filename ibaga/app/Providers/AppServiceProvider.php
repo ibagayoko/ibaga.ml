@@ -2,12 +2,13 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Events\Dispatcher;
+use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
     use \App\EventMap;
+
     /**
      * Register any application services.
      *
@@ -34,8 +35,9 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Register the events and listeners.
      *
-     * @return void
      * @throws BindingResolutionException
+     *
+     * @return void
      */
     private function registerEvents()
     {
@@ -47,6 +49,7 @@ class AppServiceProvider extends ServiceProvider
             }
         }
     }
+
     /**
      * Load helpers.
      */

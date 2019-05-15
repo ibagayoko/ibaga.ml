@@ -3,6 +3,7 @@
 namespace App\Events;
 
 use App\Models\Post;
+
 class PostViewed
 {
     /**

@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Str;
 
 class UserProfileController extends Controller
 {
@@ -32,7 +31,8 @@ class UserProfileController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -43,40 +43,43 @@ class UserProfileController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  string  $username
+     * @param string $username
+     *
      * @return \Illuminate\Http\Response
      */
     public function show(string $username)
     {
-        $user = User::byUsername( $username)->first();
+        $user = User::byUsername($username)->first();
         if ($user) {
             $data = [
-                "user" => $user,
-                "posts" => $user->posts,
+                'user'  => $user,
+                'posts' => $user->posts,
             ];
-            return view("users.profile", compact('data'));
+
+            return view('users.profile', compact('data'));
         } else {
             abort(404);
         }
-        
     }
 
     /**
      * Display the authentificate user .
      *
-     * 
+     *
      * @return \Illuminate\Http\Response
      */
     public function me()
     {
         $user = Auth::user();
+
         return redirect(route('user.show', $user->username));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param \App\Models\User $user
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit(User $user)
@@ -86,10 +89,11 @@ class UserProfileController extends Controller
 
     /**
      * Update the specified resource in storage.
-     * name, bio attrs
+     * name, bio attrs.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\User         $user
+     *
      * @return \Illuminate\Http\Response
      */
     public function updateInfo(Request $request, string $username)
@@ -99,7 +103,7 @@ class UserProfileController extends Controller
             $data = [
                 'id'   => request('id'),
                 'name' => request('name'),
-                'bio' => request('bio'),
+                'bio'  => request('bio'),
             ];
 
             validator($data, [
@@ -109,53 +113,54 @@ class UserProfileController extends Controller
             $user->fill($data);
             $user->save();
         }
-        return redirect(route("user.show", $username));
+
+        return redirect(route('user.show', $username));
     }
 
-        /**
+    /**
      * Update the specified resource in storage.
-     * name, bio attrs
+     * name, bio attrs.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\User         $user
+     *
      * @return \Illuminate\Http\Response
      */
     public function updatePassword(Request $request, string $username)
     {
         $user = User::byUsername($username)->first();
         if ($user) {
-
             $messages = [
                 'current_password.required' => 'Please enter current password',
-                'password.required' => 'Please enter password',
+                'password.required'         => 'Please enter password',
             ];
 
             $data = [
-                'current-password'   => request('current-password'),
-                'password' => request('password'),
+                'current-password'      => request('current-password'),
+                'password'              => request('password'),
                 'password_confirmation' => request('password_confirmation'),
             ];
             validator($data, [
-                'current-password' => 'required',
-                'password' => 'required|string|min:8|same:password',
-                'password_confirmation' => 'required|same:password',  
+                'current-password'      => 'required',
+                'password'              => 'required|string|min:8|same:password',
+                'password_confirmation' => 'required|same:password',
             ], $messages)->validate();
-            $current_password = $user->password;  
+            $current_password = $user->password;
 
-            if(Hash::check($data['current_password'], $current_password)){
-
+            if (Hash::check($data['current_password'], $current_password)) {
                 $user->password = Hash::make($data['password']);
                 $user->save();
             }
         }
-        return redirect(route("user.show", $username));
 
+        return redirect(route('user.show', $username));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\User  $user
+     * @param \App\Models\User $user
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy(User $user)

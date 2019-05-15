@@ -9,6 +9,7 @@ class SuffixedNumber
      *
      * @param int $n
      * @param int $precision
+     *
      * @return string
      */
     public static function format(int $n, $precision = 1): string

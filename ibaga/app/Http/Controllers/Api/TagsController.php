@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Api\Controllers;
+
 use App\Models\Tag;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Wink\Http\Resources\TagsResource;
+
 class TagsController
 {
     /**
@@ -20,12 +22,15 @@ class TagsController
             ->orderBy('created_at', 'DESC')
             ->withCount('posts')
             ->get();
+
         return TagsResource::collection($entries);
     }
+
     /**
      * Return a single post.
      *
-     * @param  string  $id
+     * @param string $id
+     *
      * @return \Illuminate\Http\JsonResponse
      */
     public function show($id = null)
@@ -38,14 +43,17 @@ class TagsController
             ]);
         }
         $entry = Tag::findOrFail($id);
+
         return response()->json([
             'entry' => $entry,
         ]);
     }
+
     /**
      * Store a single category.
      *
-     * @param  string  $id
+     * @param string $id
+     *
      * @return \Illuminate\Http\JsonResponse
      */
     public function store($id)
@@ -62,14 +70,17 @@ class TagsController
         $entry = $id !== 'new' ? Tag::findOrFail($id) : new Tag(['id' => request('id')]);
         $entry->fill($data);
         $entry->save();
+
         return response()->json([
             'entry' => $entry->fresh(),
         ]);
     }
+
     /**
      * Return a single tag.
      *
-     * @param  string  $id
+     * @param string $id
+     *
      * @return void
      */
     public function delete($id)
