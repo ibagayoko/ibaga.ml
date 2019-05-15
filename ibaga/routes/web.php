@@ -19,7 +19,9 @@ Route::get('/', function () {
 });
 
 Route::get('link', function () {
-    return Artisan::call('storage:link');
+    
+     Artisan::call('storage:link');
+    dd(Artisan::output());
     // storage:link
 });
 Auth::routes();
