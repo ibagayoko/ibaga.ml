@@ -8,12 +8,17 @@ use Illuminate\Support\Str;
 // use Illuminate\Database\Eloquent\Model;
 // use Illuminate\Database\Eloquent\Builder;
 // use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Activitylog\Traits\LogsActivity;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Post extends AbstractModel
 {
+
+    use LogsActivity;
+    protected static $logAttributes = ['title', 'body'];
+    protected static $logOnlyDirty = true;
     /**
      * The attributes that aren't mass assignable.
      *

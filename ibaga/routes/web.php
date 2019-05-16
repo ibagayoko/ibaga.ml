@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,17 @@ Route::get('link', function () {
     // storage:link
 });
 Auth::routes();
+
+Route::get("/activity", function (Request $request)
+{
+    $h = activity();
+    $user = Auth::user();
+    $user->load('actions');
+    $user->load('activities');
+    return $user;
+
+    // return json_encode(->actions());
+});
 
 // blog
 Route::prefix('blog')->group(function () {
