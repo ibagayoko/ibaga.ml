@@ -5,14 +5,14 @@ use Spatie\Permission\Models\Permission;
 
 class PermissionTableSeeder extends Seeder
 {
-   /**
+    /**
      * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-       $permissions = [
+        $permissions = [
            'role-list',
            'role-create',
            'role-edit',
@@ -20,12 +20,11 @@ class PermissionTableSeeder extends Seeder
            'post-list',
            'post-create',
            'post-edit',
-           'post-delete'
+           'post-delete',
         ];
 
-
         foreach ($permissions as $permission) {
-             Permission::create(['name' => $permission]);
+            Permission::create(['name' => $permission]);
         }
     }
 }
