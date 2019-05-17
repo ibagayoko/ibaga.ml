@@ -85,6 +85,12 @@ Route::middleware(['auth'])->group(function () {
     });
 });
 
+Route::group(['middleware' => ['auth']], function() {
+    Route::resource('roles','RoleController');
+    Route::resource('users','UserController');
+    // Route::resource('products','ProductController');
+});
+
     // Tag routes...
     Route::get('tags', 'TagController@index')->name('tag.index');
     Route::get('tags/create', 'TagController@create')->name('tag.create');
