@@ -15,7 +15,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Post extends AbstractModel
 {
-
     use LogsActivity;
     protected static $logAttributes = ['title', 'body'];
     protected static $logOnlyDirty = true;

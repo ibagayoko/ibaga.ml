@@ -26,12 +26,12 @@ Route::get('link', function () {
 });
 Auth::routes();
 
-Route::get("/activity", function (Request $request)
-{
+Route::get('/activity', function (Request $request) {
     $h = activity();
     $user = Auth::user();
     $user->load('actions');
     $user->load('activities');
+
     return $user;
 
     // return json_encode(->actions());
