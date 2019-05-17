@@ -12,19 +12,19 @@ use Illuminate\Routing\Controller;
 
 class PostsController extends Controller
 {
-
-        /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    function __construct()
+    public function __construct()
     {
-         $this->middleware('permission:post-list');
-         $this->middleware('permission:post-create', ['only' => ['create','store']]);
-         $this->middleware('permission:post-edit', ['only' => ['edit','update']]);
-         $this->middleware('permission:post-delete', ['only' => ['destroy']]);
+        $this->middleware('permission:post-list');
+        $this->middleware('permission:post-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:post-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:post-delete', ['only' => ['destroy']]);
     }
+
     /**
      * Return posts.
      *
