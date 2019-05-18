@@ -98,7 +98,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        $rolesName = $user->roles->map(function($role){
+        $rolesName = $user->roles->map(function ($role) {
             return $role->name;
         })->all();
         $rolesId = $user->roles->keys()->all();
@@ -109,8 +109,9 @@ class UserController extends Controller
                 'id' =>$rolesId,
                 'name' =>$rolesName,
             ],
-            
+
         ];
+
         return view('users.edit', compact('data'));
     }
 
