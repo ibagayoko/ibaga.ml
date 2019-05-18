@@ -9,7 +9,7 @@
                     </button>
                 </div>
                 <div class="settings-menu-content">
-                    <div id="ember165" class="ember-view">    <section id="ember166" class="gh-image-uploader ember-view">        <div class="failed">Something went wrong :(</div>
+                    <div id="ember165" class="">    <section id="ember166" class="gh-image-uploader ">        <div class="failed">Something went wrong :(</div>
         <div class="progress-container">
             <div class="progress">
                 <div class="bar fail" style="width: 0"></div>
@@ -28,17 +28,17 @@
     
                         <div class="gh-input-icon gh-icon-link">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.5 12.5l.086.086a2 2 0 0 0 2.828 0l3.965-3.964a3.01 3.01 0 0 0 0-4.243l-1.758-1.757a3.008 3.008 0 0 0-4.242 0l-3.965 3.964a2 2 0 0 0 0 2.829l.086.085m-2 2l-.086-.085a2 2 0 0 0-2.828 0l-3.965 3.964a3.01 3.01 0 0 0 0 4.243l1.758 1.757a3.008 3.008 0 0 0 4.242 0l3.965-3.964a2 2 0 0 0 0-2.829L12.5 14.5m-4.389 1.389l7.778-7.778" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" fill="none"></path></svg>
-                            <input name="post-setting-slug" id="url" class="post-setting-slug ember-text-field gh-input ember-view" type="text">
+                            <input name="post-setting-slug" id="url" class="post-setting-slug ember-text-field gh-input " type="text">
                         </div>
-                        <p id="ember169" class="ghost-url-preview description ember-view">localhost:2368/hkjnlkfnnm/
+                        <p id="ember169" class="ghost-url-preview description ">localhost:2368/hkjnlkfnnm/
     </p>
                     </div>
     
                     <div class="form-group">
                             <label>Publish Date</label>
                         <div class="gh-date-time-picker">
-    <div id="ember172" class="ember-basic-dropdown ember-view">    
-          <div aria-owns="ember-basic-dropdown-content-ember172" tabindex="-1" data-ebd-id="ember172-trigger" role="button" id="ember174" class="ember-basic-dropdown-trigger ember-power-datepicker-trigger ember-basic-dropdown-trigger--in-place ember-view">            <div class="gh-date-time-picker-date ">
+    <div id="ember172" class="ember-basic-dropdown ">    
+          <div aria-owns="ember-basic-dropdown-content-ember172" tabindex="-1" data-ebd-id="ember172-trigger" role="button" id="ember174" class="ember-basic-dropdown-trigger ember-power-datepicker-trigger ember-basic-dropdown-trigger--in-place ">            <div class="gh-date-time-picker-date ">
                     <input readonly="" type="text">
                     <svg version="1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.5 2H20V.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5V2H8V.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5V2H.5a.5.5 0 0 0-.5.5v21a.5.5 0 0 0 .5.5h23a.5.5 0 0 0 .5-.5v-21a.5.5 0 0 0-.5-.5zM17 1h2v3h-2V1zM5 1h2v3H5V1zM4 3v1.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5V3h8v1.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5V3h3v4H1V3h3zM1 23V8h22v15H1zm20.5-11a.5.5 0 0 0 0-1H17V9.5a.5.5 0 0 0-1 0V11h-4V9.5a.5.5 0 0 0-1 0V11H7V9.5a.5.5 0 0 0-1 0V11H2.5a.5.5 0 0 0 0 1H6v3H2.5a.5.5 0 0 0 0 1H6v3H2.5a.5.5 0 0 0 0 1H6v1.5a.5.5 0 0 0 1 0V20h4v1.5a.5.5 0 0 0 1 0V20h4v1.5a.5.5 0 0 0 1 0V20h4.5a.5.5 0 0 0 0-1H17v-3h4.5a.5.5 0 0 0 0-1H17v-3h4.5zM7 12h4v3H7v-3zm0 7v-3h4v3H7zm9 0h-4v-3h4v3zm0-4h-4v-3h4v3z"></path></svg>
                 </div>
@@ -57,8 +57,8 @@
     
                     <div class="form-group">
                         <label for="tag-input">Tags</label>
-                        <div id="ember178" class="gh-token-input  ember-view"><div id="ember179" class="gh-token-input  ember-view"><div id="ember180" class="ember-basic-dropdown ember-view">
-    <div aria-owns="ember-basic-dropdown-content-ember180" tabindex="0" data-ebd-id="ember180-trigger" role="button" id="tag-input" class="ember-power-select-trigger ember-power-select-multiple-trigger ember-basic-dropdown-trigger ember-basic-dropdown-trigger--in-place ember-view"><ul id="ember-power-select-multiple-options-ember180" class="ember-power-select-multiple-options sortable-objects ember-view"><!---->
+                        <div id="ember178" class="gh-token-input  "><div id="ember179" class="gh-token-input  "><div id="ember180" class="ember-basic-dropdown ">
+    <div aria-owns="ember-basic-dropdown-content-ember180" tabindex="0" data-ebd-id="ember180-trigger" role="button" id="tag-input" class="ember-power-select-trigger ember-power-select-multiple-trigger ember-basic-dropdown-trigger ember-basic-dropdown-trigger--in-place "><ul id="ember-power-select-multiple-options-ember180" class="ember-power-select-multiple-options sortable-objects "><!---->
             <input class="ember-power-select-trigger-multiple-input" tabindex="0" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="ember-power-select-trigger-multiple-input-ember180" aria-controls="ember-power-select-options-ember180" style="width: 100%;" placeholder="" type="search">
     </ul><span class="ember-power-select-status-icon"></span>
     </div>
@@ -68,14 +68,14 @@
     
                     </div>
     
-    <div id="ember183" class="form-group ember-view">                    <label for="custom-excerpt">Excerpt</label>
-                        <textarea name="post-setting-custom-excerpt" id="custom-excerpt" class="post-setting-custom-excerpt ember-text-area gh-input ember-view"></textarea>
-                        <p id="ember184" style="display: none;" class="response ember-view">
+    <div id="ember183" class="form-group ">                    <label for="custom-excerpt">Excerpt</label>
+                        <textarea name="post-setting-custom-excerpt" id="custom-excerpt" class="post-setting-custom-excerpt ember-text-area gh-input "></textarea>
+                        <p id="ember184" style="display: none;" class="response ">
     </p>
     </div>
-    <div id="ember185" class="for-select form-group ember-view">                        <label for="author-list">Authors</label>
-                            <div id="ember188" class="gh-token-input  ember-view"><div id="ember189" class="gh-token-input  ember-view"><div id="ember190" class="ember-basic-dropdown ember-view">
-    <div aria-owns="ember-basic-dropdown-content-ember190" tabindex="0" data-ebd-id="ember190-trigger" role="button" id="author-list" class="ember-power-select-trigger ember-power-select-multiple-trigger ember-basic-dropdown-trigger ember-basic-dropdown-trigger--in-place ember-view"><ul id="ember-power-select-multiple-options-ember190" class="ember-power-select-multiple-options sortable-objects ember-view"><li draggable="true" id="ember201" class="ember-power-select-multiple-option js-draggableObject draggable-object ember-view">                                    ndsjjnk
+    <div id="ember185" class="for-select form-group ">                        <label for="author-list">Authors</label>
+                            <div id="ember188" class="gh-token-input  "><div id="ember189" class="gh-token-input  "><div id="ember190" class="ember-basic-dropdown ">
+    <div aria-owns="ember-basic-dropdown-content-ember190" tabindex="0" data-ebd-id="ember190-trigger" role="button" id="author-list" class="ember-power-select-trigger ember-power-select-multiple-trigger ember-basic-dropdown-trigger ember-basic-dropdown-trigger--in-place "><ul id="ember-power-select-multiple-options-ember190" class="ember-power-select-multiple-options sortable-objects "><li draggable="true" id="ember201" class="ember-power-select-multiple-option js-draggableObject draggable-object ">                                    ndsjjnk
     
     
     
@@ -91,7 +91,7 @@
     
     </div></div></div>
     
-                            <p id="ember193" style="display: none;" class="response ember-view">
+                            <p id="ember193" style="display: none;" class="response ">
     </p>
     </div>
                     <ul class="nav-list nav-list-block">
@@ -150,21 +150,21 @@
                             </div>
                             <div class="settings-menu-content">
                                     <form data-ember-action="" data-ember-action-738="738">
-        <div id="ember731" class="form-group ember-view">                                    <label for="meta-title">Meta Title</label>
-                                            <input name="post-setting-meta-title" id="meta-title" class="post-setting-meta-title ember-text-field gh-input ember-view" type="text">
+        <div id="ember731" class="form-group ">                                    <label for="meta-title">Meta Title</label>
+                                            <input name="post-setting-meta-title" id="meta-title" class="post-setting-meta-title ember-text-field gh-input " type="text">
                                             <p>Recommended: <b>70</b> characters. You’ve used <span class="word-count" style="color: rgb(159, 187, 88);">0</span></p>
-                                            <p id="ember732" style="display: none;" class="response ember-view">
+                                            <p id="ember732" style="display: none;" class="response ">
         </p>
         </div>
-        <div id="ember733" class="form-group ember-view">                                    <label for="meta-description">Meta Description</label>
-                                            <textarea name="post-setting-meta-description" id="meta-description" class="post-setting-meta-description ember-text-area gh-input ember-view"></textarea>
+        <div id="ember733" class="form-group ">                                    <label for="meta-description">Meta Description</label>
+                                            <textarea name="post-setting-meta-description" id="meta-description" class="post-setting-meta-description ember-text-area gh-input "></textarea>
                                             <p>Recommended: <b>156</b> characters. You’ve used <span class="word-count" style="color: rgb(159, 187, 88);">0</span></p>
-                                            <p id="ember734" style="display: none;" class="response ember-view">
+                                            <p id="ember734" style="display: none;" class="response ">
         </p>
         </div>
-        <div id="ember735" class="form-group ember-view">                                    <label for="canonicalUrl">Canonical URL</label>
-                                            <input name="post-setting-canonicalUrl" id="ember736" class="post-setting-canonicalUrl ember-text-field gh-input ember-view" type="text">
-                                            <p id="ember737" style="display: none;" class="response ember-view">
+        <div id="ember735" class="form-group ">                                    <label for="canonicalUrl">Canonical URL</label>
+                                            <input name="post-setting-canonicalUrl" id="ember736" class="post-setting-canonicalUrl ember-text-field gh-input " type="text">
+                                            <p id="ember737" style="display: none;" class="response ">
         </p>
         </div>
                                         <div class="form-group">
@@ -188,10 +188,10 @@
                         <div class="settings-menu-content">
 
                             <form data-ember-action="" data-ember-action-761="761">
-                                <div id="ember753" class="ember-view">    
-                                    <section id="ember754" class="gh-image-uploader ember-view">    
+                                <div id="ember753" class="">    
+                                    <section id="ember754" class="gh-image-uploader ">    
                                         <div class="upload-form">
-                                            <span accept="image/gif,image/jpg,image/jpeg,image/png,image/svg+xml" id="ember755" class="x-file-input ember-view"><input id="4jfmko" class="x-file--input" tabindex="0" accept="image/gif,image/jpg,image/jpeg,image/png,image/svg+xml" type="file">
+                                            <span accept="image/gif,image/jpg,image/jpeg,image/png,image/svg+xml" id="ember755" class="x-file-input "><input id="4jfmko" class="x-file--input" tabindex="0" accept="image/gif,image/jpg,image/jpeg,image/png,image/svg+xml" type="file">
                                             <label for="4jfmko">
                                             <div class="gh-btn gh-btn-outline"><span>Add Twitter image</span></div>
 
@@ -204,14 +204,14 @@
             
                                     </section>
                                 </div>
-                                <div id="ember757" class="form-group ember-view">                                    <label for="twitter-title">Twitter Title</label>
-                                                <input name="post-setting-twitter-title" placeholder="hkjnlkfnnm" id="twitter-title" class="post-setting-twitter-title ember-text-field gh-input ember-view" type="text">
-                                                <p id="ember758" style="display: none;" class="response ember-view">
+                                <div id="ember757" class="form-group ">                                    <label for="twitter-title">Twitter Title</label>
+                                                <input name="post-setting-twitter-title" placeholder="hkjnlkfnnm" id="twitter-title" class="post-setting-twitter-title ember-text-field gh-input " type="text">
+                                                <p id="ember758" style="display: none;" class="response ">
                         </p>
                         </div>
-                        <div id="ember759" class="form-group ember-view">                                    <label for="twitter-description">Twitter Description</label>
-                            <textarea name="post-setting-twitter-description" placeholder="" id="twitter-description" class="post-setting-twitter-description ember-text-area gh-input ember-view"></textarea>
-                            <p id="ember760" style="display: none;" class="response ember-view"></p>
+                        <div id="ember759" class="form-group ">                                    <label for="twitter-description">Twitter Description</label>
+                            <textarea name="post-setting-twitter-description" placeholder="" id="twitter-description" class="post-setting-twitter-description ember-text-area gh-input "></textarea>
+                            <p id="ember760" style="display: none;" class="response "></p>
                             </div>
                             <div class="form-group">
                                 <label>Preview</label>
@@ -250,11 +250,11 @@
                 
                     <div class="settings-menu-content">
                         <form data-ember-action="" data-ember-action-784="784">
-                            <div id="ember776" class="ember-view">
-                                <section id="ember777" class="gh-image-uploader ember-view">
+                            <div id="ember776" class="">
+                                <section id="ember777" class="gh-image-uploader ">
                                     <div class="upload-form">
                                         <span accept="image/gif,image/jpg,image/jpeg,image/png,image/svg+xml" id="ember778"
-                                            class="x-file-input ember-view"><input id="ga4djo" class="x-file--input" tabindex="0"
+                                            class="x-file-input "><input id="ga4djo" class="x-file--input" tabindex="0"
                                                 accept="image/gif,image/jpg,image/jpeg,image/png,image/svg+xml" type="file">
                                             <label for="ga4djo">
                                                 <div class="gh-btn gh-btn-outline"><span>Add Facebook image</span></div>
@@ -273,16 +273,16 @@
                                     <!---->
                                 </section>
                             </div>
-                            <div id="ember780" class="form-group ember-view"> <label for="og-title">Facebook Title</label>
+                            <div id="ember780" class="form-group "> <label for="og-title">Facebook Title</label>
                                 <input name="post-setting-og-title" placeholder="hkjnlkfnnm" id="og-title"
-                                    class="post-setting-og-title ember-text-field gh-input ember-view" type="text">
-                                <p id="ember781" style="display: none;" class="response ember-view">
+                                    class="post-setting-og-title ember-text-field gh-input " type="text">
+                                <p id="ember781" style="display: none;" class="response ">
                                 </p>
                             </div>
-                            <div id="ember782" class="form-group ember-view"> <label for="og-description">Facebook Description</label>
+                            <div id="ember782" class="form-group "> <label for="og-description">Facebook Description</label>
                                 <textarea name="post-setting-og-description" placeholder="" id="og-description"
-                                    class="post-setting-og-description ember-text-area gh-input ember-view"></textarea>
-                                <p id="ember783" style="display: none;" class="response ember-view">
+                                    class="post-setting-og-description ember-text-area gh-input "></textarea>
+                                <p id="ember783" style="display: none;" class="response ">
                                 </p>
                             </div>
                             <div class="form-group">

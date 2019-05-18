@@ -33,7 +33,7 @@
                 <div style="width:23px;"></div>
               </div>
               <div class="settings-menu-content">
-                  <div id="ember731" class="form-group ember-view">
+                  <div class="form-group ">
                     <label for="meta-title">Meta Title</label>
                     <input
                       ref="title"
@@ -50,12 +50,11 @@
                         >{{ this.ntitle.length }}</span>
                     </p>
                     <p
-                      id="ember732"
                       style="display: none;"
-                      class="response ember-view"
+                      class="response "
                     ></p>
                   </div>
-                  <div id="ember733" class="form-group ember-view">
+                  <div class="form-group ">
                     <label for="meta-description">Meta Description</label>
                     <textarea
                     :form="form"
@@ -71,7 +70,7 @@
                         >{{ this.ndescription.length }}</span
                       >
                     </p>
-                    <p style="display: none;" class="response ember-view"></p>
+                    <p style="display: none;" class="response "></p>
                   </div>
                   <div class="form-group">
                     <label>Search Engine Result Preview</label>

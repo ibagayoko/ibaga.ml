@@ -20,8 +20,6 @@
 
 <template>
 <div class="faebook">
-              <!---->
-              <!---->
               <div class="settings-menu-header subview">
                 <button
                   class="back settings-menu-header-action"
@@ -40,7 +38,7 @@
               </div>
       
               <div class="settings-menu-content">
-                  <div id="ember780" class="form-group ember-view">
+                  <div class="form-group ">
                     <label for="og-title">Facebook Title</label>
                     <input
                     ref="title"
@@ -51,12 +49,11 @@
                       type="text"
                     />
                     <p
-                      id="ember781"
                       style="display: none;"
-                      class="response ember-view"
+                      class="response "
                     ></p>
                   </div>
-                  <div id="ember782" class="form-group ember-view">
+                  <div class="form-group ">
                     <label for="og-description">Facebook Description</label>
                     <textarea
                     ref="description"
@@ -67,33 +64,30 @@
                       class="form-control border-0 px-0"
                     ></textarea>
                     <p
-                      id="ember783"
                       style="display: none;"
-                      class="response ember-view"
+                      class="response"
                     ></p>
                   </div>
                   <div class="form-group">
                     <label>Preview</label>
-                    <div class="gh-og-preview">
-                      <!---->
-                      <div class="gh-og-preview-content">
-                        <div class="gh-og-preview-title">{{ ntitle }}</div>
-                        <div class="gh-og-preview-description">{{ ndescription }}</div>
-                        <div class="gh-og-preview-footer">
-                          <div class="gh-og-preview-footer-left">
+                    <div class="og-preview">
+                      <div class="og-preview-content">
+                        <div class="og-preview-title">{{ ntitle }}</div>
+                        <div class="og-preview-description">{{ ndescription }}</div>
+                        <div class="og-preview-footer">
+                          <div class="og-preview-footer-left">
                             localhost:2368
-                            <span class="gh-og-preview-footer-left-divider">|</span>
+                            <span class="og-preview-footer-left-divider">|</span>
                             by
-                            <span class="gh-og-preview-footer-author">{{ author }}</span>
+                            <span class="og-preview-footer-author">{{ author }}</span>
                           </div>
-                          <div class="gh-og-preview-footer-right"></div>
+                          <div class="og-preview-footer-right"></div>
                         </div>
                       </div>
                     </div>
                   </div>
               </div>
       
-              <!---->
             </div>
 </template>
 

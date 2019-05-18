@@ -11,7 +11,7 @@
               </button>
             </div>
             <div class="settings-menu-content">
-              <div id="ember165" class="ember-view">
+              <div id="ember165" class="">
                 <featured-image-uploader form="form-create"
                 :post-id="'{{ $data['id']->toString() }}'"
                 :current-caption="'{{ old('featured_image_caption') }}'"
@@ -43,7 +43,7 @@
                       type="text"
                     />
                   </div>
-                  <p  class="ghost-url-preview description ember-view">
+                  <p  class="ghost-url-preview description ">
                     localhost:2368/@{{ slug }}/
                   </p>
                 </div>
@@ -63,7 +63,7 @@
                 <topic-select form="form-create" :topics="{{ $data['topics'] }}" :assigned="{{ json_encode(old('topic',null)) }}"></topic-select>
                 </div>
       
-                <div  class="form-group ember-view">
+                <div  class="form-group ">
                   <label for="custom-excerpt">Summary</label>
                   <textarea form="form-create" name="summary" class="form-control border-0 px-0" rows="1"
                                   placeholder="A descriptive summary.." title="Summary">{{ old('summary') }}</textarea>

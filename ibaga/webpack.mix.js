@@ -2,7 +2,7 @@ const mix = require('laravel-mix');
 const webpack = require('webpack');
 const tailwindcss = require('tailwindcss');
 
-process.NODE_ENV = 'development'
+// process.NODE_ENV = 'development'
 
 
 /*
@@ -37,7 +37,10 @@ mix
 mix
 .setPublicPath('../public_html')
 .js('resources/js/app.js', '../public_html')
-.sass('resources/sass/light.scss', '../public_html', {}, [tailwindcss('./light.js')])
+// .extract(['vue'], 'vue.js')
+// .extract(['jquery', 'axios', 'popper.js'])
+// .minify('../public_html/app.js')
+// .sass('resources/sass/light.scss', '../public_html', {}, [tailwindcss('./light.js')])
 .version();
 
 mix
@@ -46,8 +49,8 @@ mix
     .version();
 
 mix
-    .sass('resources/sass/dark.scss', '../public_html', {}, [tailwindcss('./dark.js')])
-    .version()
+    // .sass('resources/sass/dark.scss', '../public_html', {}, [tailwindcss('./dark.js')])
+    // .version()
     .copy('resources/favicon.png', '../public_html')
 
 mix
