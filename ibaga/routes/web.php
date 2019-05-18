@@ -88,7 +88,7 @@ Route::middleware(['auth'])->group(function () {
     Route::group(['middleware' => ['auth']], function () {
         Route::resource('roles', 'RoleController');
         Route::resource('users', 'UserController');
-        // Route::resource('products','ProductController');
+        Route::resource('permissions','PermissionController');
     });
 
     // Tag routes...
