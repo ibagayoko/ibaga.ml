@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use DB;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
@@ -32,7 +31,7 @@ class RoleController extends Controller
         $data = [
             'roles' => Role::orderBy('id', 'DESC')->paginate(5),
         ];
-            
+
         return view('roles.index', compact('data'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
@@ -105,7 +104,7 @@ class RoleController extends Controller
                 'id'   => $permissionsId,
                 'name'   => $permissionsName,
             ],
-            
+
         ];
 
         return view('roles.edit', compact('data'));
