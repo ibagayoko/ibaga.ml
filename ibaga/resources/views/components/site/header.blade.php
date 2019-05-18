@@ -16,7 +16,7 @@ image-url= "{{ asset('assets/imgs/logo.svg') }}">
 
         </a>
         <div slot="content" class=" dropdown-menu dropdown-menu-center dropdown-menu-arrow show " data-placement="left">
-          <Dropdown-Item icon="user" to="{{ route('user.show', Auth::user()->username) }}">Prolile </Dropdown-Item>
+          <Dropdown-Item icon="user" to="{{ route('users.showProfile', Auth::user()->username) }}">Prolile </Dropdown-Item>
           <Dropdown-Item icon="settings">Settings </Dropdown-Item>
           <Dropdown-Item icon="mail">Inbox </Dropdown-Item>
           <Dropdown-Item-Divider></Dropdown-Item-Divider>

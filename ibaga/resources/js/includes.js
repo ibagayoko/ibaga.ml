@@ -35,6 +35,7 @@ Vue.component('twitter-card', require('./components/TwitterCard').default);
 Vue.component('slug', require('./components/Slug').default);
 Vue.component('tag-select', require('./components/TagSelect').default);
 Vue.component('topic-select', require('./components/TopicSelect').default);
+Vue.component('role-select', require('./components/RoleSelect').default);
 Vue.component('tag-list', require('./components/TagList').default);
 Vue.component('topic-list', require('./components/TopicList').default);
 Vue.component('facebook-card', require('./components/FacebookCard').default);

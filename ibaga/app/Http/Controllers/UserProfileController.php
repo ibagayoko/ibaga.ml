@@ -72,7 +72,7 @@ class UserProfileController extends Controller
     {
         $user = Auth::user();
 
-        return redirect(route('user.show', $user->username));
+        return redirect(route('users.showProfile', $user->username));
     }
 
     /**
@@ -114,7 +114,7 @@ class UserProfileController extends Controller
             $user->save();
         }
 
-        return redirect(route('user.show', $username));
+        return redirect(route('users.showProfile', $username));
     }
 
     /**
@@ -153,7 +153,7 @@ class UserProfileController extends Controller
             }
         }
 
-        return redirect(route('user.show', $username));
+        return redirect(route('users.showProfile', $username));
     }
 
     /**

@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use DB;
 use Hash;
-use Psy\Util\Str;
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 
@@ -18,7 +18,9 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $data = User::orderBy('id', 'DESC')->paginate(5);
+        $data = [
+            'users' => User::orderBy('id', 'DESC')->with('roles')->paginate(5),
+        ];
 
         return view('users.index', compact('data'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
@@ -31,9 +33,13 @@ class UserController extends Controller
      */
     public function create()
     {
-        $roles = Role::pluck('name', 'name')->all();
+        $data = [
+            'roles' => Role::all(),
+        ];
 
-        return view('users.create', compact('roles'));
+        // dd($data);
+
+        return view('users.create', compact('data'));
     }
 
     /**
@@ -47,17 +53,16 @@ class UserController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|same:confirm-password',
+            'password' => 'required|same:password_confirmation',
             'roles' => 'required',
         ]);
 
         $input = $request->all();
-        // $input['password'] = Hash::make($input['password']);
-        // $user = User::create($input);
         $user = new User();
         $uuid = (string) Str::uuid();
         $user->setUUID($uuid);
         $username = Str::slug($input['name'], '').Str::random(5);
+        $user->setUsername($username);
         $username = Str::lower($username);
         $user->setSlug($username);
 
@@ -67,7 +72,8 @@ class UserController extends Controller
             'password' => Hash::make($input['password']),
             ]);
 
-        $user->assignRole($request->input('roles'));
+        $user->assignRole($request->input('roles')['id']);
+        $user->save();
 
         return redirect()->route('users.index')
                         ->with('success', 'User created successfully');
@@ -81,7 +87,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return view('users.show', compact('user'));
+        return redirect()->route('users.showProfile', $user->username);
     }
 
     /**
@@ -92,10 +98,20 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        $roles = Role::pluck('name', 'name')->all();
-        $userRole = $user->roles->pluck('name', 'name')->all();
-
-        return view('users.edit', compact('user', 'roles', 'userRole'));
+        $rolesName = $user->roles->map(function($role){
+            return $role->name;
+        })->all();
+        $rolesId = $user->roles->keys()->all();
+        $data = [
+            'user' => $user,
+            'roles' => Role::all(),
+            'userRole' => [
+                'id' =>$rolesId,
+                'name' =>$rolesName,
+            ],
+            
+        ];
+        return view('users.edit', compact('data'));
     }
 
     /**
@@ -109,8 +125,8 @@ class UserController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'same:confirm-password',
+            'email' => 'required|email|unique:users,email,'.$user->id,
+            'password' => 'same:password_confirmation',
             'roles' => 'required',
         ]);
 
