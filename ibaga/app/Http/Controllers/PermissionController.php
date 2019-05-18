@@ -8,10 +8,12 @@ use Spatie\Permission\Models\Permission;
 
 class PermissionController extends Controller
 {
-    public function __construct() {
+    public function __construct()
+    {
         //isAdmin middleware lets only users with a //specific permission permission to access these resources
-        $this->middleware(['auth', 'isAdmin']); 
+        $this->middleware(['auth', 'isAdmin']);
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -19,13 +21,13 @@ class PermissionController extends Controller
      */
     public function index()
     {
-        $data = [ 
+        $data = [
             'permissions' => Permission::all(), //Get all permissions
         ];
 
         return view('permissions.index', compact('data'));
     }
-    
+
     /**
      * Show the form for creating a new resource.
      *
@@ -34,11 +36,12 @@ class PermissionController extends Controller
     public function create()
     {
         $data = [
-            "roles" => Role::all(), //Get all role
+            'roles' => Role::all(), //Get all role
         ];
+
         return view('permissions.create', compact('data'));
     }
-    
+
     /**
      * Store a newly created resource in storage.
      *
@@ -59,7 +62,7 @@ class PermissionController extends Controller
 
         $permission->save();
 
-        if (!empty($request['roles'])) { //If one or more role is selected
+        if (! empty($request['roles'])) { //If one or more role is selected
             foreach ($roles as $role) {
                 $r = Role::where('id', '=', $role)->firstOrFail(); //Match input role to db record
 
@@ -70,8 +73,7 @@ class PermissionController extends Controller
 
         return redirect()->route('permissions.index')
             ->with('flash_message',
-             'Permission'. $permission->name.' added!');
-
+             'Permission'.$permission->name.' added!');
     }
 
     /**
@@ -117,7 +119,7 @@ class PermissionController extends Controller
 
         return redirect()->route('permissions.index')
             ->with('flash_message',
-             'Permission'. $permission->name.' updated!');
+             'Permission'.$permission->name.' updated!');
     }
 
     /**
@@ -128,16 +130,16 @@ class PermissionController extends Controller
      */
     public function destroy(Permission $permission)
     {
-        //Make it impossible to delete this specific permission    
-    if ($permission->name == "Administer roles & permissions") {
-        return redirect()->route('permissions.index')
+        //Make it impossible to delete this specific permission
+        if ($permission->name == 'Administer roles & permissions') {
+            return redirect()->route('permissions.index')
         ->with('flash_message',
          'Cannot delete this Permission!');
-    }
+        }
 
-    $permission->delete();
+        $permission->delete();
 
-    return redirect()->route('permissions.index')
+        return redirect()->route('permissions.index')
         ->with('flash_message',
          'Permission deleted!');
     }
