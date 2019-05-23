@@ -48,9 +48,9 @@
     {{-- <script defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js" integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7" crossorigin="anonymous"></script> --}}
         <!-- Scripts -->
         {{-- <script src="https://momentjs.com/downloads/moment.js"></script> --}}
-        <script src="{{ ('/manifest.js') }}" defer></script>
-        <script src="{{ ('/vendor.js') }}" defer></script>
-        <script src="{{ ('/app.js') }}" defer></script>
+        <script src="{{ asset('assets/js/manifest.js') }}" defer></script>
+        <script src="{{ asset('assets/js/vendor.js') }}" defer></script>
+        <script src="{{ asset('assets/js/app.js') }}" defer></script>
         
     <!-- Additional style sheets -->
     @stack('styles')

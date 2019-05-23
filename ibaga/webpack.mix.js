@@ -33,37 +33,32 @@ mix
     //         // new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
     //     ],
     // });
-
-mix
-.setPublicPath('../public_html')
-.js('resources/js/app.js', '../public_html')
-// .extract(['vue'], 'vue.js')
-// .extract(['jquery', 'axios', 'popper.js'])
-// .minify('../public_html/app.js')
-// .sass('resources/sass/light.scss', '../public_html', {}, [tailwindcss('./light.js')])
-.version();
+    
+mix    
+    .copy('resources/assets', '../public_html/assets/')
 
 mix
     .setPublicPath('../public_html')
-    .sass('resources/sass/bundle.scss', '../public_html')
+    .js('resources/js/app.js', 'assets/js/')
+    // .sass('resources/sass/light.scss', '../public_html', {}, [tailwindcss('./light.js')])
     .version();
 
 mix
-    // .sass('resources/sass/dark.scss', '../public_html', {}, [tailwindcss('./dark.js')])
-    // .version()
+    .setPublicPath('../public_html')
+    .sass('resources/sass/bundle.scss', '.')
+    .version();
+
+mix
     .copy('resources/favicon.png', '../public_html')
+    .version()
 
 mix
-    .sass('resources/js/plugins/index.scss', '../public_html/plugins.css')
+    .sass('resources/js/plugins/index.scss', 'plugins.css')
     .version();
-    // .copy('resources/favicon.png', '../public_html')
-    // .copy('../public_html', '../winktest/public_html/vendor/wink');
     
-mix    
     // .copy('resources/css', '../public_html/styles')
-    .copy('resources/assets', '../public_html/assets')
-    .copy('resources/images', '../public_html/assets/images')
-    .copy('resources/fonts', '../public_html/assets/fonts');
+    // .copy('resources/images', '../public_html/assets/images')
+    // .copy('resources/fonts', '../public_html/assets/fonts');
 
 
 
