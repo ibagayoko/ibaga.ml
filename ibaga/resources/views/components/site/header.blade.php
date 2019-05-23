@@ -1,7 +1,7 @@
 <Site-Header
 href= "/"
 alt="{{ config("app.name") }}"
-image-url= "{{ asset('assets/imgs/logo.svg') }}">
+image-url= "{{ asset('assets/images/logo/logo.svg') }}">
 <template slot="navItems">
     @stack('headerRight')
 </template>

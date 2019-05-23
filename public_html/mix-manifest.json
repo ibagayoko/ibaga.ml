@@ -1,6 +1,5 @@
 {
-    "/app.js": "/app.js?id=daabd583e34cf250c2b6",
-    "/bundle.css": "/bundle.css?id=3e494c50902b0b33f632",
-    "/plugins.css": "/plugins.css?id=1b8f9206d8c460f60e02",
-    "/favicon.png": "/favicon.png?id=c34acb2c29af19a1a78d"
+    "/app.js": "/app.js",
+    "/bundle.css": "/bundle.css",
+    "/plugins.css": "/plugins.css"
 }

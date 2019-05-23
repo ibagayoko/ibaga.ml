@@ -9,7 +9,7 @@
 		<div class="container-login100">
 			<div class="wrap-login100">
                     <div class="login100-pic js-tilt" data-tilt>
-                            <img src="/assets/imgs/logo.svg" alt="IMG">
+                            <img src="{{ asset('assets/images/logo/logo.svg') }}" alt="IMG">
                         </div>
                     <form method="POST" action="{{ route('login') }}" class="login100-form validate-form">
                             <span class="login100-form-title">

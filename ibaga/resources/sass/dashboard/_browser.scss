@@ -11,9 +11,9 @@ $browsers: (
 	vertical-align: bottom;
 	font-style: normal;
 }
-
+// TODO change asset directory
 @each $browser in $browsers {
 	.browser-#{$browser} {
-		background-image: url('../images/browsers/' + $browser + '.svg');
+		background-image: url('../assets/images/browsers/' + $browser + '.svg');
 	}
 }

@@ -6,7 +6,7 @@
         <div class="col-4 text-center">
             <a class="blog-header-logo text-dark navbar-brand"
                href="{{ route('blog.index') }}">{{ config('app.name', 'Blog') }}
-               <img src="/assets/imgs/person.svg"  width="40" height="40" class="d-inline-block align-top" alt="">
+               <img src="{{ asset('assets/images/logo/person.svg') }}"  width="40" height="40" class="d-inline-block align-top" alt="">
             </a>
         </div>
 

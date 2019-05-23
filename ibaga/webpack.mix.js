@@ -62,8 +62,8 @@ mix
 mix    
     // .copy('resources/css', '../public_html/styles')
     .copy('resources/assets', '../public_html/assets')
-    .copy('resources/images', '../public_html/images')
-    .copy('resources/fonts', '../public_html/fonts');
+    .copy('resources/images', '../public_html/assets/images')
+    .copy('resources/fonts', '../public_html/assets/fonts');
 
 
 
