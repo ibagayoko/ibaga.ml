@@ -54,6 +54,11 @@
         
     <!-- Additional style sheets -->
     @stack('styles')
+    <style>
+    [v-cloak] {
+        display:none
+    }
+    </style>
 </head>
 <body style="overflow-x: hidden">
     @php
@@ -61,7 +66,7 @@
     @endphp
  
     <div id="app">
-        <site-wrapper>
+        <site-wrapper v-cloak>
                 <template v-slot:header>
                     @yield('header', View::make('components.site.header'))
                 </template>
