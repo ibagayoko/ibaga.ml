@@ -10,4 +10,5 @@ return [
     'settings'  => 'Settings',
     'media'     => 'Media',
     'roles'     => 'Roles',
+    'menu_builder'     => 'Menu Builder',
 ];

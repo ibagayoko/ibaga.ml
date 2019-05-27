@@ -9,7 +9,7 @@
             
         <Nav-Item
             {{-- key="key" --}}
-            value="{{ $item->title}}"
+            value="{{ __($item->title) }}"
             to="{{ $item->link()}}"
             icon="{{ $item->icon_class }}"
             {{-- sub-items="item.subItems" --}}
@@ -22,7 +22,7 @@
             <template slot="sub-item">
                 @foreach ($item->children as $child)
                     
-                <Nav-Sub-Item value="{{ $child->title}}" to="{{ $child->link() }}" icon="{{ $child->icon_class }}">
+                <Nav-Sub-Item value="{{ __($child->title) }}" to="{{ $child->link() }}" icon="{{ $child->icon_class }}">
                 </Nav-Sub-Item>
                 @endforeach
             </template>
