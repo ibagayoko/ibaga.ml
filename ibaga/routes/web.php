@@ -19,8 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('link', function () {
-    Artisan::call('storage:link');
+Route::get('cmd/{cmd}', function ($cmd) {
+    Artisan::call($cmd);
     dd(Artisan::output());
     // storage:link
 });
