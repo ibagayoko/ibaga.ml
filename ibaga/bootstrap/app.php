@@ -44,6 +44,15 @@ $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
     App\Exceptions\Handler::class
 );
+/**
+ * Add a custom config directory for PSY 
+ * 
+ * Todo : fing a nice way to do so
+ */
+
+$config_path = dirname(__DIR__, 2).DIRECTORY_SEPARATOR.".config";
+putenv('XDG_CONFIG_HOME='.$config_path);
+
 
 /*
 |--------------------------------------------------------------------------
@@ -55,5 +64,7 @@ $app->singleton(
 | from the actual running of the application and sending responses.
 |
 */
+
+
 
 return $app;

@@ -16,5 +16,5 @@ return [
      * By default this package will only run in local development.
      * Do not change this, unless you know what your are doing.
      */
-    'enabled' => env('APP_ENV') === 'local',
+    'enabled' => true, //env('APP_ENV') === 'local',
 ];
