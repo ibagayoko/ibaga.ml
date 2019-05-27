@@ -19,10 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 Auth::routes();
-
-
 
 // blog
 Route::prefix('blog')->group(function () {
@@ -36,7 +33,6 @@ Route::prefix('blog')->group(function () {
 Route::post('/handler/media/uploads', 'MediaController@store')->name('media.store');
 
 Route::middleware(['auth'])->group(function () {
-
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('cmd/{cmd}', function ($cmd) {
         Artisan::call($cmd);
@@ -48,9 +44,9 @@ Route::middleware(['auth'])->group(function () {
         $user = Auth::user();
         $user->load('actions');
         $user->load('activities');
-    
+
         return $user;
-    
+
         // return json_encode(->actions());
     });
     Route::get('@{username}', 'UserProfileController@show')->name('users.showProfile')->where('username', '[A-Za-z0-9.]+');
