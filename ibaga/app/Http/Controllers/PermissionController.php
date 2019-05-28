@@ -22,9 +22,9 @@ class PermissionController extends Controller
     public function index()
     {
         //Get all permissions except admin if not admin
-        $permissions = Permission::all();//->except(); 
+        $permissions = Permission::all(); //->except();
         $data = [
-            'permissions' => $permissions, 
+            'permissions' => $permissions,
         ];
 
         return view('permissions.index', compact('data'));

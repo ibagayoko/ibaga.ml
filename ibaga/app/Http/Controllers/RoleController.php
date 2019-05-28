@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
 use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Permission;
 
 class RoleController extends Controller
 {
@@ -44,15 +44,15 @@ class RoleController extends Controller
      */
     public function create()
     {
-        if(!Auth::user()->isAdmin) 
+        if (! Auth::user()->isAdmin) {
             $permissions = Permission::where('name', '!=', Auth::user()::ADMIN_PERMISSION_NAME)->get();
-        else
+        } else {
             $permissions = Permission::all();
+        }
 
         $data = [
             'permissions' => $permissions,
         ];
-
 
         return view('roles.create', compact('data'));
     }
@@ -106,10 +106,11 @@ class RoleController extends Controller
 
         $permissionsId = $role->permissions()->get()->keys()->all();
 
-        if(!Auth::user()->isAdmin) 
+        if (! Auth::user()->isAdmin) {
             $permissions = Permission::where('name', '!=', Auth::user()::ADMIN_PERMISSION_NAME)->get();
-        else
+        } else {
             $permissions = Permission::all();
+        }
 
         $data = [
             'role'              => $role,
