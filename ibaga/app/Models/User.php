@@ -16,11 +16,11 @@ class User extends Authenticatable
     use LogsActivity;
     use CausesActivity;
 
-    const ADMIN_PERMISSION_NAME = "Administer roles & permissions" ; 
-    const ADMIN_ROLE_NAME = "admin" ; 
-    
+    const ADMIN_PERMISSION_NAME = 'Administer roles & permissions';
+    const ADMIN_ROLE_NAME = 'admin';
+
     protected $table = 'users';
-    
+
     /**
      * The attributes that are mass assignable.
      *
@@ -198,8 +198,8 @@ class User extends Authenticatable
     }
 
     /**
-     * is The user admin
-     * 
+     * is The user admin.
+     *
      * @return bool
      */
     public function getIsAdminAttribute() : bool
