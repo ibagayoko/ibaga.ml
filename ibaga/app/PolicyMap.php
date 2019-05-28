@@ -14,10 +14,9 @@ trait PolicyMap
      *
      * @var array
      */
-    
-    protected function policyMap(){
-        
-        $this->policies  = [
+    protected function policyMap()
+    {
+        $this->policies = [
             Post::class => PostPolicy::class,
             User::class => UserPolicy::class,
         ];

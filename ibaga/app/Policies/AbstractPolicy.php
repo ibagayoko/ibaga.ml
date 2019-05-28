@@ -9,12 +9,10 @@ class AbstractPolicy
 {
     use HandlesAuthorization;
 
-
     public function before(User $user, $ability)
     {
         if ($user->isAdmin) {
             return true;
         }
     }
-
 }
