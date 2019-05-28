@@ -8,7 +8,6 @@ use App\Models\Post;
 use App\Models\Topic;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
-use Illuminate\Routing\Controller;
 
 class PostsController extends Controller
 {
@@ -19,10 +18,11 @@ class PostsController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('permission:post-list');
-        $this->middleware('permission:post-create', ['only' => ['create', 'store']]);
-        $this->middleware('permission:post-edit', ['only' => ['edit', 'update']]);
-        $this->middleware('permission:post-delete', ['only' => ['destroy']]);
+        // $this->middleware('permission:post-list');
+        // $this->middleware('can:create,Post', ['only' => ['create', 'store']]);
+        // $this->middleware('permission:post-edit', ['only' => ['edit', 'update']]);
+        // $this->middleware('permission:post-delete', ['only' => ['destroy']]);
+        $this->authorizeResource(Post::class, 'post');
     }
 
     /**
@@ -46,6 +46,7 @@ class PostsController extends Controller
      */
     public function create()
     {
+
         $data = [
             'id'     => Str::uuid(),
             'tags'   => Tag::all(),
