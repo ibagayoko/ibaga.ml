@@ -2,12 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\User;
 use App\Models\Post;
+use App\Models\User;
 
 class PostPolicy extends AbstractPolicy
 {
-
     /**
      * Create a new policy instance.
      *
@@ -53,7 +52,8 @@ class PostPolicy extends AbstractPolicy
     {
         return $user->hasPermissionTo('post-list');
     }
-     /**
+
+    /**
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user

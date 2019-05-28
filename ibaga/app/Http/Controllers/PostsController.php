@@ -46,7 +46,6 @@ class PostsController extends Controller
      */
     public function create()
     {
-
         $data = [
             'id'     => Str::uuid(),
             'tags'   => Tag::all(),
