@@ -11,10 +11,14 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "devDependencies": {
+        "@cedx/gulp-php-minify": "^9.3.0",
         "axios": "^0.18",
         "bootstrap": "^4.0.0",
         "c3": "^0.7.0",
         "cross-env": "^5.1",
+        "del": "^4.1.1",
+        "gulp": "^4.0.2",
+        "gulp-zip": "^4.2.0",
         "jquery": "^3.4.0",
         "laravel-mix": "^4.0.7",
         "lodash": "^4.17.5",
