@@ -16,8 +16,11 @@ class User extends Authenticatable
     use LogsActivity;
     use CausesActivity;
 
+    const ADMIN_PERMISSION_NAME = "Administer roles & permissions" ; 
+    const ADMIN_ROLE_NAME = "admin" ; 
+    
     protected $table = 'users';
-
+    
     /**
      * The attributes that are mass assignable.
      *
@@ -192,5 +195,15 @@ class User extends Authenticatable
     public function getAvatarAttribute($value)
     {
         return $value ?: 'https://secure.gravatar.com/avatar/'.md5(strtolower(trim($this->email))).'?s=80';
+    }
+
+    /**
+     * is The user admin
+     * 
+     * @return bool
+     */
+    public function getIsAdminAttribute() : bool
+    {
+        return $this->hasPermissionTo(self::ADMIN_PERMISSION_NAME);
     }
 }

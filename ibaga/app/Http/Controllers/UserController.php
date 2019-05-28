@@ -33,8 +33,13 @@ class UserController extends Controller
      */
     public function create()
     {
+        if(!Auth::user()->isAdmin) 
+            $roles = Role::where('name', '!=', User::ADMIN_ROLE_NAME)->get();
+        else
+            $roles = Role::all();
+
         $data = [
-            'roles' => Role::all(),
+            'roles' => $roles,
         ];
 
         // dd($data);
@@ -102,9 +107,16 @@ class UserController extends Controller
             return $role->name;
         })->all();
         $rolesId = $user->roles->keys()->all();
+
+
+        if(!Auth::user()->isAdmin) 
+            $roles = Role::where('name', '!=', User::ADMIN_ROLE_NAME)->get();
+        else
+            $roles = Role::all();
+
         $data = [
             'user' => $user,
-            'roles' => Role::all(),
+            'roles' => $roles,
             'userRole' => [
                 'id' =>$rolesId,
                 'name' =>$rolesName,
