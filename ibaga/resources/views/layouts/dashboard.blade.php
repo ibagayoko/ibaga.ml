@@ -38,8 +38,8 @@
 {{-- <link rel="stylesheet" href="http://tabler-react.com/static/css/main.7357ccf6.chunk.css"> --}}
 {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.0/c3.css" />  --}}
 
-<link rel="stylesheet" href="/plugins.css">
-<link rel="stylesheet" href="/bundle.css">
+<link rel="stylesheet" href="{{ asset('assets/css/plugins.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/bundle.css') }}">
 <!-- FontAwesome scripts -->
 {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> --}}
     {{-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext"> --}}

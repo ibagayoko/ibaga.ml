@@ -39,22 +39,23 @@ mix
 
 mix
     .setPublicPath('../public_html')
-    .js('resources/js/app.js', 'assets/js/')
+    .js('resources/js/app.js', 'assets/js/').extract()
     // .sass('resources/sass/light.scss', '../public_html', {}, [tailwindcss('./light.js')])
-    .version();
+    // .version();
 
 mix
     .setPublicPath('../public_html')
-    .sass('resources/sass/bundle.scss', '.')
-    .version();
+    .sass('resources/sass/bundle.scss', 'assets/css/')
+    // .version();
 
 mix
     .copy('resources/favicon.png', '../public_html')
-    .version()
+    // .version()
 
 mix
-    .sass('resources/js/plugins/index.scss', 'plugins.css')
-    .version();
+    .setPublicPath('../public_html')
+    .sass('resources/js/plugins/index.scss', 'assets/css/plugins.css')
+    // .version();
     
     // .copy('resources/css', '../public_html/styles')
     // .copy('resources/images', '../public_html/assets/images')
