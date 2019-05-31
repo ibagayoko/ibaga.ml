@@ -1,7 +1,7 @@
 const mix = require('laravel-mix');
 const webpack = require('webpack');
 const tailwindcss = require('tailwindcss');
-
+const CompressionPlugin = require('compression-webpack-plugin');
 // process.NODE_ENV = 'development'
 
 
@@ -28,11 +28,12 @@ mix
         },
         processCssUrls: false,
     })
-    // .webpackConfig({
-    //     plugins: [
-    //         // new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
-    //     ],
-    // });
+    .webpackConfig({
+        plugins: [
+            // new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
+            new CompressionPlugin()
+        ],
+    });
     
 mix    
     .copy('resources/assets', '../public_html/assets/')
