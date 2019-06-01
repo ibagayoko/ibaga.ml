@@ -34,23 +34,24 @@
             withSearchForm:{default:true},
 
         },
+        data(){
+          return {
+            collapseState:this.collapse
+          }
+        }, 
         mounted() {
-         
-            // console.log('SiteNav Component mounted.')
-            this.collapseEvent()
+          this.$root.$on("collapse", (e)=>{
+            this.collapseEvent();
+          })
         },
         methods:{
           collapseEvent(){
-this.$on("collapse", function(e){
-            this.collapse = !this.collapse
-          })
+            this.collapseState = !this.collapseState
           }
         },
         computed:{
             classes () {
-              let cls = {"header d-lg-flex p-0":true}
-              cls[`collapse`] = this.collapse 
-            return cls
+              return {"header d-lg-flex p-0":true, collapse:this.collapseState}
         }
         }
     }

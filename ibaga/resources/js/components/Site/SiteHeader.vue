@@ -34,8 +34,7 @@
         },
         methods:{
           onMenuToggleClick(){
-            this.$emit("collapse", this.collapseMobileMenu )
-            // console.log("click menu", this.collapseMobileMenu)
+            this.$root.$emit("collapse", this.collapseMobileMenu )
             this.collapseMobileMenu = !this.collapseMobileMenu
           },
           data(){
