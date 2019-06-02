@@ -18,11 +18,12 @@ class PostsController extends Controller
      */
     public function __construct()
     {
-        // $this->middleware('permission:post-list');
-        // $this->middleware('can:create,Post', ['only' => ['create', 'store']]);
-        // $this->middleware('permission:post-edit', ['only' => ['edit', 'update']]);
-        // $this->middleware('permission:post-delete', ['only' => ['destroy']]);
-        $this->authorizeResource(Post::class, 'post');
+
+        $this->middleware('can:view,'.Post::class, ['only' => ['show']]);
+        $this->middleware('can:create,'.Post::class, ['only' => ['create', 'store']]);
+        $this->middleware('can:update,'.Post::class, ['only' => ['edit', 'update']]);
+        $this->middleware('permission:delete,'.Post::class, ['only' => ['destroy']]);
+        // $this->authorizeResource(Post::class, 'post');
     }
 
     /**
