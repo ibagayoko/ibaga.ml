@@ -62,6 +62,11 @@
                     :icon-href="'{{ route('blog.post', '__slug') }}'.replace('__slug', post.slug)"
                     />
                     </grid-col>
+                    <div class="d-flex justify-content-center">
+                        <a href="#!" class="btn btn-link" @click="limit += 7" v-if="load">{{ __('buttons.general.load') }} <i class="fa fa-fw fa-angle-down"></i></a>
+                    </div>
+
+                    <p class="mt-4" v-if="!filteredList.length">No posts matched the given search criteria.</p>
                     </grid-row>
                     </fragment>
                         <div v-cloak v-if="view=='list'" class="pt-5"  >
@@ -91,6 +96,10 @@
                                     </span>
                                     </a>
                                 </div>
+                            </div>
+
+                            <div class="d-flex justify-content-center">
+                                <a href="#!" class="btn btn-link" @click="limit += 7" v-if="load">{{ __('buttons.general.load') }} <i class="fa fa-fw fa-angle-down"></i></a>
                             </div>
 
                             <p class="mt-4" v-if="!filteredList.length">No posts matched the given search criteria.</p>

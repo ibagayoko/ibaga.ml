@@ -9,7 +9,9 @@
             return {
                 search: '',
                 postList: this.models ? this.models : [],
-                view:'list'
+                view:'list',
+                limit: 10,
+                load: false
             }
         },
         methods:{
@@ -30,9 +32,12 @@
              * @source https://codepen.io/AndrewThian/pen/QdeOVa
              */
             filteredList() {
-                return this.postList.filter(post => {
+                let filtered = this.postList.filter(post => {
                     return post.title.toLowerCase().includes(this.search.toLowerCase())
                 })
+
+                this.load = Object.keys(filtered).length > this.limit;
+                return this.limit ? filtered.slice(0, this.limit) : this.topicList;
             }
         },
     }
