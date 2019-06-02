@@ -15,8 +15,6 @@ use Illuminate\Support\Facades\Request;
 |
 */
 
-
-
 // blog
 Route::domain('blog.ibaga.ml')->group(function () {
     Route::get('/', 'BlogController@index')->name('blog.index');

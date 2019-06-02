@@ -18,7 +18,6 @@ class PostsController extends Controller
      */
     public function __construct()
     {
-
         $this->middleware('can:view,'.Post::class, ['only' => ['show']]);
         $this->middleware('can:create,'.Post::class, ['only' => ['create', 'store']]);
         $this->middleware('can:update,'.Post::class, ['only' => ['edit', 'update']]);
