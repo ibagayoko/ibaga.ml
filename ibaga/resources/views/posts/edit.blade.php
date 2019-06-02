@@ -3,9 +3,6 @@
 @section('context', $data['post']->published ? 'Published' : 'Draft')
 @push('headerRight')
 <button href="#" form="form-edit" type="submit" class="btn btn-sm btn-outline-primary my-auto">Save and publish</button>
-    
-@endpush
-@push('navRight')
     <a  id="sidebarCollapse" class="nav-link text-secondary" href="#" role="button">
         <i class="fe fe-sliders"></i>
     </a>

@@ -4,8 +4,8 @@
     $linksName = [];
 @endphp
 
-@push('navRight')
-<a href="{{ route('menus.create') }}" class="btn btn-success">
+@push('headerRight')
+<a href="{{ route('menus.create') }}" class="btn btn-sm btn-outline-primary my-auto">
     <i class="voyager-plus"></i> {{ __('generic.add_new') }}
 </a>
 @endpush

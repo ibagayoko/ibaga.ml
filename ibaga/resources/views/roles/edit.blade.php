@@ -4,7 +4,7 @@
     $linksName = [];
 @endphp
 
-@push('navRight')
+@push('headerRight')
 
 {{-- <button href="#" form="add-role-form" type="submit" class="btn btn-sm btn-outline-primary my-auto">Save and publish</button> --}}
 

@@ -4,7 +4,7 @@
     $linksName = [];
 @endphp
 
-@push('navRight')
+@push('headerRight')
 
 <a href="{{ route('users.create') }}" class="btn btn-sm btn-outline-primary my-auto mx-3">
     <i class="fe fe-plus"></i> {{ __('generic.add_new') }}

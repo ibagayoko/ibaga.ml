@@ -2,9 +2,9 @@
 
 @section('page_title', __('generic.menu_builder'))
 
-@push('navRight')
+@push('headerRight')
         {{-- <i class="voyager-list"></i>{{ __('generic.menu_builder') }} ({{ $menu->name }}) --}}
-        <div class="btn btn-success add_item"><i class="voyager-plus"></i> {{ __('menu_builder.new_menu_item') }}</div>
+        <div class="btn btn-sm btn-outline-primary add_item my-auto">{{ __('menu_builder.new_menu_item') }}</div>
     {{-- @include('voyager::multilingual.language-selector') --}}
 @endpush
 

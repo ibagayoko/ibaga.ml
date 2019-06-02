@@ -7,7 +7,7 @@
 
 @section('context', 'Creation')
 
-@push('navRight')
+@push('headerRight')
     <button href="#" form="form-create" type="submit" class="btn btn-sm btn-outline-primary my-auto">Save and publish</button>
     <a  id="sidebarCollapse" class="nav-link px-3 text-secondary" href="#" role="button" data="dropdown"
         aria-haspopup="true" aria-expanded="false" >

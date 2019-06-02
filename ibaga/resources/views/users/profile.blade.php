@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@push('navRight')
+@push('headerRight')
 
 @endpush
 @php

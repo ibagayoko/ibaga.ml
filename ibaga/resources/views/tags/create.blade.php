@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@push('navRight')
+@push('headerRight')
     <a href="#" class="btn btn-sm btn-outline-primary my-auto mx-3"
        onclick="event.preventDefault();document.getElementById('form-create').submit();"
        aria-label="Save">Save</a>

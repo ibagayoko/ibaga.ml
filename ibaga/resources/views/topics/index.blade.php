@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@push('navRight')
+@push('headerRight')
     <a href="{{ route('topic.create') }}" class="btn btn-sm btn-outline-primary my-auto mx-3">
         {{ __('buttons.topics.create') }}
     </a>

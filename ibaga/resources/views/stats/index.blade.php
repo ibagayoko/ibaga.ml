@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@push('navRight')
+@push('headerRight')
     <a href="{{ route('post.create') }}" class="btn btn-sm btn-outline-primary my-auto mx-3">
         New post
     </a>
