@@ -30,7 +30,7 @@
         name:"SiteNav",
         props:{
             items:{default:()=> []},
-            collapse:{default:false},
+            collapse:{default:true},
             withSearchForm:{default:true},
 
         },

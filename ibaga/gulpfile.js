@@ -56,4 +56,4 @@ gulp.task('vendor:minify', () => gulp.src('tempendor/vendor/**/*.php', {read: fa
 
 gulp.task('clean', () => del(['./tempendor']))
 
-exports.vendorAll = series('clean', 'vendor:cleanup', 'vendor:minify', 'clean');
+exports.vendorAll = gulp.series('clean', 'vendor:cleanup', 'vendor:minify', 'clean');
