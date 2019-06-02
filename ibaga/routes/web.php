@@ -15,19 +15,24 @@ use Illuminate\Support\Facades\Request;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Auth::routes();
 
 // blog
-Route::prefix('blog')->group(function () {
+Route::domain('blog.ibaga.ml')->group(function () {
     Route::get('/', 'BlogController@index')->name('blog.index');
+    Route::redirect('home', Config::get('app.url').'/home');
     Route::middleware('App\Http\Middleware\ViewThrottle')->get('{slug}', 'BlogController@post')->name('blog.post');
     Route::get('tag/{slug}', 'BlogController@tag')->name('blog.tag');
     Route::get('topic/{slug}', 'BlogController@topic')->name('blog.topic');
+    Route::redirect('posts/create', Config::get('app.url').'/posts/create');
 });
+
+Route::get('/', function () {
+    return view('welcome');
+});
+Route::redirect('blog', Config::get('app.blog_url'));
+
+Auth::routes();
 
 // Media routes...
 Route::post('/handler/media/uploads', 'MediaController@store')->name('media.store');

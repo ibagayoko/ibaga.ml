@@ -56,10 +56,11 @@ return [
     */
 
     'url' => env('APP_URL', 'http://localhost'),
+    'blog_url' => env('BLOG_URL', 'http://localhost'),
 
     'asset_url' => env('ASSET_URL', null),
     'socials'   => [
-        'Facebook' => env('FACEBOOK', 'https://fb.com/ismail.baggayoko1'),
+        'Facebook' => env('FACEBOOK', 'https://fb.com/ibagayok0'),
         'LinkedIn' => env('LinkedIn', 'https://LinkedIn.com/in/ibagayoko'),
         'Github'   => env('Github', 'https://github.com/ibagayoko'),
         'Blog'     => env('BLOG', '/blog'),
