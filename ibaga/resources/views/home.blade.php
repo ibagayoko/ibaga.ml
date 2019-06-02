@@ -28,7 +28,7 @@
 
   
   @endphp
-    
+    @section('title', 'Dashboard')
             
             
             <Page-Content title="Dashboard" >
