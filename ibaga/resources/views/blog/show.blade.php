@@ -7,12 +7,12 @@
 @endpush
 
 @push('meta')
+
     <meta name="description" content="{{ $data['meta']['meta_description'] }}">
-    <meta name="og:title" content="{{ $data['meta']['og_description'] }}">
-    <meta name="og:description" content="{{ $data['meta']['og_description'] }}">
+@foreach ($data['meta'] as $name => $content)
+    <meta name="{{ str_replace("_", ":" ,$name) }}" content="{{ $content }}">
+@endforeach
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="{{ $data['meta']['twitter_description'] }}">
-    <meta name="twitter:description" content="{{ $data['meta']['twitter_description'] }}">
     @isset($data['post']->featured_image)
         <meta name="og:image" content="{{ url($data['post']->featured_image) }}">
         <meta name="twitter:image" content="{{ url($data['post']->featured_image) }}">
