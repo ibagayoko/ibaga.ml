@@ -5,7 +5,8 @@ image-url= "{{ asset('assets/images/logo/logo.svg') }}">
 <template slot="navItems">
     @stack('headerRight')
 </template>
-    <template slot="accountDropdown">
+<template slot="accountDropdown">
+    @auth()
       <Dropdown>
         <a class="nav-link pr-0 leading-none" slot="trigger">
           <Avatar  image-url="{{ Auth::user()->avatar }}" ></Avatar>
@@ -27,7 +28,14 @@ image-url= "{{ asset('assets/images/logo/logo.svg') }}">
           </form>
             </div>
       </Dropdown>
+      @endauth
       
-</template>
+      @guest()
+        <div class="col-12 d-flex justify-content-end align-items-center">
+            <a class="text-muted" href="{{ route('home') }}">Sign in</a>
+        </div>
+      @endguest
+  </template>
+
 
 </Site-Header>
