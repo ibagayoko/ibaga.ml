@@ -10,12 +10,13 @@
 
     <title>{{ config('app.name', 'AppName') }}</title>
     <!-- Highlight JS sheets -->
-    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.13.1/build/highlight.min.js"></script>
 
 
     <!-- Scripts -->
-    <script src="https://momentjs.com/downloads/moment.js"></script>
-    <script src="{{ ('/app.js') }}" defer></script>
+    
+    <script src="{{ asset('assets/js/manifest.js') }}" defer></script>
+    <script src="{{ asset('assets/js/vendor.js') }}" defer></script>
+    <script src="{{ asset('assets/js/app.js') }}" defer></script>
     
 
     <!-- Fonts -->
@@ -27,31 +28,8 @@
 
     <!-- Styles -->
     {{-- <link href="{{ ('/light.css') }}" rel="stylesheet"> --}}
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.13.1/build/styles/sunburst.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/bundle.css') }}" defer>
 
-    {{-- <link rel="stylesheet" href="/style.css"> --}}
-    <style>
-    .overlay {
-    display: none;
-    position: fixed;
-    /* full screen */
-    width: 100vw;
-    height: 100vh;
-    /* transparent black */
-    background: rgba(0, 0, 0, 0.0);
-    /* middle layer, i.e. appears below the sidebar */
-    z-index: 998;
-    opacity: 0;
-    /* animate the transition */
-    transition: all 0.5s ease-in-out;
-}
-/* display .overlay when it has the .active class */
-.overlay.active {
-    display: block;
-    opacity: 1;
-}
-</style>
 @yield('styles')
 </head>
 <body>
@@ -111,7 +89,8 @@
             </div>
         </nav> --}}
 
-        @include('components.nav.navbar')
+        {{-- @include('components.nav.navbar') --}}
+        @include('components.site.header')
 
         <main class="py-4">
             @yield('content')
