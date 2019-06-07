@@ -63,6 +63,10 @@ return [
         'address' => env('MAIL_REPLY_ADDRESS', 'hello@example.com'),
         'name'    => env('MAIL_REPLY_NAME', 'Example'),
     ],
+    'no_reply' => [
+        'address' => env('MAIL_NO_REPLY_ADDRESS', 'noreply@example.com'),
+        'name'    => env('MAIL_NO_REPLY_NAME', 'Do Not Reply'),
+    ],
 
     /*
     |--------------------------------------------------------------------------

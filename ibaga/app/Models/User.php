@@ -3,11 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Mail;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Activitylog\Traits\CausesActivity;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Notifications\ResetPassword as ResetPasswordNotification;
 
 class User extends Authenticatable
 {
@@ -205,5 +207,17 @@ class User extends Authenticatable
     public function getIsAdminAttribute() : bool
     {
         return $this->hasPermissionTo(self::ADMIN_PERMISSION_NAME);
+    }
+
+    /**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        // Mail::send((new ResetPasswordNotification($token))->toMail($this));
+        $this->notify(new ResetPasswordNotification($token));
     }
 }
