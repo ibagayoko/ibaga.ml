@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Tag;
 use App\Models\Post;
+use App\Models\Tag;
 use App\Models\User;
 use App\Models\View;
 
@@ -56,7 +56,7 @@ class HomeController extends Controller
                     'total'     => $posts->count(),
                     'published' => $posts->where('published_at', '<=', now()->toDateTimeString())->count(),
                     'drafts'    => $posts->where('published_at', '>', now()->toDateTimeString())->count(),
-                    ],
+                ],
             ],
             'tags' => [
                 'all'   => $tags,
