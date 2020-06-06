@@ -3,10 +3,10 @@
 namespace App\Console\Commands;
 
 use App\Models\Email;
-use MimeMailParser\Attachment;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Filesystem\Filesystem;
+use Illuminate\Support\Facades\Mail;
+use MimeMailParser\Attachment;
 
 class EmailParserCommand extends Command
 {
