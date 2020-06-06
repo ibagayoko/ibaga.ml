@@ -14,7 +14,7 @@ class MediaController extends Controller
         $path = request()->image->store('posts/uploads');
 
         return json_encode([
-        'url' => Storage::url($path),
+            'url' => Storage::url($path),
         ]);
     }
 }
