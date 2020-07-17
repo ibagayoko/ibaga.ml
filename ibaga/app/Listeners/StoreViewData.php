@@ -2,8 +2,8 @@
 
 namespace App\Listeners;
 
-use App\Models\Post;
 use App\Events\PostViewed;
+use App\Models\Post;
 
 class StoreViewData
 {
