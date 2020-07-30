@@ -3,9 +3,9 @@
 namespace App\Models;
 
 use Carbon\CarbonPeriod;
-use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Collection;
 
 class View extends Model
 {

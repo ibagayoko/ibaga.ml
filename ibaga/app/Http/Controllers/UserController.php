@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use DB;
 use Hash;
-use App\Models\User;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -82,7 +82,7 @@ class UserController extends Controller
             'name'     => $input['name'],
             'email'    => $input['email'],
             'password' => Hash::make($input['password']),
-            ]);
+        ]);
 
         $user->assignRole($request->input('roles')['id']);
         $user->save();

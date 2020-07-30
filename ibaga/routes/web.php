@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,9 +69,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('menus/', ['uses' => 'MenuController@index',    'as' => 'menus.index']);
     Route::get('menus/create', ['uses' => 'MenuController@create',    'as' => 'menus.create']);
     Route::group([
-    'as'     => 'menus.',
-    'prefix' => 'menus/{menu}',
-], function () {
+        'as'     => 'menus.',
+        'prefix' => 'menus/{menu}',
+    ], function () {
     Route::delete('/', ['uses' => 'MenuController@destroy',    'as' => 'destroy']);
     Route::get('builder', ['uses' => 'MenuController@builder',    'as' => 'builder']);
     Route::get('edit', ['uses' => 'MenuController@edit',    'as' => 'edit']);
