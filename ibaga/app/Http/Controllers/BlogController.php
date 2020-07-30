@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Tag;
+use App\Events\PostViewed;
 use App\Models\Post;
+use App\Models\Tag;
 use App\Models\Topic;
 use Illuminate\View\View;
-use App\Events\PostViewed;
 
 class BlogController extends Controller
 {
@@ -46,7 +46,7 @@ class BlogController extends Controller
             });
 
             if ($post->tags->isNotEmpty()) {
-                $related = Post::whereHas('tags', function ($query) use ($post, $next) {
+                $related = Post::whereHas('tags', function ($query) use ($post) {
                     return $query->whereIn('name', $post->tags->pluck('slug'));
                 })
                     ->where('id', '!=', $post->id)
