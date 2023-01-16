@@ -2,11 +2,11 @@
 
 namespace App\Http\Api\Controllers;
 
-use App\Models\Tag;
+use App\Http\Resources\PostsResource;
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
-use App\Http\Resources\PostsResource;
 
 class PostsController
 {
