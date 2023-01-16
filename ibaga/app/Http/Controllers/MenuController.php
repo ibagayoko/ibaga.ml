@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Menu;
 use App\Models\MenuItem;
-use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 class MenuController extends Controller
 {
@@ -101,6 +101,7 @@ class MenuController extends Controller
         $menu = Menu::findOrFail($id);
         // $this->authorize('edit', $menu);
         $isModelTranslatable = false; //is_bread_translatable(Voyager::model('MenuItem'));
+
         return view('menus.builder', compact('menu', 'isModelTranslatable'));
     }
 
