@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Topic;
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
-use Illuminate\Routing\Controller;
 
 class TopicController extends Controller
 {
